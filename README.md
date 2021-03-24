@@ -1,3 +1,3 @@
 # TA_04
-##Integrantes
+## Integrantes:
 Natalia Andrea Álvarez Hoyos, Julian David Carrillo Reyes, Juan Jose Sanchez Mejia
