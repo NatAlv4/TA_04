@@ -12,7 +12,7 @@ Se trata de una aplicación multimedia con multitud de multimedia con informaci�
 Contiene testimonios de mujeres que han superado el cáncer y que, más de allá de los detalles médicos, cuentan su
 experiencia y animan a otras personas que están en su misma situación.
 
-### 3. *Cancer.net: [I'm an inline-style link with title](https://www.cancer.net/ "Cancer.Net")*
+### 3. *Cancer.net: [Cancer.net](https://www.cancer.net/ "Cancer.Net")*
 
 Esta aplicacion/pagina web es un sitio ingformativo para pacientes de la american society of clinical oncolgy (la
 sociedad estadounidense de oncología, ASCO), ofrece informacion oportunay aprobada por oncologos para ayudara los 
@@ -44,7 +44,7 @@ mejorar constantemente la ateción global en este apartado de la salud, la Oncol
 
 # Librerías Phyton para desarrollo Web:
 
-### 1. *Streamlit: [I'm an inline-style link with title](https://streamlit.io/ "StreamLit")*
+### 1. *Streamlit: [Streamlit](https://streamlit.io/ "StreamLit")*
 
 Es una biblioteca que facilita la creacion de aplicaciones web para mostrar resultados de análisis 
 de datos.
