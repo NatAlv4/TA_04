@@ -1,4 +1,4 @@
-# Aplicativos para pacientes con cáncer:
+# Aplicativos y/o herramientas para pacientes con cáncer:
 
 ### 1. *Diana:*
 
