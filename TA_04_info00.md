@@ -49,7 +49,8 @@ En un gestor de contenido que posibilita un entorno de trabajo para la creación
 muy util para las páginas web, por parte de los administradores, editores, participantes del proyecto. Es modular,
 multipropósito y muy configurable  que ademas de manajear multimedia, se puede trabajar con servicios añadidos como
 foros, encuestas, votaciones, blogs.
-### 3. *
+### 3. *Atom: *
+Es un editor web de Github, fundamentado por el framework multiplataforma Electron, que permite crear aplicaciones de escritorio multiplataformausando Chromium y Node.js, además que proporciona servicios integrales para facilitar el desarrollo de software
 
 # Librerías Phyton para desarrollo Web:
 
