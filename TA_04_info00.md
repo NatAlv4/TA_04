@@ -34,12 +34,21 @@ tardios del tratamiento.
 
 es un programa que incluye un modo orientado al paciente y un panel de control para que el médico pueda monitorearlo, 
 ademas de que su proposito principal es la recopiacion de infomación de cualquier tipo realcionada al cancer, para asi,
-mejorar constantemente la ateción global en este apartado de la salud, la Oncologia.
+mejorar constantemente la ateción global en este apartado de la salud, la Oncologia. aplicaciones web.
 
 # Software Open Source.
 
-### 1. *
-### 2. *
+### 1. *Django:* 
+Es un framework popular y completamente funcional, escrito en Python. Permite configurar un entorno de desarrollo,
+enfocarse en  la conectividad y extensibilidad de componentes, muestra cómo unas guias en las que podremoscrear un
+proyecto base o esquema que ayude a estructurar el código y continuar luego con todas las funciones especificas del
+sitio; urls, modelos, vistas y plantillas.
+
+### 2. *Drupal:*
+En un gestor de contenido que posibilita un entorno de trabajo para la creación y administración de contenidos,
+muy util para las páginas web, por parte de los administradores, editores, participantes del proyecto. Es modular,
+multipropósito y muy configurable  que ademas de manajear multimedia, se puede trabajar con servicios añadidos como
+foros, encuestas, votaciones, blogs.
 ### 3. *
 
 # Librerías Phyton para desarrollo Web:
