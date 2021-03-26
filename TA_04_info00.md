@@ -15,7 +15,7 @@ experiencia y animan a otras personas que están en su misma situación.
 ### 3. *Cancer.net: [Cancer.net](https://www.cancer.net/ "Cancer.Net")*
 
 Esta aplicacion/pagina web es un sitio ingformativo para pacientes de la american society of clinical oncolgy (la
-sociedad estadounidense de oncología, ASCO), ofrece informacion oportunay aprobada por oncologos para ayudara los 
+sociedad estadounidense de oncología, ASCO), ofrece informacion oportuna y aprobada por oncologos para ayudar a los 
 pacientes y a sus familias a tomar desiciones infor-adas sobre atención de la salud bajo la constante revision 
 formal a cargo de los 150 oncologosasociados a cancer.net.
 
