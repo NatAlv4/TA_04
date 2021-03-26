@@ -30,9 +30,8 @@ Clinical Oncology, y mucho más.
 ..* Posee informacion sobre estilos de vida saludables despues del cancer, temas de debidas rehabilitación y efectos
 tardios del tratamiento.
 
-### 4. *Care Prompter* (NO HAY MUVHA INFORMACIÓN! PERO HA UNA APP, LA CUESTION ES QUE ES RESTRINGIDA Y SE NECESITA UN CODIGO DE ACCESO,PARA UTILIZARLA, ME IMAGONO QUE ESE CODIGO SE LO DA A UNO EL MEDICO)
-
-es un programa que incluye un modo orientado al paciente y un panel de control para que el médico pueda monitorearlo, 
+### 4. *Care Prompter*
+Es un programa que incluye un modo orientado al paciente y un panel de control para que el médico pueda monitorearlo, 
 ademas de que su proposito principal es la recopiacion de infomación de cualquier tipo realcionada al cancer, para asi,
 mejorar constantemente la ateción global en este apartado de la salud, la Oncologia. aplicaciones web.
 
