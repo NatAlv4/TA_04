@@ -49,8 +49,11 @@ En un gestor de contenido que posibilita un entorno de trabajo para la creación
 muy util para las páginas web, por parte de los administradores, editores, participantes del proyecto. Es modular,
 multipropósito y muy configurable  que ademas de manajear multimedia, se puede trabajar con servicios añadidos como
 foros, encuestas, votaciones, blogs.
-### 3. *Atom: *
-Es un editor web de Github, fundamentado por el framework multiplataforma Electron, que permite crear aplicaciones de escritorio multiplataformausando Chromium y Node.js, además que proporciona servicios integrales para facilitar el desarrollo de software
+### 3. *Pyramid*
+
+Pyramid es un framework ligero para desarrollo web hecho en Python, es de uso general, requiere de un grupo de conceptos,
+es libre de utilizar la tecnología de  preferencia para crear un proyecto.
+Proporciona un núcleo para que el desarrollador haga la mayor parte del trabajo desde una guia y libertad
 
 # Librerías Phyton para desarrollo Web:
 
