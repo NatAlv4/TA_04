@@ -11,7 +11,7 @@
 
 ## Informe 05:
 
-- Se continuará trabajando la estructura de la creación de cuentas y registro de usuarios pero con un enfoque a la toma y registro del historial medico del paciente/usuario y otros tipo de datos que en conjunto pueden dar enfoques a la resolucion de respuestas por parte de la comunidad de WHY. 
+- En esta semana se trabajará en el foro, en donde todas las personas que ingresen a este tendrán acceso a la información allí presente, sin embargo, si se quiere participar con preguntas o respuestas, será necesario estar registrados, claro está que cada usuario estará en el derecho de hacer el aporte de una forma anónima si así lo desea.
 
 ## Informe 06:
 Se trabajará en la funcion de crear un calendario, en la cual cada usuario registrado sera libre de anotar el trabajo pendinete de manera semanal y pueda imprimirlo o exportarlo como imagen a su dispositivo de preferencia 
