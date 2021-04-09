@@ -2,7 +2,7 @@
 
 ## informe 03
 
-- En este informe se creará la primera visualizacion de la pagina, la presentación del proyecto, que acompañadas con infografias contenido de imágenes que le enseñen al publico los  , estos son
+- En este informe se creará la primera visualizacion de la pagina, la presentación del proyecto, que acompañadas con contenido visual, muestre al publico una perspectiva general de las funciones que podran encontrar, las ayudas.Dará un enfoque sincero de lo que pueden esperar resaltando que no se trata de una ayuda profesional en ambtio de la medicina, ademas de enseñar a como usar el sitio de la mejor manera para que la experencia de usuario se la mas enriquecedora
 
 ## Informe 04:
 - Se trabajará en el registro de ususarios, la creación de cuentas y las respectivas contraseñas y se guardarán estos datos.
