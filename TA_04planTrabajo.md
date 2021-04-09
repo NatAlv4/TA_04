@@ -29,5 +29,5 @@
 
 ## Informe 08:
 
-- Finalmente se desarrollará la función de Geolocalizacion que permitira al usuario la posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimiento.
+- Finalmente se desarrollará la función de Geolocalizacion que permitira al usuario la posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimientos.
  
