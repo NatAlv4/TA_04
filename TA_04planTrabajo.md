@@ -9,7 +9,7 @@
 - Al igual se creará la ruta de acceso para los no registrados, es decir a la información a la que los no registrados pueden acceder, además de que se buscará que sea información que los incite a registrarse.
 
 ## Informe 05:
--Este informe estará centrado en el foro, en el cuál, donde todos los ususarios tendrán acceso a la información de allí, sin embargo, si se quiere añadir una pregunta o respuesta, deberán estar registrados, pero allí tendrán la opción de mantener el anonimato, si no se sienten cómodos compartiendo su nombre.
+- Este informe estará centrado en el foro, en el cuál, donde todos los ususarios tendrán acceso a la información de allí, sin embargo, si se quiere añadir una pregunta o respuesta, deberán estar registrados, pero allí tendrán la opción de mantener el anonimato, si no se sienten cómodos compartiendo su nombre.
 
 ## Informe 06:
 
