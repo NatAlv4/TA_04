@@ -18,6 +18,7 @@
 ## Informe 06:
 
 - Se trabajará en la funcion de crear un calendario, en la cual cada usuario registrado sera libre de anotar y/o modificar todo tipo de tareas, actividades, citas, deberes que     tenga  pendientes de manera semanal y pueda imprimirlo o exportarlo como imagen a su dispositivo de preferencia, para asi generar un habito saludable y disiplinado en pro del   estilo de vida del usuario. 
+- Opcion de usuario verificado
 
 ## Informe 07:
 
