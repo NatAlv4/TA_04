@@ -13,21 +13,23 @@
 ## Informe 05:
 
 - Se desarrollará un foro abierto a todo el publico potencial de la pagina, donde los únicos que tendran posibilidad de aportar a dichas seccion seán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea.
-
+- Se añade una opcion de usuario verificado, la cual consiste en un distintivo a los comentarios hechos por profesionales de la salud, esto con el fin de generar no solo un espacio para personas con cancer si no tambien para cualquier medico interesado en ayudar de manera libre a la comunidad.
 
 ## Informe 06:
 
-- Se trabajará en la funcion de crear un calendario, en la cual cada usuario registrado sera libre de anotar y/o modificar todo tipo de tareas, actividades, citas, deberes que     tenga  pendientes de manera semanal y pueda imprimirlo o exportarlo como imagen o PDF a su dispositivo de preferencia, para asi generar un habito saludable y disciplinado en     pro del estilo de vida del usuario. 
+- Se trabajará en la funcion de crear un calendario, en la cual cada usuario registrado sera libre de anotar y/o modificar todo tipo de tareas, actividades, citas, deberes que     tenga  pendientes de manera semanal y pueda imprimirlo o exportarlo como imagen a su dispositivo de preferencia, para asi generar un habito saludable y disiplinado en pro del   estilo de vida del usuario. 
+- Opcion de usuario verificado
+- creación de botones de redes sociales y opcion de contacto por parte del usuario para que envie sus comentarios o sugerencias via email a los desarrolladores
 
 ## Informe 07:
 
-- Se desarrollara un codigo QR unico para cada usuario registrado que permitirá el acceso a la información de una forma mas rápida y eficiente, el cual servira como apoyo en diferente posibles situaciones de la cotidianidad, entre las cuales las más importantes y a las cuales nos vamos a enfocar serán:
+- Se desarrollara un codigo QR unico para cada usuario registrado que permitirá el acceso a la información de una forma mas rapida y eficiente, el cual servira como apoyo en diferente posibles situaciones de la cotidianidad, entre las cuales las mas importantes y a las cuales nos vamos a enfocar serán:
 
   - Uso profesional para la lectura de historial medico apartir de una plantilla que facilite la lectura de estos datos. 
-  - En caso de emergencias en las cuales el usuario requiera atención profesional inmediata donde una vez en plataforma, ademas de observar la plantilla con el historial medico,   se podrá observar en un apartado principal con todo tipo de números de contacto para estos tipos de casos, entre estos el contacto de emergencia del usuario.
+  - En caso de emergencias en las cuales el usuario requiera atencion profesional inmediata donde una vez en plataforma, ademas de observar la plantilla con el historial medico,   se podra observar en un apartado principal con todo tipo de numeros de contacto para estos tipos de casos.
   - 
 
 ## Informe 08:
 
-- Finalmente se desarrollará la función de Geolocalizacion que permitira al usuario la posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimientos.
+- Finalmente se desarrollara la funcion de Geolocalizacion que permitira al usuario las posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, en especian, en la medida de lo posible, los especializados en camcer, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de asunto, haya una claridad de la ubicación de estos tipos de establecimiento.
  
