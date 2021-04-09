@@ -12,7 +12,7 @@
 
 ## Informe 05:
 
-- Se desarrollará un foro abierto a todo el publico potencial de la página, donde los únicos que tendran posibilidad de aportar a dichas seccion serán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea.
+- Se desarrollará un foro abierto a todo el publico potencial de la página, donde los únicos que tendran posibilidad de aportar a dichas seccion serán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea, aceptando unos terminos de uso en el cual priorizará en el respeto a toda la comunidad.
 
 
 ## Informe 06:
