@@ -13,6 +13,7 @@
 ## Informe 05:
 
 - Se desarrollará un foro abierto a todo el publico potencial de la página, donde los únicos que tendran posibilidad de aportar a dichas seccion serán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea, aceptando unos terminos de uso en el cual priorizará en el respeto a toda la comunidad.
+- Se incluye en el foro una opcion de usuario verificado,la cual consiste en un distintivo al personal medico profesional que decide contribuir con sus conocimientos a la comunidad con cancer, la idea es que en el futuro el foro trascienda a un espacio en el que el pasciente acceda a informacion de primera mano cientifica y veridica. 
 
 
 ## Informe 06:
