@@ -12,7 +12,7 @@
 
 ## Informe 05:
 
-- Se desarrollará un foro abierto a todo el publico potencial de la pagina, donde los únicos que tendran posibilidad de aportar a dichas seccion seán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea. Ademas de una opcion de usuario verificado, la cual consiste en un distintivo al personal medico que decida contribuir con sus conocimientos a la comunidad con cancer.
+- Se desarrollará un foro abierto a todo el publico potencial de la pagina, donde los únicos que tendran posibilidad de aportar a dichas seccion seán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de información o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea.
 
 
 ## Informe 06:
@@ -29,5 +29,5 @@
 
 ## Informe 08:
 
-- Finalmente se desarrollara la funcion de Geolocalizacion que permitira al usuario las posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimiento.
+- Finalmente se desarrollará la función de Geolocalizacion que permitira al usuario la posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimiento.
  
