@@ -8,7 +8,7 @@
 ## Informe 04:
 
 - Se trabajará en el registro de ususarios, la creación de cuentas, las respectivas contraseñas y se guardarán estos datos, para que puedan continuar accediendo a una información   mas detallada y personalizada.
-- Se trabajará la estructura de la creación de cuentas y registro de usuarios pero con un enfoque a la toma y registro del historial medico del usuario, donde se le pedira su     información básica, medicamentos que están tomando y el contacto de emergencia, además de información que más adelante se usará en las distintas funciones para los usuarios 
+- Se abrirá la historia médica del usuario, donde se le pedira su información básica, medicamentos que están tomando y el contacto de emergencia, además de datps que más adelante se usará en las distintas funciones para los usuarios 
 
 ## Informe 05:
 
