@@ -6,3 +6,15 @@
 
 ## Informe 04:
 - Se trabajará en el registro de ususarios, al igual que en la ruta de acceso para los no registrados.
+
+## Informe 05:
+
+## Informe 06:
+
+## Informe 07:
+
+## Informe 08:
+
+## Informe 09:
+
+## Informe 10:
