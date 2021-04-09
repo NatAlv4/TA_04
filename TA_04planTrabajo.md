@@ -27,3 +27,4 @@
 
 ## Informe 08:
 
+- Se trabajará entorno a la localización, en donde después de pedir el acceso a la misma del dispositivo, se mostrará un mapa, donde el usuario tendrá acceso a la informaciónde los centros médicos cercanos y si es posible, los centros cercanos especializados en el cáncer.
