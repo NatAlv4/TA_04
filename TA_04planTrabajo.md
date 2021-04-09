@@ -21,7 +21,9 @@
 
 ## Informe 07:
 
-- Se desarrollara un codigo QR unico para cada usuario registrado que permitirá el acceso a la información de una forma mas rapida y eficiente, el cual servira como apoyo en diferente posibles situaciones de la cotidianidad, entre las cuales las mas importantes y a las cuales nos vamos a enfocar serán, 
+- Se desarrollara un codigo QR unico para cada usuario registrado que permitirá el acceso a la información de una forma mas rapida y eficiente, el cual servira como apoyo en diferente posibles situaciones de la cotidianidad, entre las cuales las mas importantes y a las cuales nos vamos a enfocar serán:
+  - Uso profesional para la lectura de historial medico apartir de una plantilla que facilite la lectura de estos datos. 
+  - En caso de emergencias en las cuales el usuario requiera atencion profesional inmediata 
 
 ## Informe 08:
 
