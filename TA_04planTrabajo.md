@@ -13,20 +13,21 @@
 ## Informe 05:
 
 - Se desarrollará un foro abierto a todo el publico potencial de la pagina, donde los unicos que tendran porsibilidad de aportar a dichas seccion seán los usuarios registrados,   para que asi las discusiones presentadas en este apartado sean objetivas y sin fines de distorción de informacion o spam,  claro está que cada usuario estará en el derecho de   hacer el aporte de una forma anónima si así lo desea.
-- Se añade una opcion de usuario verificado, la cual consiste en un distintivo a los comentarios hechos por profesionales de la salud, esto con el fin de generar no solo un espacio para personas con cancer si no tambien para cualquier medico interesado en ayudar de manera libre a la comunidad.
 
 
 ## Informe 06:
 
 - Se trabajará en la funcion de crear un calendario, en la cual cada usuario registrado sera libre de anotar y/o modificar todo tipo de tareas, actividades, citas, deberes que     tenga  pendientes de manera semanal y pueda imprimirlo o exportarlo como imagen a su dispositivo de preferencia, para asi generar un habito saludable y disiplinado en pro del   estilo de vida del usuario. 
-- creación de botones de redes sociales y opcion de contacto por parte del usuario para que envie sus comentarios o sugerencias via email a los desarrolladores 
 
 ## Informe 07:
 
 - Se desarrollara un codigo QR unico para cada usuario registrado que permitirá el acceso a la información de una forma mas rapida y eficiente, el cual servira como apoyo en diferente posibles situaciones de la cotidianidad, entre las cuales las mas importantes y a las cuales nos vamos a enfocar serán:
+
   - Uso profesional para la lectura de historial medico apartir de una plantilla que facilite la lectura de estos datos. 
-  - En caso de emergencias en las cuales el usuario requiera atencion profesional inmediata 
+  - En caso de emergencias en las cuales el usuario requiera atencion profesional inmediata donde una vez en plataforma, ademas de observar la plantilla con el historial medico,   se podra observar en un apartado principal con todo tipo de numeros de contacto para estos tipos de casos.
+  - 
 
 ## Informe 08:
 
-- Se trabajará entorno a la localización, en donde después de pedir el acceso a la misma del dispositivo, se mostrará un mapa, donde el usuario tendrá acceso a la informaciónde los centros médicos cercanos y si es posible, los centros cercanos especializados en el cáncer.
+- Finalmente se desarrollara la funcion de Geolocalizacion que permitira al usuario las posibilidad de que cuando acceda al mapa de su ciudad o zona corresponiente, se indique     la disponibilidad y cercania de cada uno de los centros hospitalarios, para que asi, a la hora de desplazarse, ya sea en caso de emergencia, citas medicas, u otro tipo de       asunto, haya una claridad de la ubicación de estos tipos de establecimiento.
+ 
