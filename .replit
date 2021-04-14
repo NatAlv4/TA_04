@@ -1,2 +1,2 @@
 language = "bash"
-run = "python WHY.py"
+run = "python manage.py"
