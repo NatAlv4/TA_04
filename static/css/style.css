@@ -1,10 +1,17 @@
+/* Este archivo css aún no sabemos enlazarlo con el html, por tanto no está funcionando*/
 body{
 margin:0px
 }
 
 div { 
-background: orange; 
+background:; 
 width:300%
 height:200%
 border:8%
  }
+caja { 
+font-family: sans-serif; 
+font-size: 18px; 
+font-weight: 400; 
+color: #ffffff; 
+background:#ee0467 }

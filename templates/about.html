@@ -2,11 +2,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    	<!--BOOTSTRAP 4 -->
+    	<!--BOOTSTRAP-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	 crossorigin="anonymous">
     <title> WHY - Sobre Nosotros | About</title>
-    
+  <style>
+      /*Creacion de una caja para los textos */
+    .caja{ 
+      font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; /*Tipo de fuente*/
+      color: #000000; /*Color del texto*/
+      font-size: 18px; /*Tamaño de la fuente*/
+      font-weight: 400; /*Grosor de la fuente*/
+      text-align: center; /*Alineacion del texto*/ 
+      background: #e3f2fd; /*Color de fondo*/
+      margin: 0 0 25px; /*Margen*/
+      overflow: hidden; /*Control de los elementos que no caben en la caja*/
+      padding: 20px; /*Espacio entre contrenido y sus elementos*/
+      border-radius: 35px 35px 35px 35px; /*Modificacion de los bordes*/
+      -moz-border-radius: 35px 35px 35px 35px;
+      -webkit-border-radius: 35px 35px 35px 35px;
+      border: 6px solid #000000;
+      }
+    .margin{
+      margin: 30px;
+      } 
+  </style> 
   </head>
   <body>
     	<!--Barra de navegación-->
@@ -15,7 +35,7 @@
 		<div class="container-fluid ">
 			<a class="navbar-brand " href="# ">
 				
-        <h1><strong><span style="color: #000000; font-family: Arial"><form action="https://TA04-8.julianreyes21.repl.co">
+        <h1><strong><span style="color: #000000; font-family: Arial"><form action="https://ta04-1.ta04.repl.co/">
 						<input type="submit" value= "W.H.Y 🪐" /></form> </strong></h1>
 
 			</a>
@@ -56,23 +76,28 @@
 <!--tenemos el comando p como el elemento parrafo que es apropiado para distribuir texto en parrafos, donde sus respectivas etiquetas abren y cierran la misma-->
 
 <p>&nbsp;</p>
-<p class="lead", style= "text-align:justify">
+<div class="margin">
+  <p class="lead", style= "text-align:justify">
 
-  Somos un grupo de tres estudiantes de la Universidad Nacional de Colombia, que como proyecto enfocado a la programacion decidimos crear <strong>WHY (Wellness and Health for You / bienestar y salud para t&iacute;)</strong>, una plataforma para ayudar a personas con c&aacute;ncer, buscando ser un apoyo incesante como comunidad durante todo el proceso del usuario, ya que, somos conscientes del arduo proceso que puede representar una lucha de estas magnitudes. Somos un aliado incansable para cualquiera que se esfuerce por gestionar las realidades de esta enfermedad y asi mejorar el estilo de vida de ellos y de muchas otras personas m&aacute;s.
+    Somos un grupo de tres estudiantes de la Universidad Nacional de Colombia, que como proyecto enfocado a la programacion decidimos crear <strong>WHY (Wellness and Health for You / bienestar y salud para t&iacute;)</strong>, una plataforma para ayudar a personas con c&aacute;ncer, buscando ser un apoyo incesante como comunidad durante todo el proceso del usuario, ya que, somos conscientes del arduo proceso que puede representar una lucha de estas magnitudes. Somos un aliado incansable para cualquiera que se esfuerce por gestionar las realidades de esta enfermedad y asi mejorar el estilo de vida de ellos y de muchas otras personas m&aacute;s.
 
-</p>
-<p>&nbsp;</p>
+  </p>
+  </div>
+  <p>&nbsp;</p>
 
-<!--h2 se representa como encabezado-->
- <h2><center>Ten en cuenta lo siguiente:</center> </h2>
+  <!--agregamos texto dentro de la un recuadro-->
+  <div class="caja"> <!--div se usa para que cubra todo el espacio-->
+    <!--h2 se representa como encabezado-->
+  <h2><center>Ten en cuenta lo siguiente:</center> </h2>
 
-<!--la etiqueta span permite aplicar estilo  al texto y permite agrupar elementos en linea-->
+  <!--la etiqueta span permite aplicar estilo  al texto y permite agrupar elementos en linea-->
 
-<span class="border", style= "text-align:justify">
+    <span class="border", style= "text-align:justify">
+      <p> Es importante aclarar que como fundadores del WHY, ninguno de nosotros estamos especializados en ningun ambito de la medicina, ni mucho menos pretendemos de forma directa brindar un acompañamiento profesional,por lo que bajo ninguna circunstancia lo expuesto en esta plataforma reemplazará los consejos que un porfesional de salud puede brindar en sus visitas.
+      </p>
 
-  <p> Es importante aclarar que como fundadores del WHY, inguno de nosotros estamos especializados en ningun ambito de la medicina, ni mucho menos pretendemos de forma directa brindar un acompañamiento profesional,por lo que bajo ninguna circunstancia lo expuesto en esta plataforma reemplazará los consejos que un porfesional de salud puede brindar en sus visitas.
-  </p> 
-</span> 
+    </span> 
+  </div>
 
 
 

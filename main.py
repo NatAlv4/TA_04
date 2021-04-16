@@ -1,10 +1,12 @@
+#se agrego flask
 from flask import Flask, render_template, send_file
 app = Flask('app')
-#se agrego flask
 
+#creación de rutas
 @app.route('/')
 def index():
  return render_template ("index.html")
+
 
 
 @app.route('/about')
