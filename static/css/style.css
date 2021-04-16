@@ -2,8 +2,9 @@ body{
 margin:0px
 }
 
-div { margin: 0px 0px 0px 0px;
-margin-top: 0px
-margin-right:0px
-margin-bottom:0px
+div { 
+background: orange; 
+width:300%
+height:200%
+border:8%
  }
