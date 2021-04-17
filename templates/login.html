@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  	<!--BOOTSTRAP-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	 crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesion | WHY </title>
+  
+  <style>
+    body{
+      margin: 0;
+      padding:0;
+      background: #F2FAEF; /*color de fondo*/
+      height: 100vh;
+    }
+    .login-box {
+      width: 320px; /*ancho*/
+      height: 420px; /*alto*/
+      background:  #69BADD;/*color de fondo*/
+      top:  50%; 
+      left: 50%;
+      position: absolute; /*posicion*/
+      transform: translate(-50%, -50%);/*centrar*/
+      padding: 70px, 30px; /*espaciado interno*/
+    }
+    
+    /*Edicion de los labeles en la caja de login (ingrese contraseña y usuario)*/
+    .login-box label {
+      margin-left: 20px; /*margen derecho*/
+      padding: 0; /*espaciado interno*/
+      font-weight: bold; /*peso de la fuente*/
+      display: block; /*para que se vea como una sola linea*/
+    }
+
+    
+    /*edicion de el titulo en la caja de login*/
+    .login-box h1 {
+      margin:0; /*margen*/
+      padding: 0 0 25px; /*espaciado interno, el 25 representa al espaciado hacia abajo*/
+      text-align: center; /*centrar el texto*/
+      text-size: 25 px; /*tamano del texto*/
+    }
+
+    /*edicion de los inputs*/
+    .login-box input {
+      margin-left: 20px; /*margen izquierda*/
+      width: 85%; /*porcentaje que abarca*/
+      margin-bottom: 20px; /*margen inferior*/
+    }
+
+    /*edicion de los input de contraseña y usuario*/
+    .login-box input[type="text"], .login-box input[type="password"] {
+      border: none; /*borde*/
+      border-bottom: 1px solid #000000; /*borde inferior*/
+      background: transparent; /*color de fondo*/
+      outline: none; /*contorno*/
+      height: 40px; /*altura*/
+      color: #000000; /*color de la letra*/
+      font-size: 16px; /*tamano de la fuente*/
+    }
+
+    /*edicion del boton submit*/
+    .login-box input[type="submit"] {
+      border: none; /*bordes*/
+      outline: none; /*contorno*/
+      height: 40 px; /*altura*/
+      background:  #1c3657; /*color de fondo*/
+      color: #fff; /*color de letra*/
+      font-size: 18 px; /*tamano de fuente*/
+      border-radius: 20px; /*redondeo del borde*/
+    }
+
+    /*edicion de los enlaces*/
+    .login-box a {
+      text-decoration: none; /*decoracion de texto*/
+      font-size: 12 px; /*tamano de fuente*/
+      line-height: 20 px; /*linea de espaciado*/
+      color: #000000; /*color de la letra*/
+    }
+  </style>
+</head>
+<body>
+     	<!--Barra de navegación-->
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #69BADD; "> <!--Color y estilo de la barra de navegación-->
+
+      <div class="container-fluid "> <!--Contenedor-->
+        <a class="navbar-brand " href="# ">
+          <h1><strong><span style="color: #000000; font-family: Arial"><form action="https://ta04-1.ta04.repl.co/">
+              <input type="submit" value= "W.H.Y 🪐" /></form> </strong></h1> <!--Titulo barra de navegacion-->
+        <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarNavAltMarkup
+    " aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup "><!--secciones de la pagina-->
+        <div class="navbar-nav ">
+          <a class="nav-link " href="/ ">Inicio</a> 
+        <!--Indicador de pagina actual-->
+          <a class="nav-link"href="/about">Sobre Nosotros</a>
+          <a class="nav-link " href="#">Agenda</a>
+          <a class="nav-link " href="# ">Foro</a>
+          <a class="nav-link " href="# ">Mapa</a>
+          <a class="nav-link " href="# ">QR</a>
+          <a class="nav-link active" aria-current="page'" href="/login ">Registrarse</a>
+        
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--se crea la caja para iniciar sesion-->
+  <div class="login-box">
+    <h1> Iniciar sesión </h1> <!--titulo-->
+    <form>
+      <!--nombre de usuario-->
+      <label for="username">Nombre de usuario</label><!--label-->
+      <input type="text" placeholder="Ingrese su nombre de usuario"><!--campo para escribir el nombre de usuario-->
+
+      <!--contrasena-->
+      <label for="password">Contraseña</label><!--label-->
+      <input type="password" placeholder="Ingrese su contraseña"><!--espacio para escribir la contraseña-->
+
+      <input type="submit" value="Iniciar sesión"> <!--boton de enviar/iniciar sesion-->
+      <a href="#">¿Olvidó su contraseña?</a> <!--Link que lleva a espacio en caso de que se olvide la contraseña-->
+      <br></br>
+      <a href="#">Crear una cuenta</a><!--link que lleva a espacio para crear una cuenta-->
+    </form>  
+    
+  </div>  
+
+</body>
+</html>
