@@ -1,4 +1,89 @@
-/* Este archivo css aún no sabemos enlazarlo con el html, por tanto no está funcionando*/
+/*Estilización del cuerpo de la pagina*/
 body{
-  background: #e3f2fd;
+  background: #F2FAEF; /*color de fondo*/
+  margin: 25px; /*margen de la pagina*/
+  height: 100vh;
+}
+.caja{
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; /*Tipo de fuente*/
+  color: #000000; /*Color del texto*/
+  font-size: 18px; /*Tamaño de la fuente*/
+  font-weight: 400; /*Grosor de la fuente*/
+  text-align: center; /*Alineacion del texto*/
+  background: #e3f2fd; /*Color de fondo*/
+  margin: 0 0 25px; /*Margen*/
+  overflow: hidden; /*Control de los elementos que no caben en la caja*/
+  padding: 20px; /*Espacio entre contrenido y sus elementos*/
+  border-radius: 35px 35px 35px 35px; /*Modificacion de los bordes*/
+  -moz-border-radius: 35px 35px 35px 35px;
+  -webkit-border-radius: 35px 35px 35px 35px;
+  border: 6px solid #000000; 
+}
+
+/*estilización caja de login*/
+.login-box {
+  margin: 25px;
+  padding: 0;
+  width: 320px; /*ancho*/
+  height: 420px; /*alto*/
+  background:  #69BADD;/*color de fondo*/
+  top:  50%; 
+  left: 50%;
+  position: absolute; /*posicion*/
+  transform: translate(-50%, -50%);/*centrar*/
+  padding: 70px, 30px; /*espaciado interno*/
+}
+
+/*Edicion de los labeles en la caja de login (ingrese contraseña y usuario)*/
+.login-box label{
+  margin-left: 20px; /*margen derecho*/
+  padding: 0; /*espaciado interno*/
+  font-weight: bold; /*peso de la fuente*/
+  display: block; /*para que se vea como una sola linea*/
+}
+
+/*edicion de el titulo en la caja de login*/
+.login-box h1{
+  margin:0; /*margen*/
+  padding: 0 0 25px; /*espaciado interno, el 25 representa al espaciado hacia abajo*/
+  text-align: center; /*centrar el texto*/
+  text-size: 25 px; /*tamano del texto*/
+}
+
+  /*edicion de los inputs*/
+.login-box input{
+  margin-left: 20px; /*margen izquierda*/
+  width: 85%; /*porcentaje que abarca*/
+  margin-bottom: 20px; /*margen inferior*/
+}
+
+/*edicion de los input de contraseña y usuario*/
+.login-box input[type="text"], .login-box input[type="password"]{
+  border: none; /*borde*/
+  border-bottom: 1px solid #000000; /*borde inferior*/
+  background: transparent; /*color de fondo*/
+  outline: none; /*contorno*/
+  height: 40px; /*altura*/
+  color: #000000; /*color de la letra*/
+  font-size: 16px; /*tamano de la fuente*/
+}
+
+/*edicion del boton submit*/
+.login-box input[type="submit"]{
+  border: none; /*bordes*/
+  outline: none; /*contorno*/
+  height: 40 px; /*altura*/
+  background:  #1c3657; /*color de fondo*/
+  color: #fff; /*color de letra*/
+  font-size: 18 px; /*tamano de fuente*/
+  border-radius: 20px; /*redondeo del borde*/
+}
+
+/*edicion de los enlaces*/
+.login-box a{
+  margin-left: 20px; /*margen izquierdo*/
+  text-decoration: none; /*decoracion de texto*/
+  font-size: 12 px; /*tamano de fuente*/
+  line-height: 20 px; /*linea de espaciado*/
+  color: #000000; /*color de la letra*/
 }
