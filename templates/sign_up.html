@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="static/sign_up.css">
-  <title>Formulario Registro</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="static/sign_up.css">
+	<title>Formulario Registro</title>
 </head>
+
 <head>
 	<!--BOOTSTRAP-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
@@ -59,18 +61,50 @@
   }
   </style>
 
+<!--Codigo para que aparezca los mensajes de flash-->
+  
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if mensajes %}
+    {% for category, mensaje in mensajes %}
+      {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissable fade show" role="alert>
+          {{mensaje}}
+          <buttom type="buttom" class="close" data-dismiss="alert">
+            <span aria-hiden="true">&times;</span>
+           </buttom> 
+        </div>
+        <div class="alert alert-success alert-dismissable fade show" role="alert>
+          {{mensaje}}
+          <buttom type="buttom" class="close" data-dismiss="alert">
+            <span aria-hiden="true">&times;</span>
+           </buttom> 
+        </div>        
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <!--Registro de usuarios-->
 
 <body>
-  <section class="form-register">
-    <h4>Registrate en nuestra comunidad</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-    <p>Estoy de acuerdo que la página no pretende sustituir una ayuda profesional</p><br>
-    <input class="botons" type="submit" value="Registrar">
-    <p><a href="/login">¿Ya tengo Cuenta?</a></p>
+  
+  <form action="" method="post">
+   
+    <section class="form-register">
+      <h4>Registrate en nuestra comunidad</h4>
+      <div>
+        
+        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+      </div> 
+      <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+      <input class="controls" type="password1" name="contraseña1" id="contraseña1" placeholder="Ingrese su Contraseña">
+      <input class="controls" type="password2" name="contraseña1" id="contraseña2" placeholder="Confirme su contraseña">
+      <p>Estoy de acuerdo que la página no pretende sustituir una ayuda profesional</p><br>
+      <input class="botons" type="submit" value="Registrar">
+      <p><a href="/login">¿Ya tengo Cuenta?</a></p>
+        
+  </form>
   </section>
 
 </body>
