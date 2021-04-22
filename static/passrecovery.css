@@ -5,9 +5,10 @@
 }
 
 body {
+  background-image: url('fondo.jpg');
 }
 
-.form-register {
+.login-box {
   width: 400px;
   background: #24303c;
   padding: 30px;
@@ -19,7 +20,7 @@ body {
   box-shadow: 7px 13px 37px #000;
 }
 
-.form-register h4 {
+.login-box h4 {
   font-size: 22px;
   margin-bottom: 20px;
 }
@@ -36,12 +37,6 @@ body {
   color: white;
 }
 
-.form-register p {
-  height: 40px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 40px;
-}
 
 .form-register a {
   color: white;
@@ -53,7 +48,7 @@ body {
   text-decoration: underline;
 }
 
-.form-register .botons {
+.login-box .botons {
   width: 100%;
   background: #1f53c5;
   border: none;
