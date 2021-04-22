@@ -1,18 +1,41 @@
 #se agrego flask
 from flask import Flask, render_template, send_file, request, redirect, url_for, flash
 
+#------------------------------------------nuevo 
+
+from .models import User
+#la siguiente libreria y los elemento importados permiten procesar la contraseña de modo que esta sea aprobada rspecto al usuario en el login sin que esta sea revelada en caso de que la contraseña ingresada sea la incorrecta
+from werkzeug.security import generate_password_hash, check_password_hash  
+
+
+#esta libreria nos ayuadara en la verificacion de datos en la base de datos,de modo que no se repitan entradas
+from os import path
+
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
+DB_NAME = "base_de_datos.db"
+
+def create.app():
+  app.config['SQLAlchemy_DATABASE.URI'] = f'sql_lite:///{DB_NAME}'
+  db.init_app(app)
+
+  from .models import User, note
+  create_datebase(app)
+
+#se verifica si la base de datos esta creada, en caso de que no, se crea 
+def create_datebase(app):
+  if not path('Templates/' + DB_NAME):
+    db.create_all(app=app)
+    print('base de datos creada!')
+
 
 # se importa verificador de contraseñas
 from werkzeug.security import generate_password_hash, check_password_hash
 
+#------------------------------------------nuevo
 
 app = Flask('app')
-
-
 
 #creación de rutas
 @app.route('/')
@@ -56,10 +79,16 @@ def sign_up():
     elif len(contrtaseña) <7:
       flash("La contraseña debe de contener por lo menos 7 caracteres", category = 'error')
     else:
+      #------------------------------------------nuevo 
+      #creacion de nuevo usuario
+      new_user = User(email=email, nombre=nombre, contraseña= generate_password_hash(contraseña1, method='sha256' ))
+      db.sesion .add(new_user)
+      db.session.commit()
+      #------------------------------------------nuevo 
+
       flash("Cuenta creada :D", category= 'success')
        #Añadimos el usuario a la base de datos
        
-
     #se usa el parametro para redirigir al usuario a la pagina de inicio luego de completar el formulario
     next = request.args.get('next', None)
     if next:
@@ -67,6 +96,8 @@ def sign_up():
       return redirect(next)
     return redirect(url_for('/')) 
   return render_template("sign_up.html")
+
+
 
 # creamos una ruta de acceso para procesar la recuperacion de la contraseña
 @app.route('/Pswrd_R', methods = ["GET", "POST"] )
@@ -81,7 +112,8 @@ def recovery():
     email= request.form.get['correo electronico'] 
 
     # el siguiete bloque if relacionara el nombre de ususario y el correo electronico para verificar que los datos de cuenta a cambiar sean los correctos
-'''
+
+''' pendiente por determinar la ruta de llamada del username y email
     if username != ###: 
       flash('el nombre de usuario esta incorrecto', category='error')
     elif email != ###:
