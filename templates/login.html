@@ -41,28 +41,7 @@
       </div>
     </div>
   </nav>
-<!--el siguiente bloque de codigo me mostrara mensajes emergentes de error o exito segun los datos en el formulario sean ingresados-->
 
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if mensajes %}
-    {% for category, mensaje in mensajes %}
-      {% if category == 'error' %}
-        <div class="alert alert-danger alert-dismissable fade show" role="alert>
-          {{mensaje}}
-          <buttom type="buttom" class="close" data-dismiss="alert">
-            <span aria-hiden="true">&times;</span>
-           </buttom> 
-        </div>
-        <div class="alert alert-success alert-dismissable fade show" role="alert>
-          {{mensaje}}
-          <buttom type="buttom" class="close" data-dismiss="alert">
-            <span aria-hiden="true">&times;</span>
-           </buttom> 
-        </div>        
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endwith %}
 <!-- se añade el Fondo de pantalla a partir de la funcion Background donde la imagen se se carga apartir de un url y as caracteristicas de esta se modifican a partir de los valores asignados en background-repeat (repeticion de la imagen segun el tamaño oringinal de la misma),background-attachment(controla si la imagen se mueve o no, al hacer scroll), background-size (tamaño de la imagen) -->
 
   <style>
@@ -78,7 +57,7 @@
   <div class="login-box">
     
     <h1> Iniciar sesión </h1> <!--titulo-->
-    <form mehtod = "post">
+    <form>
       <!--nombre de usuario-->
       <label for="username">Nombre de usuario</label><!--label-->
       <input type="text" placeholder="Ingrese su nombre de usuario"><!--campo para escribir el nombre de usuario-->
