@@ -7,6 +7,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask('app')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/tasks.db'
+
 #variable que permite hacer consultas a la base de datos
 db = SQLAlchemy(app)
 
