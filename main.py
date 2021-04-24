@@ -1,5 +1,5 @@
 #se agrego flask
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, request
 import sqlite3
 app = Flask('app')
 
@@ -11,17 +11,9 @@ con = sqlite3.connect('database.db')
 #Creacion del cursor de la base de datos
 c = con.cursor()
 
-
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/tasks.db'
-
-
-#variable que permite hacer consultas a la base de datos
-#db = SQLAlchemy(app)
-
-
 #Creacion de las tablas en la base de datos
 def create_usertable():
-  c.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)')
+  c.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
 
 #funcion para insertar valores a las tablas
 def add_userdata(nombre, apellido, email, password):
@@ -30,7 +22,7 @@ def add_userdata(nombre, apellido, email, password):
 
 #funcion para seleccionar valores de las tablas
 def login_user(nombre, apellido, email, password):
-  c.execute('SELECT * FROM userstable WHERE nombre = ? AND apellido = ? AND email = ?  AND password = ?', (nombre, apellido, email, password))
+  c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
   data = c.fetchall()
   return data
 
@@ -56,6 +48,15 @@ def sign_up():
     email= request.form.get('email')
     contraseña1 = request.form('contraseña1')
     contraseña2 = request.form('contraseña2')
+    
+    next = request.args.get('next', None)
+    if next:
+      return redirect(next)
+    return redirect(url_for('index'))
+
+  return render_template("sign_up.html")    
+    
+
 
 
 @app.route('/Pswrd_R')
