@@ -1,17 +1,22 @@
 #se agrego flask
 from flask import Flask, render_template, send_file
-
-
-#importa sql alchemy
-from flask_sqlalchemy import SQLAlchemy
-
-
+import sqlite3
 app = Flask('app')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/tasks.db'
+#importa sql alchemy
+#from flask_sqlalchemy import SQLAlchemy
+
+#conexión de la base de datos
+con = sqlite3.connect('database.db')
+#Creacion del cursor de la base de datos
+c = con.cursor()
+
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/tasks.db'
+
 
 #variable que permite hacer consultas a la base de datos
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 
 #creación de rutas
