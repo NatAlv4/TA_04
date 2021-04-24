@@ -19,6 +19,21 @@ c = con.cursor()
 #db = SQLAlchemy(app)
 
 
+#Creacion de las tablas en la base de datos
+def create_usertable():
+  c.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)')
+
+#funcion para insertar valores a las tablas
+def add_userdata(nombre, apellido, email, password):
+  c.execute('INSERT INFO userstable(nombre, apellido, email, password) VALUE (?,?,?,?)',(nombre, apellido, email, password))
+  con.commit()
+
+#funcion para seleccionar valores de las tablas
+def login_user(nombre, apellido, email, password):
+  c.execute('SELECT * FROM userstable WHERE nombre = ? AND apellido = ? AND email = ?  AND password = ?', (nombre, apellido, email, password))
+  data = c.fetchall()
+  return data
+
 #creación de rutas
 @app.route('/')
 def index():
@@ -35,7 +50,13 @@ def login():
 
 @app.route('/sign_up')
 def sign_up():
-  return render_template("sign_up.html")
+  if request.method == 'POST':
+    nombres= request.form.get('nombres')
+    apellidos = request.form.get('apellidos')
+    email= request.form.get('email')
+    contraseña1 = request.form('contraseña1')
+    contraseña2 = request.form('contraseña2')
+
 
 @app.route('/Pswrd_R')
 def password():
