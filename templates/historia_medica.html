@@ -1,0 +1,88 @@
+<div class="container">
+  <header class="header">
+    <h1 id="title" class="text-center">Información Médica </h1>
+    <p id="description" class="description text-center">
+      La información aquí registrada no la damos a terceros sin su consentimiento. Puede serle de gran ayuada en caso de alguna emergencia tener sus datos veridicos e importados en un código QR.
+    </p>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='medica.css')}}">
+  </header>
+  <form id="survey-form">
+    <div class="form-group">
+      <label id="name-label" for="name">Nombre completo</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="ingrese su nombre"
+        required
+      />
+    </div>
+    
+    <div class="form-group">
+      <label id="number-label" for="number"
+        >edad<span class="clue"></span></label
+      >
+      <input
+        type="number"
+        name="edad"
+        id="edad"
+        min="10"
+        max="120"
+        class="form-control"
+        placeholder="edad"
+      />
+    </div>
+    <div class="form-group">
+      <p>sexo biológico</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>seleccione</option>
+        <option value="Hombre">hombre</option>
+        <option value="Mujer">mujer</option>
+        
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label id="number-label" for="number"
+        >contacto, a quien llamar en caso de emergencia <span class="clue"></span></label
+      >
+      <input
+        type="number"
+        name="contacto"
+        id="contacto"
+        
+        class="form-control"
+        placeholder="ingrese el numero de contacto de una persona de confianza"
+      />
+    </div>
+
+  
+
+     <div class="form-group">
+      <p>¿Está usted tomando algún medicamento actualmente?</p>
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="si su respuesta es afirmativa, enliste aquí el nombre del medicamento, la frecuecia con la que los consume"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <p>¿Hay alguna informacion que considere imprtante añadir? (opcional) </p>
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="Escriba algun dato especial, que pueda ser utl en caso de emergencia"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" id="submit" class="submit-button">
+        Registrar
+      </button>
+    </div>
+  </form>
+</div>

@@ -22,7 +22,7 @@ body{
 
 /*estilización caja de login*/
 .login-box {
-  margin: 25px;
+  margin: 70px;
   padding: 0;
   width: 320px; /*ancho*/
   height: 420px; /*alto*/

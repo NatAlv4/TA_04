@@ -41,20 +41,51 @@ def index():
 def about():
   return render_template("about.html")
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
+
+  #------------
+  #conexion con la base de detos
+  con = sqlite3.connect('database.db')
+  cursorObj = con.cursor()
+
+  #se crean la variables de correo y contraseña que seran definidas apartir del con tenido de la tabla
+  email = request.form.get('correo')
+  password = request.form.get('contraseña1')
+
+  #de la tabla se llama todo el contenido de la misma que esta bajo la etiqueta de email y contraseña
+  c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
+  data = c.fetchall()
+
+  
+
+  if email is not userstable:
+    print('el correo introducido es no ha sido registrado')
+  elif email != correo :
+    print = ('el correo ingresado no coincide')
+  elif password != password :
+    print = ('La contraseña no coincide')
+  else:
+    print = ('Acceso exitoso')
+
+  return data
+  c.close()
+
+  #-------------
+
   return render_template("login.html")
 
 @app.route('/sign_up', methods = ('GET', 'POST'))
 def sign_up():
   if request.method == 'POST':
-    con = sqlite3.connect('database.db')
-    c = con.cursor()
-    nombre= request.form.get('nombre')
+    con = sqlite3.connect('datauser.db')#Se conecta a la base de datos
+    c = con.cursor() #Se crea el cursor
+    #Se obtienen los datos recuperados del formulario de sign up
+    nombre= request.form.get('nombre')  #Se guarda en una variable los datos ingresados en el formulario, para posteriormente agregarlo a la base de datos 
     apellido = request.form.get('apellido')
     email= request.form.get('correo')
     contraseña = request.form.get('contraseña1')
-    contraseña2 = request.form.get('contraseña2')
+     #Se agregan los datos a la base de datos
     c.execute('INSERT INTO userstable(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
     con.commit()
     c.close()
@@ -64,8 +95,27 @@ def sign_up():
       return redirect(next)
     return redirect(url_for('index'))
   
-  return render_template("sign_up.html")    
-    
+  return render_template("sign_up.html")  
+
+@app.route('/historia_medica', methods = ('GET', 'POST'))
+def historia_medica():
+  return render_template("historia_medica.html")
+  ''''
+if request.method == 'POST':
+    con = sqlite3.connect('datauser.db')#base de datos para el alojamiento de archivos de usuario 
+    c = con.cursor() #Se crea el cursor
+    #Se obtienen los datos recuperados del formulario de sign up
+    nombre= request.form.get('nombre')  #Se guarda en una variable los datos ingresados en el formulario, para posteriormente agregarlo a la base de datos 
+    apellido = request.form.get('apellido')
+    email= request.form.get('correo')
+    contraseña = request.form.get('contraseña1')
+     #Se agregan los datos a la base de datos
+    c.execute('INSERT INTO userstable(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
+    con.commit()
+    c.close()
+  
+  '''
+
 
 ''''
 #este codigo define los datos de usuario
