@@ -116,17 +116,23 @@ def password():
 
 
 
-''''
+
 #conexión de la base de datos
-con = sqlite3.connect('datauser.db')
-#Creacion del cursor de la base de datos
-d = con.cursor()    
+try:
+  con = sqlite3.connect('datauser.db')
+  #Creacion del cursor de la base de datos
+  d = con.cursor()    
   
-#Creacion de las tablas en la base de datos
+# Creacion de las tablas en la base de datos
 def create_usertable():
   d.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
   con.commit()
   d.close()
+except error:
+    print(error)
+finally:
+    con.close()
+''''
 #funcion para insertar valores a las tablas
 def add_userdata(nombre, sexo, contacto, medicamento,adicional):
   d.execute('INSERT INFO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUE (?,?,?,?,?,?)',(nombre, sexo, contacto, medicamento,adicional))
