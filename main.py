@@ -49,11 +49,17 @@ def login():
     password = request.form.get('password')
     c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
     data = c.fetchall()
+    next = request.args.get('next', None)
     if data:
-      
-      pass
-    c.close()
+      if next:
+        return redirect(next)
+      return redirect(url_for('historia_medica'))  
+    else:
+      if next:
+        return redirect(next)
+        return redirect(url_for('login')) 
 
+    c.close()
   return render_template("login.html")
 
 @app.route('/log_out')
