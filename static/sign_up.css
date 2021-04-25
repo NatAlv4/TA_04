@@ -24,6 +24,17 @@ body {
   margin-bottom: 20px;
 }
 
+/*edicion del boton submit*/
+.login-box input[type="submit"]{
+  border: none; /*bordes*/
+  outline: none; /*contorno*/
+  height: 40 px; /*altura*/
+  background:  #1c3657; /*color de fondo*/
+  color: #fff; /*color de letra*/
+  font-size: 18 px; /*tamano de fuente*/
+  border-radius: 20px; /*redondeo del borde*/
+}
+
 .controls {
   width: 100%;
   background: #24303c;
@@ -62,3 +73,4 @@ body {
   margin: 16px 0;
   font-size: 16px;
 }
+

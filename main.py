@@ -50,13 +50,10 @@ def login():
     c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
     data = c.fetchall()
     if data:
-      return redirect(url_for('historia_medica'))
-    else:
-      #La idea es que se muestre un mensaje emergente que diga que los datos son incorrectos.
-      pass  
-
+      
+      pass
     c.close()
-    
+
   return render_template("login.html")
 
 @app.route('/log_out')
