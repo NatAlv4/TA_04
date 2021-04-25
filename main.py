@@ -117,21 +117,23 @@ def password():
 
 
 
-#conexión de la base de datos
+#conexión de la base de datos datauser 
+con1 = sqlite3.connect('datauser.db')
+
 try:
-  con = sqlite3.connect('datauser.db')
+  con1 = sqlite3.connect('datauser.db')
   #Creacion del cursor de la base de datos
   d = con.cursor()    
   
-# Creacion de las tablas en la base de datos
-def create_usertable():
   d.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
-  con.commit()
+  con1.commit()
   d.close()
 except error:
+
     print(error)
 finally:
-    con.close()
+
+    con1.close()
 ''''
 #funcion para insertar valores a las tablas
 def add_userdata(nombre, sexo, contacto, medicamento,adicional):
@@ -143,12 +145,10 @@ def add_userdata(nombre, sexo, contacto, medicamento,adicional):
 
 @app.route('/historia_medica', methods = ('GET', 'POST'))
 def historia_medica():
-  return render_template("historia_medica.html")  
-
-''''
+  
  if request.method == 'POST':
-    con = sqlite3.connect('datauser.db')#base de datos para el alojamiento de archivos de usuario 
-    d = con.cursor() #Se crea el cursor
+    con1 = sqlite3.connect('datauser.db')#base de datos para el alojamiento de archivos de usuario 
+    d = con1.cursor() #Se crea el cursor
     #Se obtienen los datos recuperados del formulario de sign up
     nombre=request.form.get('name')
     edad= request.form.get('edad')  
@@ -157,8 +157,8 @@ def historia_medica():
     medicamento = request.form.get('comment')
     adicional=request.form.get('adicional')
      #Se agregan los datos a la base de datos
-    d.execute('INSERT INTO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, apellido,email, contraseña))
-    con.commit()
+    d.execute('INSERT INTO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
+    con1.commit()
     d.close()
     
     next = request.args.get('next', None)
@@ -166,8 +166,8 @@ def historia_medica():
       return redirect(next)
     return redirect(url_for('index'))
    
-  return render_template("historia_medica.html")  
-'''
+ return render_template("historia_medica.html")  
+
   
 
 
