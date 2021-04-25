@@ -5,9 +5,6 @@ import sqlite3
 app = Flask('app')
 
 
-#import sql alchemy
-#from flask_sqlalchemy import SQLAlchemy
-
 #conexión de la base de datos
 con = sqlite3.connect('database.db')
 #Creacion del cursor de la base de datos
@@ -41,14 +38,34 @@ def index():
 def about():
   return render_template("about.html")
 
-@app.route('/login')
+@app.route('/login', methods = ('GET', 'POST'))
 def login():
+  if request.method == 'POST':
+    #conexión con la base de datos
+    con = sqlite3.connect('database.db')
+    #Creacion del cursor
+    c = con.cursor()
+    email = request.form.get('email')
+    password = request.form.get('password')
+    c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
+    data = c.fetchall()
+    if data:
+      
+      pass
+    c.close()
+
   return render_template("login.html")
+
+@app.route('/log_out')
+def log_out():
+  return render_template("log_out.html")
 
 @app.route('/sign_up', methods = ('GET', 'POST'))
 def sign_up():
   if request.method == 'POST':
+    #conexión con la base de datos
     con = sqlite3.connect('database.db')
+    #Creacion del cursor
     c = con.cursor()
     nombre= request.form.get('nombre')
     apellido = request.form.get('apellido')
