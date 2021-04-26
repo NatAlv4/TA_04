@@ -17,7 +17,7 @@ def create_usertable():
   c.close()
 #funcion para insertar valores a las tablas
 def add_userdata(nombre, apellido, email, password):
-  c.execute('INSERT INFO userstable(nombre, apellido, email, password) VALUE (?,?,?,?)',(nombre, apellido, email, password))
+  c.execute('INSERT INTO userstable(nombre, apellido, email, password) VALUE (?,?,?,?)',(nombre, apellido, email, password))
   con.commit()
   c.close()
 
