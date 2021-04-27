@@ -3,8 +3,25 @@ from flask import Flask, render_template, send_file, request,redirect, url_for
 import sqlite3
 
 app = Flask('app')
+#Creacion de base de datos y sus correspondientes base de datos
+try:
+  #conexión de la base de datos
+  con = sqlite3.connect('database.db')
+  #Creacion del cursor de la base de datos
+  c= con.cursor() 
+  #Se crea la tabla de usuarios   
+  c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
+  c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
+  con.commit()
+  c.close()
+except error:
 
+    print(error)
+finally:
 
+    con.close()
+
+'''
 #conexión de la base de datos
 con = sqlite3.connect('database.db')
 #Creacion del cursor de la base de datos
@@ -27,7 +44,7 @@ def login_user(nombre, apellido, email, password):
   data = c.fetchall()
   return data
   c.close()
-
+'''
 #creación de rutas
 @app.route('/')
 def index():
@@ -115,25 +132,6 @@ def password():
   return render_template("Password_Recovery.html")
 
 
-
-
-#conexión de la base de datos datauser 
-con1 = sqlite3.connect('datauser.db')
-
-try:
-  con1 = sqlite3.connect('datauser.db')
-  #Creacion del cursor de la base de datos
-  d = con.cursor()    
-  
-  d.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
-  con1.commit()
-  d.close()
-except error:
-
-    print(error)
-finally:
-
-    con1.close()
 ''''
 #funcion para insertar valores a las tablas
 def add_userdata(nombre, sexo, contacto, medicamento,adicional):
@@ -147,8 +145,8 @@ def add_userdata(nombre, sexo, contacto, medicamento,adicional):
 def historia_medica():
   
  if request.method == 'POST':
-    con1 = sqlite3.connect('datauser.db')#base de datos para el alojamiento de archivos de usuario 
-    d = con1.cursor() #Se crea el cursor
+    con = sqlite3.connect('database.db')#base de datos para el alojamiento de archivos de usuario 
+    c = con.cursor() #Se crea el cursor
     #Se obtienen los datos recuperados del formulario de sign up
     nombre=request.form.get('name')
     edad= request.form.get('edad')  
