@@ -64,7 +64,7 @@ def login():
     c = con.cursor()
     email = request.form.get('email')
     password = request.form.get('password')
-    c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
+    c.execute('SELECT * FROM users WHERE email = ?  AND password = ?', (email, password))
     data = c.fetchall()
     next = request.args.get('next', None)
     if data:
@@ -95,7 +95,7 @@ def sign_up():
     email= request.form.get('correo')
     contraseña = request.form.get('contraseña1')
     contraseña2 = request.form.get('contraseña2')
-    c.execute('INSERT INTO userstable(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
+    c.execute('INSERT INTO users(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
     con.commit()
     c.close()
 
