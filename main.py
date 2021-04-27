@@ -108,43 +108,15 @@ def historia_medica():
     con.commit()
     c.close()
     
-    return redirect(url_for('index'))
+    return redirect(url_for('servicios'))
    
  return render_template("historia_medica.html")  
 
-  
+@app.route('/servicios')
+def servicios():
+  return render_template("servicios.html")
 
 
 
-  
 
-'''
-@app.route('/sign_up')
-def sign_up():
-  if request.method == 'POST':
-    nombre= request.form.get('nombre')
-    apellido = request.form.get('apellido')
-    email= request.form.get('email')
-    contraseña1 = request.form('contraseña1')
-    contraseña2 = request.form('contraseña2')
-
-    #Se validan los datos  
-
-    if len(email) < 4:
-      flash("El correo debe de contener más de 3 caracteres.", category = 'error')
-    elif len(nombre) < 2:
-      flash("El nombre debe de contener mínimo 2 caracteres.", category = 'error')
-    elif  contraseña1 != contraseña2:
-      flash("Las contraseñas deben de coincidir.", category= 'error')
-    elif len(contrtaseña) <7:
-      flash("La contraseña debe de contener por lo menos 7 caracteres", category = 'error')
-    else:
-      flash("Cuenta creada :D", category= 'success')
-       #Añadimos el usuario a la base de datos
-  return render_template("sign_up.html")
-
-'''
-
-
-  
 app.run(host='0.0.0.0', port=8080, debug=True)

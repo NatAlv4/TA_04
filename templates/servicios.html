@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios | WHY</title>
+	<!--BOOTSTRAP-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	 crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Iniciar sesion | WHY </title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+</head>
+<body>
+  <p class="lead", style= "text-align:justify">
+    <strong> ¡Hola! </strong> Si estás viendo esto, quiere decir que tu registro ha sido exitoso y ahora eres parte de la comunidad de WHY, ¡Gracias por confiar en nosotros!
+    <br></br>
+    En caso de que hayas llegado hasta este punto, pero aún no has llenado la historia médica, te invitamos a darle click al siguiente link que te redireccionará a esta.
+  </p>
+  <!--se agrega un boton, usando bootstrap que lleva a la historia médica-->
+  <a class="btn btn-info" href="historia_medica" role="button">Historia médica</a>
+
+  <p class="lead", style= "text-align:justify">
+    Ahora tendrás acceso ocmpletamente gratuito a:
+  </p>
+    
+  <!--Creacion de una lista-->
+  <ul class= "list group"> <!--Tipo de lista-->
+   <li class="list-group-item">Acceso a discutir y resolver sus dudas en el foro</li> <!--Elemento de lista, lo mismo aplica para los demas elementos-->
+   <li class="list-group-item">Agenda electrónica, para la programación de sus citas, eventos o algún tipo de recordatorio</li>
+   <li class="list-group-item">Acceder a sus datos clínicos mediante el código QR que podrá imprimir y poner en un sitio (como su billetera, o en la pantalla de inicio de su celular) muy visible</li>
+   <li class="list-group-item">Función de Geolocalización otorgando permisos GPS desde su computadora, en el cual podrá visualizar un mapa con los centros hospitalarios cercanos </li>
+</body>
+</html>
