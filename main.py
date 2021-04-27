@@ -22,30 +22,6 @@ finally:
 
     con.close()
 
-'''
-#conexión de la base de datos
-con = sqlite3.connect('database.db')
-#Creacion del cursor de la base de datos
-c = con.cursor()    
-  
-#Creacion de las tablas en la base de datos
-def create_usertable():
-  c.execute('CREATE TABLE IF NOT EXISTS userstable(id integer PRIMARY KEY, nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
-  con.commit()
-  c.close()
-#funcion para insertar valores a las tablas
-def add_userdata(nombre, apellido, email, password):
-  c.execute('INSERT INTO userstable(nombre, apellido, email, password) VALUE (?,?,?,?)',(nombre, apellido, email, password))
-  con.commit()
-  c.close()
-
-#funcion para seleccionar valores de las tablas
-def login_user(nombre, apellido, email, password):
-  c.execute('SELECT * FROM userstable WHERE email = ?  AND password = ?', (email, password))
-  data = c.fetchall()
-  return data
-  c.close()
-'''
 #creación de rutas
 @app.route('/')
 def index():
@@ -78,6 +54,7 @@ def login():
 @app.route('/log_out')
 def log_out():
   return render_template("log_out.html")
+  
 
 @app.route('/sign_up', methods = ('GET', 'POST'))
 def sign_up():
@@ -89,39 +66,19 @@ def sign_up():
     nombre= request.form.get('nombre')
     apellido = request.form.get('apellido')
     email= request.form.get('correo')
-    contraseña = request.form.get('contraseña1')
-    contraseña2 = request.form.get('contraseña2')
-    c.execute('INSERT INTO users(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
-    con.commit()
+    password = request.form.get('password')
+    data = c.execute('SELECT * FROM users WHERE email = ?', (email,))
     c.close()
-    return redirect(url_for('index'))
+    if data:
+      return redirect(url_for('sign_up'))
+    else:
+      c = con.cursor()
+      c.execute('INSERT INTO users(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, password))
+      con.commit()
+      c.close()
+      return redirect(url_for('index'))
   
-  return render_template("sign_up.html")    
-    
-
-''''
-#este codigo define los datos de usuario
-def add_user():
-    user_form = UserForm()
-
-    if request.method == 'POST':
-        if user_form.validate_on_submit():
-            # Get validated data from form
-            name = user_form.name.data # You could also have used request.form['name']
-            email = user_form.email.data # You could also have used request.form['email']
-
-            # save user to database
-            user = User(name, email)
-            db.session.add(user)
-            db.session.commit()
-
-            flash('User successfully added')
-            return redirect(url_for('show_users'))
-'''
-
-@app.route('/Pswrd_R')
-def password():
-  return render_template("Password_Recovery.html")
+  return render_template("sign_up.html")     
 
 
 ''''
@@ -147,7 +104,7 @@ def historia_medica():
     medicamento = request.form.get('comment')
     adicional=request.form.get('adicional')
      #Se agregan los datos a la base de datos
-    c.execute('INSERT INTO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
+    c.execute('INSERT INTO medical(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
     con.commit()
     c.close()
     
