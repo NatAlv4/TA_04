@@ -11,6 +11,7 @@ try:
   c= con.cursor() 
   #Se crea la tabla de usuarios   
   c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
+  #Tabla de historia medica
   c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
   con.commit()
   c.close()
@@ -64,19 +65,14 @@ def login():
     c = con.cursor()
     email = request.form.get('email')
     password = request.form.get('password')
-    c.execute('SELECT * FROM users WHERE email = ?  AND password = ?', (email, password))
-    data = c.fetchall()
-    next = request.args.get('next', None)
-    if data:
-      if next:
-        return redirect(next)
+    c.execute('SELECT * FROM users WHERE email = ?', (email,))
+    passw = c.fetchone()[-1]
+    c.close()
+    if passw==password:      
       return redirect(url_for('historia_medica'))  
     else:
-      if next:
-        return redirect(next)
-        return redirect(url_for('login')) 
-
-    c.close()
+      return redirect(url_for('login')) 
+    
   return render_template("login.html")
 
 @app.route('/log_out')
@@ -98,10 +94,6 @@ def sign_up():
     c.execute('INSERT INTO users(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, contraseña))
     con.commit()
     c.close()
-
-    next = request.args.get('next', None)
-    if next:
-      return redirect(next)
     return redirect(url_for('index'))
   
   return render_template("sign_up.html")    
@@ -155,13 +147,10 @@ def historia_medica():
     medicamento = request.form.get('comment')
     adicional=request.form.get('adicional')
      #Se agregan los datos a la base de datos
-    d.execute('INSERT INTO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
-    con1.commit()
-    d.close()
+    c.execute('INSERT INTO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
+    con.commit()
+    c.close()
     
-    next = request.args.get('next', None)
-    if next:
-      return redirect(next)
     return redirect(url_for('index'))
    
  return render_template("historia_medica.html")  
