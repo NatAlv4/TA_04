@@ -2,6 +2,7 @@
 from flask import Flask, render_template, send_file, request,redirect, url_for
 import sqlite3
 
+
 app = Flask('app')
 #Creacion de base de datos y sus correspondientes base de datos
 try:
@@ -13,6 +14,8 @@ try:
   c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
   #Tabla de historia medica
   c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
+  #Tabla de foro
+  c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, contenido TEXT, nombre TEXT)')
   con.commit()
   c.close()
 except error:
@@ -116,7 +119,42 @@ def historia_medica():
 def servicios():
   return render_template("servicios.html")
 
+@app.route('/foro', methods = ('GET', 'POST'))
+def foro():
+  #conexión base de datos
+  con = sqlite3.connect('database.db')
+  #Cursor
+  c = con.cursor()
+  
+  #Se seleccionan los elementos de la base de datos
+  c.execute('SELECT * FROM  foro')
+  data = c.fetchall()
+  c.close()
 
+  #Se devuelven los datos recuperados como un str
+  
 
+  return render_template("foro.html"), str(data)
+
+@app.route('/agregar_entrada')
+def agregar_entrada():
+  if request.method == 'POST':
+    #conexión base de datos
+    con = sqlite3.connect('database.db')
+    #Cursor
+    c = con.cursor()
+
+    #Se guardan los datos ingresados
+    titulo = request.form.get('titulo')
+    contenido = request.form.get('contenido')
+    nombre = str(c.execute('SELECT * FROM users WHERE nombre = ?', (nombre,)))
+    
+    #Se agregan los datos a la tabla
+    c.execute('INSERT INTO foro(titulo, contenido, nombre) VALUES (?,?,?)', (titulo, contenido, nombre))
+    con.commit()
+    c.close()
+    return 'titulo: %s | contenido: %s' %(titulo,contenido)
+  
+  
 
 app.run(host='0.0.0.0', port=8080, debug=True)
