@@ -1,6 +1,7 @@
 #se agrego flask
 from flask import Flask, render_template, send_file, request,redirect, url_for
 import sqlite3
+from datetime import datetime
 
 
 app = Flask('app')
@@ -15,9 +16,10 @@ try:
   #Tabla de historia medica
   c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
   #Tabla de foro
-  c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, contenido TEXT, nombre TEXT)')
+  c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
   con.commit()
   c.close()
+  
 except error:
 
     print(error)
@@ -119,7 +121,8 @@ def historia_medica():
 def servicios():
   return render_template("servicios.html")
 
-@app.route('/foro', methods = ('GET', 'POST'))
+#Ruta base del foro
+@app.route('/foro')
 def foro():
   #conexión base de datos
   con = sqlite3.connect('database.db')
@@ -128,32 +131,34 @@ def foro():
   
   #Se seleccionan los elementos de la base de datos
   c.execute('SELECT * FROM  foro')
-  data = c.fetchall()
+  posts = c.fetchall()
   c.close()
-
-  #Se devuelven los datos recuperados como un str
   
+  #posts=posts es para pasar todos los posts
+  return render_template("foro.html", posts=posts) 
 
-  return render_template("foro.html"), str(data)
-
+#Ruta onde se agregan los posts
 @app.route('/agregar_entrada')
 def agregar_entrada():
-  if request.method == 'POST':
-    #conexión base de datos
-    con = sqlite3.connect('database.db')
-    #Cursor
-    c = con.cursor()
 
-    #Se guardan los datos ingresados
-    titulo = request.form.get('titulo')
-    contenido = request.form.get('contenido')
-    nombre = str(c.execute('SELECT * FROM users WHERE nombre = ?', (nombre,)))
-    
-    #Se agregan los datos a la tabla
-    c.execute('INSERT INTO foro(titulo, contenido, nombre) VALUES (?,?,?)', (titulo, contenido, nombre))
-    con.commit()
-    c.close()
-    return 'titulo: %s | contenido: %s' %(titulo,contenido)
+  return render_template("agregar_entrada.html")
+
+@app.route('/crear', methods = ('GET', 'POST'))
+def crear_post():  
+  #conexión base de datos
+  con = sqlite3.connect('database.db')
+  #Cursor
+  c = con.cursor()
+  titulo = request.form.get("titulo")
+  texto = request.form.get("texto") 
+  c.execute('INSERT INTO foro(titulo, texto) VALUES(?,?)', (titulo, texto))
+  con.commit()
+  c.close()
+  return  redirect(url_for('foro'))
+   
+
+  
+  
   
   
 
