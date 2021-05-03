@@ -137,10 +137,10 @@ def foro():
   #posts=posts es para pasar todos los posts
   return render_template("foro.html", posts=posts) 
 
-#Ruta onde se agregan los posts
+#Ruta donde se agregan los posts
 @app.route('/agregar_entrada')
 def agregar_entrada():
-
+  
   return render_template("agregar_entrada.html")
 
 @app.route('/crear', methods = ('GET', 'POST'))
@@ -150,16 +150,12 @@ def crear_post():
   #Cursor
   c = con.cursor()
   titulo = request.form.get("titulo")
-  texto = request.form.get("texto") 
+  texto = request.form.get("texto")
+  
+
   c.execute('INSERT INTO foro(titulo, texto) VALUES(?,?)', (titulo, texto))
   con.commit()
   c.close()
   return  redirect(url_for('foro'))
    
-
-  
-  
-  
-  
-
 app.run(host='0.0.0.0', port=8080, debug=True)
