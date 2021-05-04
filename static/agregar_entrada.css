@@ -6,14 +6,31 @@ body::before {
   height: 100%;
   width: 100%;
   z-index: -1;
-  background: var(--color-darkblue);
-  background-image: linear-gradient(
-      115deg,
-      rgba(58, 58, 158, 0.8),
-      rgba(136, 136, 206, 0.7)
-    ),
-    url(https://c1.wallpaperflare.com/preview/401/399/725/stethoscope-medical-health-doctor-macbook-laptop.jpg);
+  background-image: url(https://c1.wallpaperflare.com/preview/401/399/725/stethoscope-medical-health-doctor-macbook-laptop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.container{
+  background-color: car(--bg-white);
+  height: 800 px;
+
+  backdrop-filter: blur(2px);
+  border: var(--border);
+  border-radius: var(--br);
+  width: 70%;
+  margin: 0 auto;
+
+  box-shadow: 0 10px 20px 5px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+}
+
+.a{
+  background-color: #0084ff;
+  border:none;
+  font-weight: bolder;
+  color: white
+
 }
