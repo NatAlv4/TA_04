@@ -153,9 +153,12 @@ def crear_post():
   texto = request.form.get("texto")
   
 
+  print (titulo, texto)
+
   c.execute('INSERT INTO foro(titulo, texto) VALUES(?,?)', (titulo, texto))
   con.commit()
   c.close()
   return  redirect(url_for('foro'))
-   
+
+
 app.run(host='0.0.0.0', port=8080, debug=True)
