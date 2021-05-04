@@ -19,6 +19,7 @@ try:
   c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
   con.commit()
   c.close()
+
   
 except error:
 
@@ -159,6 +160,10 @@ def crear_post():
   con.commit()
   c.close()
   return  redirect(url_for('foro'))
+
+@app.route('/calendar')
+def calendar():  
+  return render_template("calendar.html")
 
 
 app.run(host='0.0.0.0', port=8080, debug=True)
