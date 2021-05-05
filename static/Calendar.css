@@ -1,0 +1,14 @@
+/* body{
+  position: fixed;
+  background-image: url(https://images.hdqwalls.com/wallpapers/big-sur-4k-wp.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.size{
+  align-items: center;
+  width: 75%;
+  heigh: 75%;
+  
+}

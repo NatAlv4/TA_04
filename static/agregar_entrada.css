@@ -13,6 +13,7 @@ body::before {
 }
 
 .container{
+  align-items: center;
   background-color: car(--bg-white);
   height: 800 px;
 

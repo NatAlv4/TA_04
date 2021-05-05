@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
+<link rel="stylesheet" href="static/Calendar.css">
+
   <head>
     <meta charset='utf-8' />
 	 <title> Agenda | WHY </title>
@@ -9,49 +11,49 @@
 	 crossorigin="anonymous">
    
 
+<div class = "size">
+      <!-- link a los estilos FullCalendar y script calendar   -->
+      <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css' rel='stylesheet' />
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js'></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          
+    var calendarEl = document.getElementById('calendar');
+  //se define variable y se asigna estilo de vista
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        center: 'addEventButton'
+      },
+      customButtons: {
+        addEventButton: {
+          text: 'añada evento...',
+          click: function() {
+            var dateStr = prompt('fecha en formato YYYY-MM-DD format');
+            var date = new Date(dateStr + 'T00:00:00'); 
 
-    <!-- link a los estilos FullCalendar y script calendar   -->
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js'></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-         
-  var calendarEl = document.getElementById('calendar');
-//se define variable y se asigna estilo de vista
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    headerToolbar: {
-      center: 'addEventButton'
-    },
-    customButtons: {
-      addEventButton: {
-        text: 'añada evento...',
-        click: function() {
-          var dateStr = prompt('fecha en formato YYYY-MM-DD format');
-          var date = new Date(dateStr + 'T00:00:00'); 
-
-          if (!isNaN(date.valueOf())) { 
-            calendar.addEvent({
-              title: 'esto debe ser un input del usuario',
-              start: date,
-              allDay: true
-            });
-            alert('falta guardar en base de datos');
-          } else {
-            alert('Fecha incorrecta.');
+            if (!isNaN(date.valueOf())) { 
+              calendar.addEvent({
+                title: 'esto debe ser un input del usuario',
+                start: date,
+                allDay: true
+              });
+              alert('falta guardar en base de datos');
+            } else {
+              alert('Fecha incorrecta.');
+            }
           }
         }
       }
-    }
+    });
+
+    calendar.render();
   });
 
-  calendar.render();
-});
-
-      
- </script>
-</head>
- 
+        
+  </script>
+  </head>
+</div> 
 
 <!--Barra de navegación-->
 

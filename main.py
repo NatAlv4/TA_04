@@ -1,11 +1,12 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for
+from flask import Flask, render_template, send_file, request,redirect, url_for, session
 import sqlite3
 from datetime import datetime
 
 
 app = Flask('app')
 #Creacion de base de datos y sus correspondientes base de datos
+app.secret_key = "hola123"
 try:
   #conexión de la base de datos
   con = sqlite3.connect('database.db')
@@ -46,6 +47,7 @@ def login():
     #Creacion del cursor
     c = con.cursor()
     email = request.form.get('email')
+    session["email"] = email #Se guarda el email en la sesion
     password = request.form.get('password')
     c.execute('SELECT * FROM users WHERE email = ?', (email,))
     passw = c.fetchone()[-1]
@@ -53,7 +55,8 @@ def login():
     if passw==password:      
       return redirect(url_for('historia_medica'))  
     else:
-      return redirect(url_for('login')) 
+      return redirect(url_for('login'))
+    
     
   return render_template("login.html")
 
@@ -98,25 +101,27 @@ def add_userdata(nombre, sexo, contacto, medicamento,adicional):
 
 @app.route('/historia_medica', methods = ('GET', 'POST'))
 def historia_medica():
-  
- if request.method == 'POST':
-    con = sqlite3.connect('database.db')#base de datos para el alojamiento de archivos de usuario 
-    c = con.cursor() #Se crea el cursor
-    #Se obtienen los datos recuperados del formulario de sign up
-    nombre=request.form.get('name')
-    edad= request.form.get('edad')  
-    sexo = request.form.get('role')
-    contacto= request.form.get('contacto')
-    medicamento = request.form.get('comment')
-    adicional=request.form.get('adicional')
-     #Se agregan los datos a la base de datos
-    c.execute('INSERT INTO medical(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
-    con.commit()
-    c.close()
-    
-    return redirect(url_for('servicios'))
-   
- return render_template("historia_medica.html")  
+  if  "email" in session: #Se verifica que se haya iniciado sesion, para poder acceder a la historia medica
+    if request.method == 'POST':
+        con = sqlite3.connect('database.db')#base de datos para el alojamiento de archivos de usuario 
+        c = con.cursor() #Se crea el cursor
+        #Se obtienen los datos recuperados del formulario de sign up
+        nombre=request.form.get('name')
+        edad= request.form.get('edad')  
+        sexo = request.form.get('role')
+        contacto= request.form.get('contacto')
+        medicamento = request.form.get('comment')
+        adicional=request.form.get('adicional')
+        #Se agregan los datos a la base de datos
+        c.execute('INSERT INTO medical(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
+        con.commit()
+        c.close()
+        
+        return redirect(url_for('servicios'))
+  else:
+    return redirect(url_for('login'))
+      
+  return render_template("historia_medica.html")  
 
 @app.route('/servicios')
 def servicios():
@@ -164,6 +169,5 @@ def crear_post():
 @app.route('/calendar')
 def calendar():  
   return render_template("calendar.html")
-
 
 app.run(host='0.0.0.0', port=8080, debug=True)
