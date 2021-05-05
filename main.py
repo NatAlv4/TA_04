@@ -2,20 +2,26 @@
 from flask import Flask, render_template, send_file, request,redirect, url_for, session
 import sqlite3
 from datetime import datetime
+#se importa extensión Flask Mail
 from flask_mail import Mail, Message
-from config import mail_username, mail_password
 
 
 app = Flask('app')
 #Creacion de base de datos y sus correspondientes base de datos
 app.secret_key = "hola123"
+#SMTP permite enviar correos, en este caso se usan los ajustes de GMAIL
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 587
+#protocolo TLS es de encriptado de datos servidor-usuario, de acuerdo al protocolo es asignado el numero de puerto
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = mail_username
-app.config['MAIL_PASSWORD'] = mail_password
-
+#Nombre de usuario del servidor smtp
+app.config['MAIL_USERNAME'] = mail_username="elproyectowhy@gmail.com"
+#Contraseña del usuario del servidor smtp
+app.config['MAIL_PASSWORD'] = mail_password="hola123@"
+#Se crea un default sender, para que todos los correos salgan del mismo correo
+app.config['MAIL_DEFAULT_SENDER'] = "elproyectowhy@gmail.com"
+#se define la variable mail, la cual se usa una vez definida la ruta 
 mail=Mail(app)
 
 app.secret_key = "hola123"
@@ -100,17 +106,10 @@ def sign_up():
       return redirect(url_for('index'))
   
   return render_template("sign_up.html")     
-
-
 ''''
-#funcion para insertar valores a las tablas
-def add_userdata(nombre, sexo, contacto, medicamento,adicional):
-  d.execute('INSERT INFO userstable(nombre, edad, sexo, contacto, medicamento, adicional) VALUE (?,?,?,?,?,?)',(nombre, sexo, contacto, medicamento,adicional))
-  con.commit()
-  d.close()
-
+@app.route('/password_recovery')
+def 
 '''
-
 @app.route('/historia_medica', methods = ('GET', 'POST'))
 def historia_medica():
   if  "email" in session: #Se verifica que se haya iniciado sesion, para poder acceder a la historia medica
@@ -181,5 +180,23 @@ def crear_post():
 @app.route('/calendar')
 def calendar():  
   return render_template("calendar.html")
+
+  
+@app.route('/contact', methods = ('GET', 'POST'))
+def contact():
+  #se obtienen los datos ingresados con el metodo get
+  if request.method == 'POST':
+     name = request.form.get("name")
+     lastname = request.form.get("lastname")
+     email = request.form.get("email")
+     message = request.form.get("message")
+    #se crea instancia Message se definen nomnre de destinatario correo y cuerpo de mensaje
+     msg = Message(
+            subject=f"Mail from {name}", body=f"Name: {name}\nE-Mail: {email}\n\n\n\n{message}", sender=mail_username, recipients=['elproyectowhy@gmail.com'])
+    #se llama la variable main y se envia con los ajustes aplicados en msg 
+     mail.send(msg)
+     return render_template("contact.html", success=True)
+  return render_template("contact.html")
+
 
 app.run(host='0.0.0.0', port=8080, debug=True)
