@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contacto</title>
+<link rel="stylesheet" href="static/contact.css">
+</head>
+<body>
+  
+
+<form name="myform" action="" method="POST" onsubmit="return validForm()"> 
+<div class="contactform">
+  <div style="text-align:center">
+    <h1>Get In Touch</h1>
+    <p>Contact me for a quote, to collaborate or just say hi :) </p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">Nombre</label>
+        <input type="text" id="fname" name="name" placeholder="Your name..">
+
+        <label for="lname">Apellidos</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.."> 
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email..">
+          
+
+        <label for="subject">Subject</label>
+        <textarea id="contactform" name="message" method="POST" placeholder="escribe algo.." style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+        </form>  
+
+</body>
+</html>
