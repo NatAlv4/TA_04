@@ -2,10 +2,22 @@
 from flask import Flask, render_template, send_file, request,redirect, url_for, session
 import sqlite3
 from datetime import datetime
+from flask_mail import Mail, Message
+from config import mail_username, mail_password
 
 
 app = Flask('app')
 #Creacion de base de datos y sus correspondientes base de datos
+app.secret_key = "hola123"
+app.config['MAIL_SERVER'] = "smtp.gmail.com"
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = mail_username
+app.config['MAIL_PASSWORD'] = mail_password
+
+mail=Mail(app)
+
 app.secret_key = "hola123"
 try:
   #conexión de la base de datos
