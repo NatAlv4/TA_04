@@ -91,9 +91,16 @@ body{
 }
 
 .header {
-  margin: 50px
+  margin: 50px; /*margen*/
+  font-style: italic; /*estilo de la fuente: italica*/
+  background: #69BADD;/*color de fondo del texto*/
+  border: 2px black ; /*borde*/
+  border-style: double; /*estilo del borde*/
+  text-align: center; /*texto centrado*/
+  padding: 10px;
 }
 
 .header a{
-  margin-top: 2cm
+  margin-top: 2cm;
+  color: whitesmoke;
 }

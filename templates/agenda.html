@@ -28,7 +28,7 @@
         <a class="nav-link" href="/ ">Inicio</a> 
        <!--Indicador de pagina actual-->
         <a class="nav-link " href="/about">Sobre Nosotros</a>
-        <a class="nav-link active" aria-current="page" href="/calendar">Agenda</a>
+        <a class="nav-link active" aria-current="page" href="/agenda">Agenda</a>
         <a class="nav-link " href="/foro  ">Foro</a>
         <a class="nav-link " href="# ">Mapa</a>
         <a class="nav-link " href="# ">QR</a>
@@ -45,13 +45,17 @@
       Este es el espacio para tu agenda, a continuación te aparecerán los eventos que has creado:
       <p>&nbsp;</p>
       <a href="#"> ¿Aún no has creado eventos?</a>
+      <p>&nbsp;</p>
     </h4>
   </div>
-
+  <!--Se crea un for que recorre la tabla de eventos filtrada por email-->
   {%for evento in events%}
   <div class="Calendar">
+    <!--Titulo del evento-->
     <h3> {{evento[0]}} </h3>
+    <!--fecha del evento-->
     <h4> {{evento[1]}} </h4>
+    <!--comentario-->
     <h5> {{evento [3]}} </h5>
   </div>  
   {%endfor%}

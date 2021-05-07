@@ -98,7 +98,7 @@ def sign_up():
     password = request.form.get('password')
     data = c.execute('SELECT * FROM users WHERE email = ?', (email,))
     c.close()
-    if data:
+    if data==email:
       return redirect(url_for('sign_up'))
     else:
       c = con.cursor()
@@ -190,32 +190,43 @@ def agenda():
     con = sqlite3.connect('database.db')
     #Cursor
     c = con.cursor()
+    #Se guarda el email de la sesion
     email = session["email"]
+    #con el email se filtran los eventos creados desde este mismo correo
     c.execute('SELECT * FROM eventos WHERE  email = ?', (email,))
+    #se guardan los eventos de la tabla en una tupla
     events = c.fetchall()
+    #Se cierra la base de datos
     c.close()
     return render_template("agenda.html", events=events)  
   else:  
+    #Si no se ha iniciado sesion, se redirige a la pagina de iniciar sesion
     return redirect ('login')  
 
+#ruta para agregar evento
 @app.route('/agregar_evento')
 def agregar_evento():
   return render_template("agregar_evento.html")
 
+#ruta donde se crean los eventos
 @app.route('/crear_evento',  methods = ('GET', 'POST'))
 def crear_evento():
+  #se verifica que se haya iniciado sesion
   if  "email" in session:
     #conexión base de datos
     con = sqlite3.connect('database.db')
     #Cursor
     c = con.cursor()
-
+    #Se toma el titulo del evento, ingresado en el formulario
     titulo = request.form.get("titulo")
+    #se toma la fecha ingresada
     fecha = request.form.get("fecha")
+    #se toma el email de la sesion iniciada
     email = session["email"]
+
     comment = request.form.get("comentario")
 
-    
+    #se guardan los elementos en la tabla de eventos
     c.execute('INSERT INTO eventos(titulo, fecha, email, comentario) VALUES (?,?,?,?)', (titulo, fecha, email, comment))
     con.commit()
     c.close()
