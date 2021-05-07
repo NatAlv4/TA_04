@@ -12,3 +12,12 @@
   heigh: 75%;
   
 }
+
+.container {
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: -140px;
+  width: 100px;
+  height: 200px;
+ 
+}

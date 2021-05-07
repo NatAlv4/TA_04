@@ -36,6 +36,8 @@ try:
   c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
   #Tabla de foro
   c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
+  #Tabla del calendario
+  c.execute('CREATE TABLE IF NOT EXISTS eventos(titulo TEXT, fecha TEXT, email TEXT, comentario TEXT)')
   con.commit()
   c.close()
 
@@ -71,9 +73,9 @@ def login():
     passw = c.fetchone()[-1]
     c.close()
     if passw==password:      
-      return redirect(url_for('historia_medica'))  
+      return redirect(url_for('servicios'))  
     else:
-      return redirect(url_for('login'))
+      return redirect(url_for('Los datos ingresados no concuerdan, intentalo de nuevo'))
     
     
   return render_template("login.html")
@@ -157,8 +159,10 @@ def foro():
 #Ruta donde se agregan los posts
 @app.route('/agregar_entrada')
 def agregar_entrada():
-  
-  return render_template("agregar_entrada.html")
+  if  "email" in session: #Se verifica que se haya iniciado sesion, para poder acceder a la historia medica
+    return render_template("agregar_entrada.html")
+  else:
+    return ('No has iniciado sesion, intentalo de nuevo')  
 
 @app.route('/crear', methods = ('GET', 'POST'))
 def crear_post():  
@@ -170,8 +174,6 @@ def crear_post():
   texto = request.form.get("texto")
   
 
-  print (titulo, texto)
-
   c.execute('INSERT INTO foro(titulo, texto) VALUES(?,?)', (titulo, texto))
   con.commit()
   c.close()
@@ -181,18 +183,57 @@ def crear_post():
 def calendar():  
   return render_template("calendar.html")
 
+@app.route('/agenda')
+def agenda():
+  if  "email" in session: #Se verifica que se haya iniciado sesion, para poder acceder a la agenda
+  #conexión base de datos
+    con = sqlite3.connect('database.db')
+    #Cursor
+    c = con.cursor()
+
+    #c.execute('SELECT * FROM eventos WHERE  email = ?', (email,))
+    #events = c.fetchall()
+    #c.close()
+    return render_template("agenda.html") #events=events)  
+  else:  
+    return redirect ('login')  
+
+@app.route('/agregar_evento')
+def agregar_evento():
+  return render_template("agregar_evento.html")
+
+@app.route('/crear_evento',  methods = ('GET', 'POST'))
+def crear_evento():
+  if  "email" in session:
+    #conexión base de datos
+    con = sqlite3.connect('database.db')
+    #Cursor
+    c = con.cursor()
+
+    titulo = request.form.get("titulo")
+    fecha = request.form.get("fecha")
+    email = session["email"]
+    comment = request.form.get("comment")
+
+    
+    c.execute('INSERT INTO eventos(titulo, fecha, email, comentario) VALUES (?,?,?,?)', (titulo, fecha, email, comment))
+    return redirect ('agenda')
+  else:  
+    return redirect ('login')  
+
+
   
 @app.route('/contact', methods = ('GET', 'POST'))
 def contact():
   #se obtienen los datos ingresados con el metodo get
   if request.method == 'POST':
-     name = request.form.get("name")
-     lastname = request.form.get("lastname")
-     email = request.form.get("email")
-     message = request.form.get("message")
+     name1 = request.form.get("name1")
+     lastname1 = request.form.get("lastname1")
+     email1 = request.form.get("email1")
+     message1 = request.form.get("message1")
     #se crea instancia Message se definen nomnre de destinatario correo y cuerpo de mensaje
      msg = Message(
-            subject=f"Mail from {name}", body=f"Name: {name}\nE-Mail: {email}\n\n\n\n{message}", sender=mail_username, recipients=['elproyectowhy@gmail.com'])
+            subject=f"Mail from {name1}", body=f"Name: {name1}\nE-Mail: {email1}\n\n\n\n{message1}", sender=mail_username, recipients=['elproyectowhy@gmail.com'])
     #se llama la variable main y se envia con los ajustes aplicados en msg 
      mail.send(msg)
      return render_template("contact.html", success=True)

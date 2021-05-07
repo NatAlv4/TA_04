@@ -1,8 +1,10 @@
 /*Estilización del cuerpo de la pagina*/
 body{
-  background: #F2FAEF; /*color de fondo*/
-  margin: 25px; /*margen de la pagina*/
-  height: 100vh;
+  background-image: url('https://wallpapercave.com/wp/wp6761080.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 125% 100%;
+    }
 }
 .caja{
   font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; /*Tipo de fuente*/
@@ -36,7 +38,7 @@ body{
 
 /*Edicion de los labeles en la caja de login (ingrese contraseña y usuario)*/
 .login-box label{
-  margin-left: 20px; /*margen derecho*/
+  margin-left: 20px; /*margen izquierdo*/
   padding: 0; /*espaciado interno*/
   font-weight: bold; /*peso de la fuente*/
   display: block; /*para que se vea como una sola linea*/
@@ -86,4 +88,12 @@ body{
   font-size: 12 px; /*tamano de fuente*/
   line-height: 20 px; /*linea de espaciado*/
   color: #000000; /*color de la letra*/
+}
+
+.header {
+  margin: 50px
+}
+
+.header a{
+  margin-top: 2cm
 }

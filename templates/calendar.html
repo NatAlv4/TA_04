@@ -23,30 +23,8 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
       headerToolbar: {
-        center: 'addEventButton'
       },
-      customButtons: {
-        addEventButton: {
-          text: 'añada evento...',
-          click: function() {
-            var dateStr = prompt('fecha en formato YYYY-MM-DD format');
-            var date = new Date(dateStr + 'T00:00:00'); 
-
-            if (!isNaN(date.valueOf())) { 
-              calendar.addEvent({
-                title: 'esto debe ser un input del usuario',
-                start: date,
-                allDay: true
-              });
-              alert('falta guardar en base de datos');
-            } else {
-              alert('Fecha incorrecta.');
-            }
-          }
-        }
-      }
     });
-
     calendar.render();
   });
 
@@ -87,14 +65,26 @@
 </nav>
 
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-
 
 
 <body>
-  <!--contenedor con el calendario ya definido-->
+  
+  <div class='container'>
+    <p>&nbsp;</p>
+    <center>
+      
+      <a class="btn btn-secondary" href="agregar_evento" 
+      role="button"> <font font size=5> Agregar un evento</font></a>
+    </center>
+  </div>
 
-    <div id='calendar'></div>
+  <!--contenedor con el calendario ya definido-->
+ <div class="container">
+
+    <div id='calendar'>
+     
+    </div>
+ </div>
 </body>
 
 </html>
