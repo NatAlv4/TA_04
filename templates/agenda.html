@@ -46,5 +46,16 @@
       <p>&nbsp;</p>
       <a href="#"> ¿Aún no has creado eventos?</a>
     </h4>
+  </div>
+
+  {%for evento in events%}
+  <div class="Calendar">
+    <h3> {{evento[0]}} </h3>
+    <h4> {{evento[1]}} </h4>
+    <h5> {{evento [3]}} </h5>
+  </div>  
+  {%endfor%}
+
+
 </body>
 </html>

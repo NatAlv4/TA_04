@@ -190,11 +190,11 @@ def agenda():
     con = sqlite3.connect('database.db')
     #Cursor
     c = con.cursor()
-
-    #c.execute('SELECT * FROM eventos WHERE  email = ?', (email,))
-    #events = c.fetchall()
-    #c.close()
-    return render_template("agenda.html") #events=events)  
+    email = session["email"]
+    c.execute('SELECT * FROM eventos WHERE  email = ?', (email,))
+    events = c.fetchall()
+    c.close()
+    return render_template("agenda.html", events=events)  
   else:  
     return redirect ('login')  
 
