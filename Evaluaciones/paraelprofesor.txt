@@ -1,3 +1,7 @@
 Hola Profesor, el objetivo de este documento es especificar un poco los cambios hechos en cada entrega
 
 Informe 06:
+Es necesaria la instalacion por consola de Flask_mail cada que se inicia replit dado que la plataforma no lo guarda
+Flask Mail funcionando correctamente, las credenciales son:
+elproyectowhy@gmail.com
+contraseña:  hola123@
