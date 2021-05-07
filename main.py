@@ -213,10 +213,12 @@ def crear_evento():
     titulo = request.form.get("titulo")
     fecha = request.form.get("fecha")
     email = session["email"]
-    comment = request.form.get("comment")
+    comment = request.form.get("comentario")
 
     
     c.execute('INSERT INTO eventos(titulo, fecha, email, comentario) VALUES (?,?,?,?)', (titulo, fecha, email, comment))
+    con.commit()
+    c.close()
     return redirect ('agenda')
   else:  
     return redirect ('login')  
