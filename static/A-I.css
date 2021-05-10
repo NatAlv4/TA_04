@@ -1,6 +1,7 @@
+/*estilizacion de los contenedores de texto*/
 .container{
-  background-color: rgba(255,255,255,0.1);
-  height: 800 px;
+  background-color: rgba(255,255,25,0.1); /*color de fondo*/
+  height: 800 px;/*alto*/
 
   backdrop-filter: blur(2px);
   border: solid 1px rgba(255,255,255, 05);
