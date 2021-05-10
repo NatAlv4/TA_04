@@ -1,31 +1,34 @@
+/*se seleccionan específicamente los espoacios de input de etxto y email*/
 input[type=text], [type=email], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+  width: 100%; /*porcentaje de ancho*/
+  padding: 12px; /*espacio de relleno*/
+  border: 1px solid #ccc; /*modificacion del borde*/
+  margin-top: 6px; /*Modificacion del margen superior*/
+  margin-bottom: 16px; /*modificacion del margen inferior*/
+  resize: vertical; /*Propiedad para que se pueda cambiar el tamaño en sentido vertical*/
 }
 
+/*se modifica el espacio de input de submit*/
 input[type=submit] {
-  background-color: rgb(26, 180, 65);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
+  background-color: rgb(26, 180, 65); /*Color de fondo*/
+  color: white; /*color de la letra*/
+  padding: 12px 20px; /*espaciado interno*/
+  border: none; /*sin borde*/
+  cursor: pointer; /*propiedad que modifica el tipo de cursor cuando está sobre el elemento*/
 }
+
 
 input[type=submit]:hover {
   background-color: #e4ee52 ;
 }
 
-
+/*se modifica la clase de contactform*/
 .contactform {
-  position: relative;    
-  border-radius: 50px;
-  background-color: #d89090;
-  padding: 5px;
-  z-index:2;
+  position: relative; /*posición relativa al flujo del docuemnto*/    
+  border-radius: 50px; /*radio del borde*/
+  background-color: #d89090; /*color de fondo*/
+  padding: 5px; /*espaciado interno*/
+  z-index:2; 
   display: block;
   margin-left: auto;
   margin-right: auto;
