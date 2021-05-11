@@ -15,8 +15,8 @@ body{
   border: solid 1px rgba(255,255,255, 05); /*borde*/
   border-radius: 5px; /*radio del borde*/
   width: 50%; /*ancho*/
-  margin: 0 auto; /*margenes automatica
-  padding-bottom: 50px;
+  margin: 0 auto; /*margenes automaticas*/
+  padding-bottom: 50px; /*espaciado interno inferior*/
   
 }
 
