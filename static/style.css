@@ -49,7 +49,7 @@ body{
   margin:0; /*margen*/
   padding: 0 0 25px; /*espaciado interno, el 25 representa al espaciado hacia abajo*/
   text-align: center; /*centrar el texto*/
-  text-size: 25 px; /*tamano del texto*/
+  text-size-adjust: 25 px; /*tamano del texto*/
 }
 
   /*edicion de los inputs*/

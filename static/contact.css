@@ -17,9 +17,9 @@ input[type=submit] {
   cursor: pointer; /*propiedad que modifica el tipo de cursor cuando está sobre el elemento*/
 }
 
-
+/*se modifica como se ve el input de submit cuando se le pasa el cursor sobre este*/
 input[type=submit]:hover {
-  background-color: #e4ee52 ;
+  background-color: #e4ee52 ; /*color de fondo*/
 }
 
 /*se modifica la clase de contactform*/
@@ -28,17 +28,19 @@ input[type=submit]:hover {
   border-radius: 50px; /*radio del borde*/
   background-color: #d89090; /*color de fondo*/
   padding: 5px; /*espaciado interno*/
-  z-index:2; 
-  display: block;
-  margin-left: auto;
+  z-index:2; /*se indica el orden de posicion de la clase*/
+  display: block; /*La clase es tratada como bloque*/
+  /*modificacion automatica de los margenes: izquierdo, derecho e inferior*/
+  margin-left: auto; 
   margin-right: auto;
   margin-bottom:auto;
   margin-top:3%;    
-  width: 50%;
+  width: 50%; /*Se modifica la anchura del elemento*/
     
     
 }
-    
+
+
 .contactform:hover { 
  animation-name: gradient;
  animation-duration: 15s;
@@ -47,16 +49,16 @@ input[type=submit]:hover {
    
 }
 
-
+/*estilizacion de la clase column*/
 .column {
-  float: center;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  float: center; /*ubica este elemento en el centro*/
+  width: 50%; /*Se modifica la anchura del elemento*/
+  margin-top: 6px; /*Margen superior*/
+  padding: 20px; /*espaciado interno*/
+  display: block; /*Se trata como un bloque*/
+  margin-left: auto; /*margen izquierdo*/
+  margin-right: auto; /*margen derecho*/
+  
     
 }
 

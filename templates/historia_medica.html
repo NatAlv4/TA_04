@@ -1,9 +1,13 @@
+<!--contenedor que abarca todo el contenido presentado en la historia medica-->
 <div class="container">
   <header class="header">
+    <!--titulo de nivel 1-->
     <h1 id="title" class="text-center">Información Médica </h1>
+    <!--parrafo cuya estilizacion determina el centrado de centrado del contenido-->
     <p id="description" class="description text-center">
       La información aquí registrada no la damos a terceros sin su consentimiento. Puede serle de gran ayuada en caso de alguna emergencia tener sus datos veridicos e importados en un código QR.
     </p>
+    <!--se invoca la hoja de estilos proveniente de la carpeta static-css-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='medica.css')}}">
   </header>
   <form id="survey-form" method="POST">
@@ -92,20 +96,26 @@
   </form>
 </div>
 
-<footer  style="width:100%; margin-left: 0px;"  >
 
+<!--Pie de de pagina ajustado a colores que se asimilen al fondo de pantalla exspuesto en la parte superior-->
+<footer  style="width:100%; margin-left: 0px;"  >
+  <!--capa que contiene el copyright con el color de fondo y letra determinado-->
   <div class="copyright" style="background-color: #0d47a1;">
        <div class="container-fluid" style="background-color: #4e64ba; color: #ffffff; text-align: center;">
          ©  Copyright: todos los derechos reservados
       </div>
+      <!--capa que contiene la informacion de los desarrolladores de a pagina con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #4e64ba; color: #ffffff; text-align: center;">
           desarrolladores: Natalia Andrea Álvarez Hoyos, Julián David Carrillo Reyes, Juan Jose Sanchez Mejia
       </div>
+      <!--capa que contiene la ubicación de desarrollo de la pagina con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #4e64ba; color: #ffffff; text-align: center;">
          Medellín - Colombia
       </div>
+      <!--capa que contiene la univesidad bajo la cual se desarrolla el proyecto con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #4e64ba; color: #ffffff; text-align: center;">
          universidad naconal de colombia
       </div>
   </div>
 </footer>
+<!--final del pie de pagina-->

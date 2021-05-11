@@ -1,8 +1,9 @@
+/*Estilización del cuerpo*/
 body{
-  background-image: url(https://wallpapercave.com/wp/wp6761080.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(https://wallpapercave.com/wp/wp6761080.jpg); /*imagen de fondo*/
+  background-size: cover; /*tamaño de la imagen de fondo, en este caso al mayor posible sin estirarla*/
+  background-repeat: no-repeat; /*no permite que la imagen se repita*/
+  background-position: center; /*se centra la imagen*/
 }
 
 .container{
@@ -16,4 +17,14 @@ body{
   margin: 0 auto;
 }
 
+/*estilizacion del contenedor de los posts*/
+.container section{
+  border: solid black; /*color del borde*/
+  border-width: auto; /*tamaño del borde*/
+}
 
+/*estilizacion de los titulos*/
+.container h3{
+  font-family: Baskerville;
+  font
+}
