@@ -1,5 +1,8 @@
+/*  */
+/* se hace uso del directorio google fonts para el tipo de letra */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
 
+/* se le da color al boton submit, y color al cuadro del formulario  */
 :root {
   --color-white: #f3f3f3;
   --color-darkblue: #1b1b32;
@@ -7,11 +10,14 @@
   --color-green: #37af65;
 }
 
+/* se usa pseudoselector que es decoracion, para dar el estilo box-sizing a todo el cuadro del formulario, al ir bajando por la pagina */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+/* estilos a la letra, tamaño, grosor, altura de casilla, color   */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -22,7 +28,7 @@ body {
   margin: 0;
 }
 
-/* fondo de pagina color */
+/* color  caracteristicas de la imagen de fondo, se le da tamaño al cuadro del formulario   */
 body::before {
   content: '';
   position: fixed;
@@ -42,12 +48,12 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
 }
-
+/* estilos al título */
 h1 {
   font-weight: 400;
   line-height: 1.2;
 }
-
+/* estilos al párrafo */
 p {
   font-size: 1.125rem;
 }
@@ -57,14 +63,14 @@ p {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-
+/* se usa flex para que la letra se estire y llene de mejor manera los campos, se le dan propiedades de tamaño y alineación */
 label {
   display: flex;
   align-items: center;
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
-
+/* própiedades a los elementos se usa inherit para que mantenga el estilo que ya se definió previamente  */
 input,
 button,
 select,
@@ -83,7 +89,7 @@ button {
   width: 100%;
   margin: 3.125rem auto 0 auto;
 }
-
+/*prpiedades de tamaño de ancho al recuadro de formulario*/
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -95,18 +101,18 @@ button {
     max-width: 720px;
   }
 }
-
+/* margen entre la descrpcion y el recuadro */
 .header {
   padding: 0 0.625rem;
   margin-bottom: 1.875rem;
 }
-
+/* estilo, tamaño, sombra de texto a la dexcripción */
 .description {
   font-style: italic;
   font-weight: 200;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
-
+/* margen, tamaño, y centrado de texto de la descripción*/
 .clue {
   margin-left: 0.25rem;
   font-size: 0.9rem;
@@ -117,14 +123,14 @@ button {
   text-align: center;
 }
 
-/* estilos al form */
+/* estilos a cada una de las preguntas del formulario, etiqueta form */
 
 form {
   background: var(--color-darkblue-alpha);
   padding: 2.5rem 0.625rem;
   border-radius: 0.25rem;
 }
-
+/*margen entre el recuadro y el espacio para la pregunta*/
 @media (min-width: 480px) {
   form {
     padding: 2.5rem;
@@ -135,7 +141,7 @@ form {
   margin: 0 auto 1.25rem auto;
   padding: 0.25rem;
 }
-
+/* se le da diseño a los bloques de preguntas, para que el tamaño rellene por completo la linea, se define color, espaciado, el tipo de borde*/
 .form-control {
   display: block;
   width: 100%;
@@ -148,13 +154,7 @@ form {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
-.form-control:focus {
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
+/*estilo a las ultimas dos preguntas que son para que el usuario ingrese texto, se define tamaño de bloque, espaciado, que complete la linea */
 .input-radio,
 .input-checkbox {
   display: inline-block;
@@ -169,7 +169,7 @@ form {
   padding: 0.625rem;
   resize: vertical;
 }
-
+/*finalmente el boton de envíar, tamaño que complete la linea, espaciado, color, propiedad cursor que se muestra sobre el elemento*/
 .submit-button {
   display: block;
   width: 100%;

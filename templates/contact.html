@@ -78,19 +78,22 @@
 <link rel="stylesheet" href="static/contact.css">
 </head>
 <body>
-  
-
-<form name="myform" action="" method="POST" onsubmit="return validForm()"> 
+<!--   -->
+<!-- inicia formulario se define metodo para que el usario ingrese datos  -->
+<form name="myform" action="" method="POST" > 
 <div class="contactform">
   <div style="text-align:center">
     <!--titulo de nivel -->
     <h1>Contactar los desarrolladores</h1>
     <!--parrafi-->
     <p>¿tienes algun comentario o sugerencia sobre el proyecto WHY?:) </p>
+    <!-- se crea contenedor  -->
+
   </div>
   <div class="row">
     <div class="column">
-      <form action="/action_page.php">
+       <!--  se usa label que indica elemento en interfaz de usuario, se define tipo de entrada y añaden condiciones a la entrada -->
+      <form>
         <label for="fname">Nombre</label>
         <input type="text" id="fname" name="name1" placeholder="Tu nombre.." required minlength="3" >
 

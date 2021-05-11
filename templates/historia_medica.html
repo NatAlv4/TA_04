@@ -10,6 +10,9 @@
     <!--se invoca la hoja de estilos proveniente de la carpeta static-css-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='medica.css')}}">
   </header>
+  <!--   -->
+  <!-- se crea cada uno de los contenedores, se usa Bootstrap Forms la esctructura form-group, en cada entrada se indica que es texto o numero, se imponene condiciones de dato requerido y el nombre para su almacenamiento en base de datos
+  -->
   <form id="survey-form" method="POST">
     <div class="form-group">
       <label id="name-label" for="name">Nombre completo</label>
@@ -38,6 +41,8 @@
         required
       />
     </div>
+    <!-- en este caso se usa la opcion de Bootstrap Form, una etiqueta select para que se desplieguen varias opciones
+  -->
     <div class="form-group">
       <p>Sexo biológico</p>
       <select id="dropdown" name="role" class="form-control" required>
