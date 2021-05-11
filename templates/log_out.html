@@ -3,11 +3,13 @@
 
 <head>
 	<meta charset="UTF-8">
+  <!--titulo de la pestaña dentro del navegador-->
 	<title> Log-Out | WHY </title>
 
 	<!--BOOTSTRAP 4 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	 crossorigin="anonymous">
+   <!--se importa la hoja de estilos la cual esta contendida en la carpeta de static-->
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 </head>
 
@@ -42,6 +44,7 @@
 
 <!--el container p-4 le dá a la página margenes-->
 <main class="container p-4">
+<!--la siguiente etiqueta se emplea para añadir el fondo de la pagina-->
 <style>
   body {
     background-image: url('https://wallpaperaccess.com/full/624124.jpg');
@@ -49,41 +52,55 @@
     background-attachment: fixed;
     background-size: 100% 100%;
   }
-  </style>
+</style>
 
+<!--Titulo de primer orden cuyas etiquetas le dan estilos de color, negrilla y centrado del texto-->
 <h1><center><p style="color: white;">&nbsp;</p><span style="color: #ffffff;"><strong>La sesón ha Culminado Exitosamente! </strong></span></center></h1>
 
+<!--espacio en blanco-->
 <p>&nbsp;</p>
 
+<!--parrafo-->
 <p> 
+  <!--dentro de la etiqueta parrafo insertamos imagen que estará alineada a la izquierda y cuya separacio el texto a la iquierda será de 30px-->
   <img src="https://image.freepik.com/foto-gratis/doctor-feliz-manos-pacientes-mayores_13339-107592.jpg" align="left" hspace="30" >
 
+  <!--espacio en blanco-->
   <p>&nbsp;</p>
 
+    <!--se estiliza el texto con tipo de fuente, tamaño y color, ademas con la etiqueta span el texto se alineara por lineas y no en bloques, permitiendo que eltexto se alinee a la derecga de la imagen-->
+  
     <font face="Arial"; size=5;>
       <span style="color: #ffffff; style= "text-align:justify">  Gracias por visitarnos y ser parte de esta grandiosa comunidad! esperamos con ansias tu regreso, recuerda seguir siempre las indicaciones de tu medico, seguir los protocolos de medicación lo mas juiciosamente posible, y recuerda que en caso de emergencias tu codigo QR siempre debera estar contigo!
       </span> 
     </font>
 </p>
 
+<!--doble espacio en blanco-->
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
+<!--Pie de de pagina ajustado a colores que se asimilen al fondo de pantalla exspuesto en la parte superior-->
 <footer  style="width:100%; margin-left: 0px;"  >
-
+  <!--capa que contiene el copyright con el color de fondo y letra determinado-->
   <div class="copyright" style="background-color: #0d47a1;">
       <div class="container-fluid" style="background-color: #28374f; color: #ffffff; text-align: center;">
          ©  Copyright: todos los derechos reservados
+      </div>
+      <!--capa que contiene la informacion de los desarrolladores de a pagina con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #28374f; color: #ffffff; text-align: center;">
           Desarrolladores: Natalia Andrea Álvarez Hoyos, Julián David Carrillo Reyes, Juan Jose Sanchez Mejia
       </div>
+      <!--capa que contiene la ubicación de desarrollo de la pagina con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #28374f; color: #ffffff; text-align: center;">
          Medellín - Colombia
       </div>
+      <!--capa que contiene la univesidad bajo la cual se desarrolla el proyecto con el color de fondo y letra determinado-->
       <div class="container-fluid" style="background-color: #28374f; color: #ffffff; text-align: center;">
          universidad naconal de colombia
       </div>
   </div>
 </footer>
+<!--final del pie de pagina-->
 
 </html>
