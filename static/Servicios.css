@@ -1,11 +1,10 @@
+/* estilo a la imagen de fondo, imagene estática, tamaño 100 para que complete la pagina, color e imagen de fondo */
 body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  z-index: -1;/* indica que el texto se muestre al frente, para que no sea tapado por los otros elementos de fondo*/
   background: var(--color-darkblue);
   background-image: linear-gradient(
       115deg,
@@ -17,14 +16,14 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
 }
-
+/*estilos a el titulo y parrafo, grueso, altura de casilla y alineación, eapciado de la letra */
 h1 {
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
   
 }
-
+*/
 p {
   font-weight: 400;
   line-height: 1.2;

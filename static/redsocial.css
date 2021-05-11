@@ -1,11 +1,4 @@
-body{
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: url(1.jpg)no-repeat;
-  background-size: cover;
-  font-family: "Roboto", sans-serif;
-}
+/* posicion fixed para indicar que el elemento no es estático, flex para que rellene por completo el recuadro en forma columna, en translate definimos cuanto se desplaza en el eje x o y */
 
 .social{
   position: fixed;
@@ -13,9 +6,10 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transform: translate(-290px, 0);
+  transform: translate(-250px, 0);
 }
 
+/* se le da la forma de bloque bordeada a los botónes, color, fuente de letra, margenes y tamaño*/
 .social a{
   color: #fff;
   background: rgba(0, 0, 0, 0.4);
@@ -31,18 +25,18 @@ body{
   transition: 1s;
   transition-property: transform;
 }
-
+/* se define cuanto espacio se desplaza eje x, y*/
 .social a:hover{
-  transform: translate(140px, 0);
+  transform: translate(100px, 0);
 }
-
+/*tamaño de letra de cada botón y espaciado */
 .social i{
   margin-left: 10px;
   font-size: 30px;
   width: 30px;
   height: 30px;
 }
-
+/* color a los iconos de FB y YT*/
 .social a:nth-child(1) i{
   color: #1DA0F0;
 }
@@ -50,14 +44,14 @@ body{
 .social a:nth-child(2) i{
   color: #F80000;
 }
-
+/* botón instagram*/
 .social a:nth-child(3) i{
   color: transparent;
   background-image: linear-gradient(45deg, #FFDF9E, #E56969, #8A49A1);
   -webkit-background-clip: text;
   font-weight: 600;
 }
-
+/*botón Twitter*/
 .social a:nth-child(4) i{
   color: #4ECCE8;
 }

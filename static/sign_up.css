@@ -1,12 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-}
-
+/* rectangulo de registro, tamaño, espaciado, espacido, contorno bordeado, fuente y color letra y se da un somnreado de fondo */
 .form-register {
   width: 400px;
   background: #24303c;
@@ -18,7 +10,7 @@ body {
   color: white;
   box-shadow: 7px 13px 37px #000;
 }
-
+/*margenes y letra entre el titulo h4 y los bloques*/
 .form-register h4 {
   font-size: 22px;
   margin-bottom: 20px;
@@ -34,7 +26,7 @@ body {
   font-size: 18 px; /*tamano de fuente*/
   border-radius: 20px; /*redondeo del borde*/
 }
-
+/*bloques de preguntas, ancho 100 para que rellene por completo la linea, color de fondo, espaciado, estilo de bloque redondeado, fuente y color de letra*/
 .controls {
   width: 100%;
   background: #24303c;
@@ -46,31 +38,11 @@ body {
   font-size: 18px;
   color: white;
 }
-
+/*tamaño,alineación fuente de letra al parrafo*/
 .form-register p {
   height: 40px;
   text-align: center;
   font-size: 18px;
   line-height: 40px;
-}
-
-.form-register a {
-  color: white;
-  text-decoration: none;
-}
-
-.form-register a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.form-register r {
-  width: 100%;
-  background: #1f53c5;
-  border: none;
-  padding: 12px;
-  color: white;
-  margin: 16px 0;
-  font-size: 16px;
 }
 
