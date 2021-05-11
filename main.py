@@ -132,7 +132,7 @@ def historia_medica():
         
         return redirect(url_for('servicios'))
   else:
-    return redirect(url_for('login'))
+    return ('No has iniciado sesion, intentalo de nuevo')
       
   return render_template("historia_medica.html")  
 

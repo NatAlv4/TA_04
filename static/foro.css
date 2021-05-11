@@ -40,3 +40,32 @@ body{
 .container p{
   font-size: 25px /*tamaño de la fuente*/
 }
+
+/*estilizacion de los elementos de entrada*/
+.container input, textarea{
+  margin-left: 20px; /*margen izquierda*/
+  width: 85%; /*porcentaje que abarca*/
+  margin-bottom: 20px; /*margen inferior*/
+  
+}
+
+/*estilizacion de los elementos de texto*/
+.container input [type="text"], textarea{
+  border: none; /*borde*/
+  border-bottom: 1px solid #000000; /*borde inferior*/
+  background: whitesmoke; /*color de fondo*/
+  outline: none; /*contorno*/
+  height: 40px; /*altura*/
+  color: #000000; /*color de la letra*/
+  font-size: 16px; /*tamano de la fuente*/
+}
+
+.container input[type="submit"]{
+  border: none; /*bordes*/
+  outline: none; /*contorno*/
+  height: 40 px; /*altura*/
+  background:  gray; /*color de fondo*/
+  color: #fff; /*color de letra*/
+  font-size: 18 px; /*tamano de fuente*/
+  border-radius: 20px; /*redondeo del borde*/
+}

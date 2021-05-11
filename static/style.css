@@ -90,6 +90,7 @@ body{
   color: #000000; /*color de la letra*/
 }
 
+/*estilizacion del header*/
 .header {
   margin: 50px; /*margen*/
   font-style: italic; /*estilo de la fuente: italica*/
@@ -97,10 +98,27 @@ body{
   border: 2px black ; /*borde*/
   border-style: double; /*estilo del borde*/
   text-align: center; /*texto centrado*/
-  padding: 10px;
+  padding: 10px; /*espaciado interno*/
 }
 
+/*estilizacion del link dentro el header*/
 .header a{
   margin-top: 2cm;
   color: whitesmoke;
+}
+
+/*estilizacion de los eventos*/
+.event {
+  border: solid black; /*color del borde*/
+  border-width: auto; /*tamaño del borde*/
+  font-family: Baskerville; /*Fuente*/
+  margin: 20px; /*margen*/
+}
+
+/*estilizacion de los titulos de los eventos*/
+.event h3{
+  font-weight: bold; /*Negrilla*/
+  font-size: 30px; /*tamaño de la fuente*/
+  border-bottom: black; /*Color del borde inferior*/
+  border-bottom-style: double; /*estilo del borde inferior*/
 }

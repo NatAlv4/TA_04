@@ -51,17 +51,19 @@
       <p>&nbsp;</p>
     </h4>
   </div>
+  <div class="calendar">
   <!--Se crea un for que recorre la tabla de eventos filtrada por email-->
   {%for evento in events%}
-  <div class="Calendar">
-    <!--Titulo del evento-->
-    <h3> {{evento[0]}} </h3>
-    <!--fecha del evento-->
-    <h4> {{evento[1]}} </h4>
-    <!--comentario-->
-    <h5> {{evento [3]}} </h5>
-  </div>  
+    <div class="event">
+      <!--Titulo del evento-->
+      <h3> {{evento[0]}} </h3>
+      <!--fecha del evento-->
+      <h4> {{evento[1]}} </h4>
+      <!--comentario-->
+      <h5> {{evento [3]}} </h5> 
+    </div>  
   {%endfor%}
+  
 
 
 </body>
