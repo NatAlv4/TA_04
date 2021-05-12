@@ -38,7 +38,7 @@
     </div>
     
     <div class="form-group">
-      <label id="name-label" for="number">Documento de Identidad</label>
+      <label id="name-label" for="number">Documento de Identidad(Ingrese unicamente los numeros, no se acpetan puntos ni comas)</label>
       <input
         type="number"
         name="ID"
@@ -81,7 +81,7 @@
   -->
     <div class="form-group">
       <p>Sexo biológico</p>
-      <select id="dropdown" name="role" class="form-control" required>
+      <select id="dropdown" name="sex" class="form-control" required>
         <option disabled selected value>Seleccione</option>
         <option value="Hombre">Hombre</option>
         <option value="Mujer">Mujer</option>
@@ -92,7 +92,7 @@
 
     <div class="form-group">
       <p>Tipo de sangre</p>
-      <select id="dropdown" name="Sangre" class="form-control" required>
+      <select id="dropdown" name="sangre" class="form-control" required>
         <option disabled selected value>Seleccione</option>
         <option value="O+">O+</option>
         <option value="O-">O-</option> 
@@ -127,9 +127,8 @@
      <div class="form-group">
       <p>¿Está usted tomando algún medicamento actualmente?</p>
       <textarea
-        id="comments"
         class="input-textarea"
-        name="comment"
+        name="medicamento"
         placeholder="Si su respuesta es afirmativa, enliste aquí el nombre del medicamento, la frecuecia con la que los consume"
         required
       ></textarea>
@@ -139,9 +138,8 @@
     <div class="form-group">
       <p>¿Tiene usted alergias?</p>
       <textarea
-        id="comments"
         class="input-textarea"
-        name="comment"
+        name="allergy"
         placeholder="Si su respuesta es afirmativa, enliste aquí a lo que es alergico"
         required
       ></textarea>

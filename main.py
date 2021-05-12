@@ -35,7 +35,7 @@ try:
   #Se crea la tabla de usuarios   
   c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
   #Tabla de historia medica
-  c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, edad TEXT, sexo TEXT NOT NULL, contacto TEXT NOT NULL, medicamento TEXT NOT NULL, adicional TEXT NOT NULL)')
+  c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, medicamento TEXT, alergia TEXT, adicional TEXT )')
   #Tabla de foro
   c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
   #Tabla del calendario
@@ -121,14 +121,19 @@ def historia_medica():
         con = sqlite3.connect('database.db')#base de datos para el alojamiento de archivos de usuario 
         c = con.cursor() #Se crea el cursor
         #Se obtienen los datos recuperados del formulario de sign up
-        nombre=request.form.get('name')
-        edad= request.form.get('edad')  
-        sexo = request.form.get('role')
-        contacto= request.form.get('contacto')
-        medicamento = request.form.get('comment')
-        adicional=request.form.get('adicional')
+        Nombre=request.form.get('name')
+        Apellido=request.form.get('last-name')
+        DocumentoIdentidad=request.form.get('ID')
+        Edad= request.form.get('edad')
+        EPS= request.form.get('EPS')  
+        Sexo = request.form.get('sex')
+        TipoSangre = request.form.get('sangre')
+        ContactoEmergencia= request.form.get('contacto')
+        Medicamentos = request.form.get('medicamento')
+        Alergias = request.form.get('allergy')
+        Adicional=request.form.get('adicional')
         #Se agregan los datos a la base de datos
-        c.execute('INSERT INTO medical(nombre, edad, sexo, contacto, medicamento, adicional) VALUES (?,?,?,?,?,?)', (nombre, edad,sexo, contacto, medicamento, adicional))
+        c.execute('INSERT INTO medical(nombre, apellidos, documento, edad, eps, sangre, sexo, contacto, medicamento, alergia, adicional) VALUES (?,?,?,?,?,?,?,?,?,?,?)', (Nombre, Apellido, DocumentoIdentidad, Edad, EPS, TipoSangre, Sexo, ContactoEmergencia, Medicamentos, Alergias, Adicional))
         con.commit()
         c.close()
         
