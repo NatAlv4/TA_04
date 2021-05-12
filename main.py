@@ -1,9 +1,11 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
 import sqlite3
 from datetime import datetime
 #se importa extensión Flask Mail
 from flask_mail import Mail, Message
+#se importa libreria para trabajar con codigo QR
+import qrcode
 
 
 app = Flask('app')
@@ -251,6 +253,26 @@ def contact():
      mail.send(msg)
      return render_template("contact.html", success=True)
   return render_template("contact.html")
+
+@app.route  ('/QRcode')
+def Qrcode():
+  #se crean las propiedades del codigo QR, con la clase QRCode
+  qr = qrcode.QRCode(
+  version = None, #Tamano del codifo qr, en este caso sera automatico
+  error_correction = qrcode.constants.ERROR_CORRECT_M, #Se crea el parametro para controlar el error, en este caso se controlaran los errores inferiores al 15%
+  box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
+  border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
+  )
+
+  #Se agrega la informacion 
+  qr.add_data('Hallo leute das ist ein test')
+  #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
+  qr.make(fit=True)
+
+  img = qr.make_image()
+  
+  return render_template("QR.html", imagen=img)
+
 
 
 app.run(host='0.0.0.0', port=8080, debug=True)
