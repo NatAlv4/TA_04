@@ -270,8 +270,11 @@ def Qrcode():
   qr.make(fit=True)
 
   img = qr.make_image()
-  
-  return render_template("QR.html", imagen=img)
+  f = open("static/output.png", "wb")
+  img.save(f)
+  f.close()
+    
+  return render_template("QR.html")
 
 
 
