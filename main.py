@@ -1,11 +1,13 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, make_response
 import sqlite3
 from datetime import datetime
 #se importa extensión Flask Mail
 from flask_mail import Mail, Message
 #se importa libreria para trabajar con codigo QR
 import qrcode
+#
+import pdfkit
 
 
 app = Flask('app')
@@ -35,7 +37,7 @@ try:
   #Se crea la tabla de usuarios   
   c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
   #Tabla de historia medica
-  c.execute('CREATE TABLE IF NOT EXISTS medical(nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, medicamento TEXT, alergia TEXT, adicional TEXT )')
+  c.execute('CREATE TABLE IF NOT EXISTS medical(email TEXT, nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, medicamento TEXT, alergia TEXT, adicional TEXT )')
   #Tabla de foro
   c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
   #Tabla del calendario
@@ -132,8 +134,9 @@ def historia_medica():
         Medicamentos = request.form.get('medicamento')
         Alergias = request.form.get('allergy')
         Adicional=request.form.get('adicional')
+        Email = session['email']
         #Se agregan los datos a la base de datos
-        c.execute('INSERT INTO medical(nombre, apellidos, documento, edad, eps, sangre, sexo, contacto, medicamento, alergia, adicional) VALUES (?,?,?,?,?,?,?,?,?,?,?)', (Nombre, Apellido, DocumentoIdentidad, Edad, EPS, TipoSangre, Sexo, ContactoEmergencia, Medicamentos, Alergias, Adicional))
+        c.execute('INSERT INTO medical(email,nombre, apellidos, documento, edad, eps, sangre, sexo, contacto, medicamento, alergia, adicional) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', (Email, Nombre, Apellido, DocumentoIdentidad, Edad, EPS, TipoSangre, Sexo, ContactoEmergencia, Medicamentos, Alergias, Adicional))
         con.commit()
         c.close()
         
@@ -259,18 +262,48 @@ def contact():
      return render_template("contact.html", success=True)
   return render_template("contact.html")
 
-@app.route  ('/QRcode')
+#Creacion de la ruta donde se crea el pdf
+@app.route('/pdf_template' )
+def pdf_template():
+  con = sqlite3.connect('database.db')
+  #Cursor
+  c = con.cursor()
+  #Se guarda el email de la sesion
+  email = session["email"]
+  c.execute('SELECT * FROM medical WHERE  email = ?', (email,))
+  #se guardan los eventos de la tabla en una tupla
+  datos = c.fetchall()
+  #Se cierra la base de datos
+  c.close()
+  #Se renderiza el html
+  rendered = render_template('pdf_template.html', data=datos)
+  #Se usa pdfkit, para convertir el html a pdf, False se usa ya que aun falta modificar algunos aspectos
+  pdf = pdfkit.from_string(rendered, False)
+
+  #Se crea una respuesta para el pdf
+  response = make_response(pdf)
+  #Se modifica el tipo de contenido, es decir, para que el navegador lo reciba como pdf
+  response.headers['Content-Type'] = 'application/pdf'
+  #En este caso se le dice al navegador como manejar el archivo, es decir que en este caso lo va a descargar
+  response.headers['Content-Disposition'] = 'attachment; HistoriaMedica.pdf'
+
+  return response
+  
+
+
+
+@app.route('/QRcode')
 def Qrcode():
   #se crean las propiedades del codigo QR, con la clase QRCode
   qr = qrcode.QRCode(
-  version = None, #Tamano del codifo qr, en este caso sera automatico
+  version = None, #Tamano del codigo qr, en este caso sera automatico
   error_correction = qrcode.constants.ERROR_CORRECT_M, #Se crea el parametro para controlar el error, en este caso se controlaran los errores inferiores al 15%
   box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
   border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
   )
 
   #Se agrega la informacion 
-  qr.add_data('Hallo leute das ist ein test')
+  qr.add_data('Hallo leute, das ist ein test')
   #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
   qr.make(fit=True)
 
@@ -278,9 +311,7 @@ def Qrcode():
   f = open("static/output.png", "wb")
   img.save(f)
   f.close()
+      
+  return render_template("QR.html")   
     
-  return render_template("QR.html")
-
-
-
 app.run(host='0.0.0.0', port=8080, debug=True)
