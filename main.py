@@ -285,7 +285,9 @@ def historia_pdf():
 def create():
    return render_pdf(url_for('pdf_historia.html', email = email))
   
-
+@app.route('/Guia')
+def Guia():
+  return render_template('Instructions.html')  
 
 @app.route('/QRcode')
 def Qrcode():
@@ -296,10 +298,9 @@ def Qrcode():
   box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
   border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
   )
-  email = session["email"]
-  url = redirect('create')
+  data = "https://TA04-1.ta04.repl.co/Guia"
   #Se agrega la informacion 
-  qr.add_data(url)
+  qr.add_data(data)
   #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
   qr.make(fit=True)
 
@@ -309,5 +310,15 @@ def Qrcode():
   f.close()
       
   return render_template("QR.html")   
+
+@app.route('/Ingreso_emergencias', methods = ('GET', 'POST'))
+def Ingreso_emergencias():
+  if request.method == 'POST':
+    documento = request.form.get('ID')
+    
+
+  return render_template ('Ingreso_emergencia.html')
+
+
     
 app.run(host='0.0.0.0', port=8080, debug=True)
