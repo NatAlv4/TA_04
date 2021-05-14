@@ -268,9 +268,9 @@ def historia_pdf():
   con = sqlite3.connect('database.db')
   #Cursor
   c = con.cursor()
-  #Se guarda el email de la sesion
-  email = session["email"]
-  c.execute('SELECT * FROM medical WHERE  email = ?', (email,))
+  #Se guarda el email de la sesion 
+  ID = session['ID']
+  c.execute('SELECT * FROM medical WHERE  documento = ?', (ID,))
   #se guardan los eventos de la tabla en una tupla
   datos = c.fetchall()
   #Se cierra la base de datos
@@ -314,8 +314,18 @@ def Qrcode():
 @app.route('/Ingreso_emergencias', methods = ('GET', 'POST'))
 def Ingreso_emergencias():
   if request.method == 'POST':
+    #conexión con la base de datos
+    con = sqlite3.connect('database.db')
+    #Creacion del cursor
+    c = con.cursor()
     documento = request.form.get('ID')
-    
+    #Se busca el Documento de identidad en la base de datos
+    c.execute('SELECT * FROM medical WHERE documento = ?', (documento,))
+    ID = c.fetchone()
+    session['ID']= ID
+    c.close()
+    if ID:
+      redirect(url_for('historia_pdf'))
 
   return render_template ('Ingreso_emergencia.html')
 
