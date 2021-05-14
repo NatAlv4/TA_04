@@ -275,11 +275,11 @@ def historia_pdf():
   datos = c.fetchall()
   #Se cierra la base de datos
   c.close()
-  return render_template("pdf_historia.html", data = datos)
+  #return render_template("pdf_historia.html", data = datos)
   #Se crea el render del html
-  #html = render_template("pdf_historia.html", data = datos)
+  html = render_template("pdf_historia.html", data = datos)
   #Se devuelve el 
-  #return render_pdf(HTML(string=html))
+  return render_pdf(HTML(string=html))
 
 @app.route('/pdf_<email>/')
 def create():
