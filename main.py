@@ -1,13 +1,13 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, make_response
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
 import sqlite3
 from datetime import datetime
 #se importa extensión Flask Mail
 from flask_mail import Mail, Message
 #se importa libreria para trabajar con codigo QR
 import qrcode
-#
-import pdfkit
+#Se importa con lo que se trabajara la conversion de pdf a html
+from flask_weasyprint import HTML, render_pdf
 
 
 app = Flask('app')
@@ -79,7 +79,7 @@ def login():
     if passw==password:      
       return redirect(url_for('servicios'))  
     else:
-      return redirect(url_for('Los datos ingresados no concuerdan, intentalo de nuevo'))
+      return ('Los datos ingresados no concuerdan, intentalo de nuevo')
     
     
   return render_template("login.html")
@@ -262,9 +262,9 @@ def contact():
      return render_template("contact.html", success=True)
   return render_template("contact.html")
 
-#Creacion de la ruta donde se crea el pdf
-@app.route('/pdf_template' )
-def pdf_template():
+#Creacion de la ruta donde se crea el html con la historia medica del usuario
+@app.route('/historia_medica.pdf' )
+def historia_pdf():
   con = sqlite3.connect('database.db')
   #Cursor
   c = con.cursor()
@@ -275,21 +275,16 @@ def pdf_template():
   datos = c.fetchall()
   #Se cierra la base de datos
   c.close()
-  #Se renderiza el html
-  rendered = render_template('pdf_template.html', data=datos)
-  #Se usa pdfkit, para convertir el html a pdf, False se usa ya que aun falta modificar algunos aspectos
-  pdf = pdfkit.from_string(rendered, False)
+  return render_template("pdf_historia.html", data = datos)
+  #Se crea el render del html
+  #html = render_template("pdf_historia.html", data = datos)
+  #Se devuelve el 
+  #return render_pdf(HTML(string=html))
 
-  #Se crea una respuesta para el pdf
-  response = make_response(pdf)
-  #Se modifica el tipo de contenido, es decir, para que el navegador lo reciba como pdf
-  response.headers['Content-Type'] = 'application/pdf'
-  #En este caso se le dice al navegador como manejar el archivo, es decir que en este caso lo va a descargar
-  response.headers['Content-Disposition'] = 'attachment; HistoriaMedica.pdf'
-
-  return response
+@app.route('/pdf_<email>/')
+def create():
+   return render_pdf(url_for('pdf_historia.html', email = email))
   
-
 
 
 @app.route('/QRcode')
@@ -301,9 +296,10 @@ def Qrcode():
   box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
   border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
   )
-
+  email = session["email"]
+  url = redirect('create')
   #Se agrega la informacion 
-  qr.add_data('Hallo leute, das ist ein test')
+  qr.add_data(url)
   #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
   qr.make(fit=True)
 

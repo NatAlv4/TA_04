@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia Medica </title>
+</head>
+<body>
+  {%for datos in data%}
+  <div class="Title">
+    <h1> Historia Médica de {{ datos[1] }} {{ datos[2] }}</h1>
+    <div class="Información personal">
+      <p class="Subtitle"> Apellido
+  </div>  
+  
+  <h2>{{ datos[1] }}</h2>
+  {%endfor%}
+
+
+</body>
+</html>
