@@ -1,6 +1,6 @@
 /*estilizacion de los contenedores de texto*/
 .container{
-  background-color: rgba(255,255,25,0.1); /*color de fondo, se usa rgba para controlar los colores rojo, verde, azul y el alpha, que es la opacidad*/
+  background-color: rgba(255, 255, 255, 0.1); /*color de fondo, se usa rgba para controlar los colores rojo, verde, azul y el alpha, que es la opacidad*/
   height:800 px;/*alto*/
 
   backdrop-filter: blur(2px); /*Permite aplicar efectos de detrás del elemento*/

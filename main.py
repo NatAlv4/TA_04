@@ -289,7 +289,7 @@ def create():
 def Guia():
   return render_template('Instructions.html')  
 
-@app.route('/QRcode')
+@app.route('/QR')
 def Qrcode():
   #se crean las propiedades del codigo QR, con la clase QRCode
   qr = qrcode.QRCode(
@@ -318,14 +318,16 @@ def Ingreso_emergencias():
     con = sqlite3.connect('database.db')
     #Creacion del cursor
     c = con.cursor()
-    documento = request.form.get('ID')
+    documento = request.form.get("ID")
     #Se busca el Documento de identidad en la base de datos
     c.execute('SELECT * FROM medical WHERE documento = ?', (documento,))
-    ID = c.fetchone()
+    ID = c.fetchone() [3] 
     session['ID']= ID
     c.close()
     if ID:
-      redirect(url_for('historia_pdf'))
+      return redirect(url_for('historia_pdf'))
+    else:
+      return ('error')  
 
   return render_template ('Ingreso_emergencia.html')
 

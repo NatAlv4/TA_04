@@ -60,7 +60,7 @@
   <div class="login-box">
     
     <h1> Inicio de sesion de emergencias </h1> <!--titulo-->
-    <form action ="" method="POST">
+    <form action ="{{ url_for('Ingreso_emergencias') }}" method="POST">
       <!--Documento de identidad-->
       <label for="email">Documento de Identidad</label><!--label-->
       <input type="text"  name="ID" type="ID" placeholder="Ingrese el documento de identidad"><!--campo para escribir el documento de identidad-->
