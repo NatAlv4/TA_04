@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+  <!--se invoca la hoja de estilos proveniente de la carpeta static-css-->
+  <link rel="stylesheet" href="static/A-I.css">
+
+<head>
+	<meta charset="UTF-8">
+  <!--titulo de la pestaña del navegador-->
+	<title> Mapa | WHY </title>
+
+	<!--BOOTSTRAP 4 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	 crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+
+<!--Botones redes sociales-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Social Buttons</title>
+    <link rel="stylesheet" href="static/redsocial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!--contenedor con los distintos botones-->
+    <div class="social">
+      <a href="https://www.facebook.com/WHY-104964775097761" target="null">Facebook <i class="fab fa-facebook"></i></a>
+      <a href="https://youtu.be/UlXwUW3MiO4" target="null">Youtube <i class="fab fa-youtube" ></i></a>
+      <a href="#"target="null">Instagram <i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/ProyectoWhy" target="null">Twitter <i class="fab fa-twitter"></i></a>
+    </div>
+    
+
+</body>
+<!--termina codigo botones redes sociales-->
+
+<body>
+		<!--Barra de navegación-->
+  
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #69BADD; border: 3px solid; color: black; "> <!--Color y estilo de la barra de navegación-->
+
+		<div class="container-fluid "> <!--Contenedor-->
+			<a class="navbar-brand " href="# ">
+				<h1><strong><span style="color: #000000; font-family: Arial"><form action="https://ta04-11.naah411.repl.co/">
+						<input type="submit" value= "W.H.Y 🪐" /></form> </strong></h1> <!--Titulo barra de navegacion-->
+			<button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarNavAltMarkup
+	 " aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup "><!--secciones de la pagina-->
+      <div class="navbar-nav ">
+        <a class="nav-link active" aria-current="page"  href="/ ">Inicio</a> 
+       <!--Indicador de pagina actual-->
+        <a class="nav-link " href="/about">Sobre Nosotros</a>
+        <a class="nav-link " href="/agenda"">Agenda</a>
+        <a class="nav-link " href="/foro">Foro</a>
+        <a class="nav-link " href="/Instructions ">Mapa</a>
+        <a class="nav-link " href="/QR">QR</a>
+        <a class="nav-link " href="/login">Ingresa</a>
+        <a class="nav-link " href="/contact ">Contáctanos</a>
+        </div>
+    </div>
+  </div>
+</nav>
+
+<!--espacio en blanco-->
+<p>&nbsp;</p>
+
+
+<body>
+  <!--creeamos el botón-->
+  <button onclick="findme()">Mostrar ubicación</button>
+  <!--El siguiente div es donde posteriormente se imprimirá el mapa-->
+  <div id="map">
+    
+    <!--el siguiente script nos permitira emplear el API de Google maps a partir de la API KEY asignada por google a nuestro proyecto-->
+    <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM" </script>
+
+    <script>
+      
+      //Obtenemos la latitud y longitud 
+      function loscalizacion(posicion){
+        var latitud = posicion.cords.latitud;
+        var longitud = posicion.cords.longitud;
+        
+        //Definimos la variable correpondiente al link en google maps
+        var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&size=600x300&markers=color:red%7C"+latitud+","+longitud+"&key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM";
+
+        //como salida mostraremos el mapa a partir de la link definido en ingURL
+        output.innerHTML ="<img src='"+imgURL+"'>";
+      
+      //en caso de cualquier error se define esta funcion para indicar a modo de mensaje el error
+      function error(){
+        output.innerHTML = "<P> No se Pudo Obtener su Ubicación </P>";
+      }
+
+      //a ala siguiente funcion le pasamos como paramentro las funciones posicion y error para que muetre como caso 1 la posicion en el mapa, o como caso 2 el mensaje de error
+      navigator.geolocation.getCurrentPosition(localizacion,error);
+
+      }
+
+    </script>
+
+  </div>
+</body>
