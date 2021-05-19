@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa | WHY</title>
+  <!--el siguiente script solicita a google maps el mapa dinamico en su version 3-->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v3"></script>
+</head>
+
+<body>
+  <h1>Mapa dinamico</h1>
+  <!--para que el mapa se muestre, este necesita tener aun formato de tamaño dado-->
+  <div id = "mapa" style="width: 700px; height:500px;">
+
+  </div>
+  <!--desde este script solicitaremos todo tipo de elementos o objetos provenientes de google.maps.(...)-->
+  <script tpe = "text/javascript">
+  //obtenemos el mapa
+  var divMapa = document.getElemetbyId('map');
+  //obtenemos las cooredenadas del ususario (definimos una funcion de error y una de exito)
+  navigator.geolocation.getcurrentposition( fn_ok, fn_error )
+  function fn_error(){ }
+  //la funcion de exito recive como respuesta la latitud y longitud del dispositivo 
+  function fn_ok (rta) {
+    var lat = rta.coords.latitude;
+    var lon = rta.coords.longitude;
+    //las variables anteriores se tienen que convertir en objetos de google para que el mapa las lea como coordenadas
+    var gLatLon = new google.maps.LatLng ( Lat, Lon);
+
+    //se define la configuracion del mapa, para que cuando se renderice se centre en la ubicacion del usuario con un zoom dado
+    var objConfig = {
+      zoom: 17,
+      center: gLatLon
+    }
+    //definimos donde se renderizará el mapa y que configuracion tendrá
+    var gMapa = new google.maps.Map( divMapa, objConfig);
+
+    //definimos el objeto de configuracion del marcador, definiendo su posicion y en que mapa se mostrará (en caso de que existan mas de un mapa)
+    var objConfigMarker = {
+      position:gLatLon,
+      animation: google.maps.animation.DROP,
+      draggable: True,
+      map: gMapa,
+      title: "su posicion actual es esta"
+    }
+    //Agregamos el marcador con un objeto de configuracion dado
+    var gMarker = new google.maps.Marker (objConfigMarker);
+
+    //el siguien elemento de google permite transformar direcciones en coordenadas para mostrarlas en el mapa 
+    var gCoder = new google.maps.Geocode( );
+    //indicamos la direccion a usar
+    var objInformacion = {
+      address: 'CL 44 # 49B-90'
+    }
+    //este elemento reccibe la direccion y da una funcion de respuesta
+    gCoder.geocode( objInformacion, fn_coder );
+    //funcion de respuesta que ofrece datos de posicionamiento
+    function fn_coder( datos ){
+      //objeto latitud, longitud de google
+      var coordenadas = datos[0].geometry.location;
+      //se define la configuracion del marcador de la direccion dada
+      var config = {
+        map = gMapa,
+        position: coordenadas,
+        titulo: "Hospital Marco fidel Suarez"
+      }
+      //creamos el marcador para la direccion dada
+      var gMarkerMF = new google.map.Marker( config )
+      //definimos el contenido de la ventana clickeable (info window)
+      var objHTML = {
+        content: '<div style="height: 150px; width: 300px"><h2>Hospital Marco Fidel suarez</<h2><p>ingresa a la <a href="https://www.hmfs.gov.co/">pagina oficial</a></p></div>'
+      }
+      //creamos el objeto de tipo info window (ventana)
+      var gIW = new google.maps.InfoWindow( objHTML );
+      //necesitamos definir la funcion de evento (la accion de respuesta frente el clickeo en el marcador), cuya funcion abrirá la ventana de Informacion 
+      google.maps.event.addListener( gMarkerMF, 'click', function(){
+        gIW.open( gMapa, gMarkerMF )
+      })
+    }
+  }
+  </script>
+</body>
+</html>

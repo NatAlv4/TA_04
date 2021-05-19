@@ -8,7 +8,7 @@ from flask_mail import Mail, Message
 import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
-#Se importa la libreria con la ques e trabajara la geolocalizacion
+#Se importa la libreria con la que se trabajara la geolocalizacion
 from flask_simple_geoip import SimpleGeoIP
 
 
