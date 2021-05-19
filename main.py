@@ -1,5 +1,5 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, abort
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, jsonify
 import sqlite3
 from datetime import datetime
 #se importa extensión Flask Mail
@@ -8,10 +8,13 @@ from flask_mail import Mail, Message
 import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
+#Se importa la libreria con la ques e trabajara la geolocalizacion
+from flask_simple_geoip import SimpleGeoIP
+
 
 
 app = Flask('app')
-#Creacion de base de datos y sus correspondientes base de datos
+
 app.secret_key = "hola123"
 #SMTP permite enviar correos, en este caso se usan los ajustes de GMAIL
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
@@ -29,6 +32,15 @@ app.config['MAIL_DEFAULT_SENDER'] = "elproyectowhy@gmail.com"
 mail=Mail(app)
 
 app.secret_key = "hola123"
+
+#Se configura el Key del api
+app.config.update(GEOIPIFY_API_KEY='at_xPFIsihACNy78ejopRHA8W2XcWFIJ')
+
+#Se inicia la extensión
+simple_geoip = SimpleGeoIP(app)
+
+
+#Creacion de base de datos y sus correspondientes base de datos
 try:
   #conexión de la base de datos
   con = sqlite3.connect('database.db')
@@ -331,9 +343,12 @@ def Ingreso_emergencias():
 
   return render_template ('Ingreso_emergencia.html')
 
-@app.route('/Mapa')
+@app.route('/mapa')
 def mapa():
-  return render_template('Mapa.html')
+  geoip_data = simple_geoip.get_geoip_data()
+
+  return jsonify(data=geoip_data)
+  #return render_template('Mapa.html')
 
 
     
