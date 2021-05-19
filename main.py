@@ -345,6 +345,7 @@ def Ingreso_emergencias():
 
 @app.route('/mapa')
 def mapa():
+  
   geoip_data = simple_geoip.get_geoip_data()
 
   return jsonify(data=geoip_data)
