@@ -84,8 +84,8 @@
       
       //Obtenemos la latitud y longitud 
       function loscalizacion(posicion){
-        var latitud = posicion.cords.latitud;
-        var longitud = posicion.cords.longitud;
+        var latitud = posicion.cords.latitude;
+        var longitud = posicion.cords.longitude;
         
         //Definimos la variable correpondiente al link en google maps
         var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&size=600x300&markers=color:red%7C"+latitud+","+longitud+"&key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM";

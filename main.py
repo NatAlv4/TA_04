@@ -1,5 +1,5 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, abort
 import sqlite3
 from datetime import datetime
 #se importa extensión Flask Mail
@@ -330,6 +330,10 @@ def Ingreso_emergencias():
       return ('error')  
 
   return render_template ('Ingreso_emergencia.html')
+
+@app.route('/Mapa')
+def mapa():
+  return render_template('Mapa.html')
 
 
     
