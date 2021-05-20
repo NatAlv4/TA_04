@@ -14,8 +14,7 @@ from flask_googlemaps import GoogleMaps, Map, icons
 
 
 app = Flask('app')
-GoogleMaps(app)
-FlaskDynaconf(app)
+
 
 app.secret_key = "hola123"
 #SMTP permite enviar correos, en este caso se usan los ajustes de GMAIL
