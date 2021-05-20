@@ -344,7 +344,7 @@ def Ingreso_emergencias():
 
   return render_template ('Ingreso_emergencia.html')
 
-@app.route('/mapa', methods = ('GET', 'POST'))
+@app.route('/mapa')
 def mapa():
 
   return render_template('Mapa.html')

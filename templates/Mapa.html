@@ -72,12 +72,11 @@
 
 
 <body>
-  <form action="/mapa" method="post">
+
     <!--creeamos el botón-->
-    <button onclick="findme()">Mostrar ubicación</button>
+    <button onclick="findMe()">Mostrar ubicación</button>
     <!--El siguiente div es donde posteriormente se imprimirá el mapa-->
-    <div id="map"></div>
-  </form>  
+    <div id="map"></div> 
     <!--el siguiente script nos permitira emplear el API de Google maps a partir de la API KEY asignada por google a nuestro proyecto-->
     <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM" </script>
 
@@ -96,12 +95,13 @@
       
         //Obtenemos la latitud y longitud 
         function localizacion(posicion){
-          var latitud = posicion.cords.latitude;
-          var longitud = posicion.cords.longitude;
+          var latitud = posicion.coords.latitude;
+          var longitud = posicion.coords.longitude;
           
           //Definimos la variable correpondiente al link en google maps
           var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&size=600x300&markers=color:red%7C"+latitud+","+longitud+"&key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM";
 
+          console.log(imgURL);
           //como salida mostraremos el mapa a partir del link definido en ingURL
           output.innerHTML ="<img src='"+imgURL+"'>";
         }   
