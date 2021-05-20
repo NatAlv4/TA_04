@@ -37,8 +37,8 @@ app.secret_key = "hola123"
 #Se configura la key, en este caso es el API
 app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
 #Se inicializa la extensión de google maps 
-#GoogleMaps(app)
-GoogleMaps(app, key="AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q")
+GoogleMaps(app)
+#GoogleMaps(app, key="AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q")
 
 #Creacion de base de datos y sus correspondientes base de datos
 try:
@@ -344,24 +344,10 @@ def Ingreso_emergencias():
 
   return render_template ('Ingreso_emergencia.html')
 
-@app.route('/mapa')
-#Se prueba si funciona, con un ejemplo de la pagina 
-def map_created_in_view():
+@app.route('/mapa', methods = ('GET', 'POST'))
+def mapa():
 
-    gmap = Map(
-        identifier="gmap",
-        varname="gmap",
-        lat=37.4419,
-        lng=-122.1419,
-        markers={
-            icons.dots.green: [(37.4419, -122.1419), (37.4500, -122.1350)],
-            icons.dots.blue: [(37.4300, -122.1400, "Hello World")],
-        },
-        style="height:400px;width:600px;margin:0;",
-    )
-
-    return render_template("map.html", gmap=gmap)
-  #return render_template('map.html')
+  return render_template('Mapa.html')
 
 
     
