@@ -8,9 +8,8 @@ from flask_mail import Mail, Message
 import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
-#Se importa la libreria con la que se trabajara la geolocalizacion
-from flask_simple_geoip import SimpleGeoIP
-
+#Se importa la librería para trabajar con mapas.
+from flask_googlemaps import GoogleMaps, Map
 
 
 app = Flask('app')
@@ -33,12 +32,10 @@ mail=Mail(app)
 
 app.secret_key = "hola123"
 
-#Se configura el Key del api
-app.config.update(GEOIPIFY_API_KEY='at_xPFIsihACNy78ejopRHA8W2XcWFIJ')
-
-#Se inicia la extensión
-simple_geoip = SimpleGeoIP(app)
-
+#Se configura la key, en este caso es el API
+app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
+#Se inicializa la extensión de google maps 
+GoogleMaps(app)
 
 #Creacion de base de datos y sus correspondientes base de datos
 try:
@@ -64,6 +61,7 @@ except error:
 finally:
 
     con.close()
+    
 
 #creación de rutas
 @app.route('/')
@@ -345,11 +343,17 @@ def Ingreso_emergencias():
 
 @app.route('/mapa')
 def mapa():
-  
-  geoip_data = simple_geoip.get_geoip_data()
-
-  return jsonify(data=geoip_data)
-  #return render_template('Mapa.html')
+  mymap = Map(
+                  identifier="view-side",
+                  varname="mymap",
+                  style="height:720px;width:1100px;margin:0;", # hardcoded!
+                  lat=37.4419, # hardcoded!
+                  lng=-122.1419, # hardcoded!
+                  zoom=15,
+                  markers=[(37.4419, -122.1419)] # hardcoded!
+              )
+  return render_template('map.html', mymap=mymap)
+  #return render_template('map.html')
 
 
     
