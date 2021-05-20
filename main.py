@@ -10,7 +10,7 @@ import qrcode
 from flask_weasyprint import HTML, render_pdf
 #Se importa la librería para trabajar con mapas.
 from flask_googlemaps import GoogleMaps, Map, icons
-from dynaconf import FlaskDynaconf
+
 
 
 app = Flask('app')
@@ -36,10 +36,10 @@ mail=Mail(app)
 app.secret_key = "hola123"
 
 #Se configura la key, en este caso es el API
-#app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
+app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
 #Se inicializa la extensión de google maps 
 #GoogleMaps(app)
-#GoogleMaps(app, key="AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q")
+GoogleMaps(app, key="AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q")
 
 #Creacion de base de datos y sus correspondientes base de datos
 try:
@@ -346,6 +346,7 @@ def Ingreso_emergencias():
   return render_template ('Ingreso_emergencia.html')
 
 @app.route('/mapa')
+#Se prueba si funciona, con un ejemplo de la pagina 
 def map_created_in_view():
 
     gmap = Map(
