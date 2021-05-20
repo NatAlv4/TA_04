@@ -9,10 +9,13 @@ import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
 #Se importa la librería para trabajar con mapas.
-from flask_googlemaps import GoogleMaps, Map
+from flask_googlemaps import GoogleMaps, Map, icons
+from dynaconf import FlaskDynaconf
 
 
 app = Flask('app')
+GoogleMaps(app)
+FlaskDynaconf(app)
 
 app.secret_key = "hola123"
 #SMTP permite enviar correos, en este caso se usan los ajustes de GMAIL
@@ -33,9 +36,10 @@ mail=Mail(app)
 app.secret_key = "hola123"
 
 #Se configura la key, en este caso es el API
-app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
+#app.config['GOOGLEMAPS_KEY'] = "AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q"
 #Se inicializa la extensión de google maps 
-GoogleMaps(app)
+#GoogleMaps(app)
+#GoogleMaps(app, key="AIzaSyDd-0YkNsX-h2GNu3NjSCh33EMOPOL1H7Q")
 
 #Creacion de base de datos y sus correspondientes base de datos
 try:
@@ -342,17 +346,21 @@ def Ingreso_emergencias():
   return render_template ('Ingreso_emergencia.html')
 
 @app.route('/mapa')
-def mapa():
-  mymap = Map(
-                  identifier="view-side",
-                  varname="mymap",
-                  style="height:720px;width:1100px;margin:0;", # hardcoded!
-                  lat=37.4419, # hardcoded!
-                  lng=-122.1419, # hardcoded!
-                  zoom=15,
-                  markers=[(37.4419, -122.1419)] # hardcoded!
-              )
-  return render_template('map.html', mymap=mymap)
+def map_created_in_view():
+
+    gmap = Map(
+        identifier="gmap",
+        varname="gmap",
+        lat=37.4419,
+        lng=-122.1419,
+        markers={
+            icons.dots.green: [(37.4419, -122.1419), (37.4500, -122.1350)],
+            icons.dots.blue: [(37.4300, -122.1400, "Hello World")],
+        },
+        style="height:400px;width:600px;margin:0;",
+    )
+
+    return render_template("map.html", gmap=gmap)
   #return render_template('map.html')
 
 
