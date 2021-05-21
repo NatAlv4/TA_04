@@ -8,12 +8,16 @@ from flask_mail import Mail, Message
 import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
-
+from flask_googlemaps import GoogleMaps, Map
 
 
 
 app = Flask('app')
 
+#Se configura la key con la API
+app.config['GOOGLEMAPS_KEY'] = "AIzaSyAquFnVgbPea0yqbQzUjs-UU4W6vYKVsO8"
+#Se inicia la extension
+GoogleMaps(app)
 
 app.secret_key = "hola123"
 #SMTP permite enviar correos, en este caso se usan los ajustes de GMAIL
@@ -338,6 +342,7 @@ def Ingreso_emergencias():
 
 @app.route('/mapa')
 def mapa():
+  
   return render_template('map.html')
 
 @app.route('/map')

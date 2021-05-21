@@ -75,6 +75,7 @@
         });
       }
 
+
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(
@@ -83,6 +84,8 @@
             : "Error: Your browser doesn't support geolocation."
         );
         infoWindow.open(map);
+
+
       }
     </script>
   </head>
@@ -94,5 +97,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw7arZRF10hcNGXUOFiWEpl_TaxCUgIpc&callback=initMap&libraries=&v=weekly"
       async
     ></script>
+
+
   </body>
 </html>
