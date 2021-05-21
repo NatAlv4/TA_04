@@ -76,9 +76,9 @@
     <!--creeamos el botón-->
     <button onclick="findMe()">Mostrar ubicación</button>
     <!--El siguiente div es donde posteriormente se imprimirá el mapa-->
-    <div id="map"></div> 
+    <div id="map" style = "width: 700px; height:500px";></div> 
     <!--el siguiente script nos permitira emplear el API de Google maps a partir de la API KEY asignada por google a nuestro proyecto-->
-    <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM" </script>
+    <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAquFnVgbPea0yqbQzUjs-UU4W6vYKVsO8" </script>
 
     <script>
       //Creamos la funcion
@@ -99,7 +99,7 @@
           var longitud = posicion.coords.longitude;
           
           //Definimos la variable correpondiente al link en google maps
-          var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&size=600x300&markers=color:red%7C"+latitud+","+longitud+"&key=AIzaSyCoqG88kq_18n4ZRrqdZ4WxxqczhhR1WiM";
+          var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitud+","+longitud+"&size=600x300&markers=color:red%7C"+latitud+","+longitud+"&key=AIzaSyAquFnVgbPea0yqbQzUjs-UU4W6vYKVsO8";
 
           console.log(imgURL);
           //como salida mostraremos el mapa a partir del link definido en ingURL
