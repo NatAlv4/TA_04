@@ -78,10 +78,11 @@
     <!--El siguiente div es donde posteriormente se imprimirá el mapa-->
     <div id="map" style = "width: 700px; height:500px";></div> 
     <!--el siguiente script nos permitira emplear el API de Google maps a partir de la API KEY asignada por google a nuestro proyecto-->
-    <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAquFnVgbPea0yqbQzUjs-UU4W6vYKVsO8" </script>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <script>
-      
+
       //Creamos la funcion
       function findMe(){
 
@@ -106,6 +107,11 @@
           //como salida mostraremos el mapa a partir del link definido en ingURL
           output.innerHTML ="<img src='"+imgURL+"'>";
         }   
+        //function initMap() {
+        //map = new google.maps.Map(document.getElementById("map"), {
+          //center: { latituf, longitud },
+          //zoom: 8,
+        //});
         //en caso de cualquier error se define esta funcion para indicar a modo de mensaje el error
         function error(){
           output.innerHTML = "<P> No se Pudo Obtener su Ubicación </P>";
@@ -118,7 +124,10 @@
 
     </script>
 
-  </div>
-
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAquFnVgbPea0yqbQzUjs-UU4W6vYKVsO8&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    
 </body>
 </html>
