@@ -340,6 +340,9 @@ def Ingreso_emergencias():
 def mapa():
   return render_template('map.html')
 
+@app.route('/map')
+def mapa2():
+  return render_template('map2.html')
 
     
 app.run(host='0.0.0.0', port=8080, debug=True)
