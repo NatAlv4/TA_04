@@ -343,7 +343,7 @@ def Ingreso_emergencias():
 @app.route('/mapa')
 def mapa():
   
-  return render_template('map.html')
+  return render_template('Mapa.html')
 
 @app.route('/map')
 def mapa2():
