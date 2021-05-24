@@ -1,0 +1,58 @@
+/*Estilización del cuerpo*/
+body{
+  background-image: url(https://wallpapercave.com/wp/wp6761080.jpg); /*imagen de fondo*/
+  background-size: cover; /*tamaño de la imagen de fondo, en este caso al mayor posible sin estirarla*/
+  background-repeat: no-repeat; /*no permite que la imagen se repita*/
+  background-position: center; /*se centra la imagen*/
+}
+
+.codigo{
+  background-color: rgba(255, 255, 255, 0.1); /*color de fondo, se usa rgba para controlar los colores rojo, verde, azul y el alpha, que es la opacidad*/
+  height:800 px;/*alto*/
+
+  backdrop-filter: blur(2px); /*Permite aplicar efectos de detrás del elemento*/
+  border: solid 1px rgba(255,255,255, 05); /*se modifica el borde del contenedor*/
+  border-radius: 5px; /*Para redondear el borde*/
+  width: 50%; /*Se modifica la anchura del elemento*/
+  margin: 25px, 25px; /*margen*/
+  padding: none;
+  justify-content: center;
+}
+
+.c1{
+  background-color: rgba(0, 217, 255, 0.432); /*color de fondo, se usa rgba para controlar los colores rojo, verde, azul y el alpha, que es la opacidad*/
+  height:200 px;/*alto*/
+
+  backdrop-filter: blur(2px); /*Permite aplicar efectos de detrás del elemento*/
+  border: solid 1px rgba(255,255,255, 05); /*se modifica el borde del contenedor*/
+  border-radius: 5px; /*Para redondear el borde*/
+  width: 50%; /*Se modifica la anchura del elemento*/
+  margin: 25px, 25px; /*margen*/
+  justify-content: center
+}
+
+.p{
+  text-align: center; /* texto centrado */
+  font-weight: bold; /* texto en negrilla */
+  color: white; /* color de la letra */
+}
+
+.imagenes{
+background-color: rgba(255, 255, 255, 0.1); /*color de fondo, se usa rgba para controlar los colores rojo, verde, azul y el alpha, que es la opacidad*/
+  height:200 px;/*alto*/
+
+  backdrop-filter: blur(2px); /*Permite aplicar efectos de detrás del elemento*/
+  border: solid 1px rgba(255,255,255, 05); /*se modifica el borde del contenedor*/
+  border-radius: 5px; /*Para redondear el borde*/
+  width: 50%; /*Se modifica la anchura del elemento*/
+  margin: 25px, 25px; /*margen*/
+  display: inline-block;
+}
+
+.img1{
+  
+}
+
+img2{
+  
+}

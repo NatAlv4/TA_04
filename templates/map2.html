@@ -10,14 +10,14 @@
         height: 100%;
       }
 
-      /* 100 para que el mapa se muestre en toda la ventana. */
+      /* 100 para que el mapa se muestre en toda la ventana, se define margenes de la ventana */
       html,
       body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-
+      /* estilos al botón de localizar */
       .custom-map-control-button {
         background-color: #fff;
         border: 0;
@@ -35,14 +35,18 @@
       }
     </style>
     <script>
-     
+      /* se trabaja en javascript con el uso de Google maps API*/
+
       let map, infoWindow;
 
       function initMap() {
+        /* se define variable mapa, se establece una zona del mapa entrada  */
+
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat:  6.230833, lng: -75.590553  },
-          zoom: 6,
+          zoom: 14,
         });
+         /*varible para define el boton localizar  */
         infoWindow = new google.maps.InfoWindow();
         const locationButton = document.createElement("button");
         locationButton.textContent = "Localizar";
@@ -51,7 +55,7 @@
           locationButton
         );
         locationButton.addEventListener("click", () => {
-          // se usa HTMl localizacion
+          // se usa  HTMl localizacion
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (position) => {

@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR </title>
-</head>
-<body>
-  <img src="{{url_for('static', filename='output.png')}}">
-</body>
+
+  <!--se invoca la hoja de estilos proveniente de la carpeta static-css-->
+  <link rel="stylesheet" href="static/QR.css">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR </title>
+  </head>
+
+  <!--Botones redes sociales-->
+
+  <head>
+	  <meta charset="utf-8">
+	  <title>Social Buttons</title>
+	  <link rel="stylesheet" href="static/redsocial.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13. 0/css/all.min.css">
+  </head>
+
+  <body>
+
+	<!--contenedor con los distintos botones-->
+
+	<div class="social">
+		<a href="https://www.facebook.com/WHY-104964775097761" target="null">Facebook <i class="fab fa-facebook"></i></a>
+      <a href="https://youtu.be/UlXwUW3MiO4" target="null">Youtube <i class="fab fa-youtube" ></i></a>
+      <a href="#"target="null">Instagram <i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/ProyectoWhy" target="null">Twitter <i class="fab fa-twitter"></i></a>
+    </div>
+
+  </body>
+  <!--termina codigo botones redes sociales-->
+
+  <body>
+		<!--Barra de navegación-->
+  
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #69BADD; border: 3px solid; color: black; "> <!--Color y estilo de la barra de navegación-->
+
+      <div class="container-fluid "> <!--Contenedor-->
+          <a class="navbar-brand " href="# ">
+
+            <!--Titulo barra de navegacion-->
+            <h1>
+              <strong>
+                <span style="color: #000000; font-family: Arial"><form action="/"><input type="submit" value= "W.H.Y 🪐" /></form>
+              </strong>
+            </h1> 
+
+          <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup " aria-expanded="false " aria-label="Toggle navigation ">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup "><!--secciones de la pagina-->
+          <div class="navbar-nav ">
+            <a class="nav-link active" aria-current="page"  href="/ ">Inicio</a> 
+            <!--Indicador de pagina actual-->
+            <a class="nav-link " href="/about">Sobre Nosotros</a>
+            <a class="nav-link " href="/agenda"">Agenda</a>
+            <a class="nav-link " href="/foro">Foro</a>
+            <a class="nav-link " href="/Instructions ">Mapa</a>
+            <a class="nav-link " href="/QR">QR</a>
+            <a class="nav-link " href="/login">Ingresa</a>
+            <a class="nav-link " href="/contact ">Contáctanos</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+
+  <!--contendor translucido que contien el codigo QR y toda su unformación sobre su debido uso-->
+  <div class="codigo">
+    
+    <!-- Codigo QR -->
+    <body>
+      <img src="{{url_for('static', filename='output.png')}}">
+    </body>
+
+    <!-- Segundo contenedor contenido dentro del primer contenedor, el cual contiene las recomendaciones de uso -->
+    <div class="c1">
+      <p> Imprime este codigo QR y llevalo siempre contigo, te recomendamos imprimirlo en sobre un llavero que que siempre cargues contigo, o mejor aun impremelo sobre una manilla de identificación, la cual en su respaldo tendrá tu numero de identificación a modo de ID para acceder en la pagina a la informacion de emergencia; a continuación te mostramos dos ejemplos de esto... </p>
+    </div>
+
+    <!-- tercer contendor tambien contenido dentro del primero, el cual contien las imagenes adjuntas -->
+    <div class="imagenes">
+
+      <!--imagen 1-->
+      <div class="img1"> 
+        <img src="https://img.bestdealplus.com/ae04/kf/H92e4e516c0aa40858a64faf1e372466c9.jpg" width="200px" height="200px"> 
+      </div>
+      <!--imagen 2-->
+      <div class="img2"> 
+        <img src="https://i.pinimg.com/originals/d6/36/bb/d636bb879da708a443b8409f34d616b8.jpg" width="200px" height="200px"> 
+      </div>
+
+    </div>
+
+  </div>
+
 </html>
