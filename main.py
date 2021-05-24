@@ -1,7 +1,7 @@
 #se agrego flask
 from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
 import sqlite3
-from datetime import datetime
+import datetime as dt
 #se importa extensión Flask Mail
 from flask_mail import Mail, Message
 #se importa libreria para trabajar con codigo QR
@@ -44,14 +44,15 @@ try:
   #Tabla de historia medica
   c.execute('CREATE TABLE IF NOT EXISTS medical(email TEXT, nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, medicamento TEXT, alergia TEXT, adicional TEXT )')
   #Tabla de foro
-  c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT)')
+  c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT, fecha timestamp )')
   #Tabla del calendario
   c.execute('CREATE TABLE IF NOT EXISTS eventos(titulo TEXT, fecha TEXT, email TEXT, comentario TEXT)')
   con.commit()
   c.close()
 
+
   
-except error:
+except sqlite3.Error as error:
 
     print(error)
 finally:
@@ -168,6 +169,7 @@ def foro():
   c.execute('SELECT * FROM  foro')
   posts = c.fetchall()
   c.close()
+  print(posts)
   
   #posts=posts es para pasar todos los posts
   return render_template("foro.html", posts=posts) 
@@ -188,9 +190,10 @@ def crear_post():
   c = con.cursor()
   titulo = request.form.get("titulo")
   texto = request.form.get("texto")
+  fecha = dt.datetime.now()
   
 
-  c.execute('INSERT INTO foro(titulo, texto) VALUES(?,?)', (titulo, texto))
+  c.execute('INSERT INTO foro(titulo, texto, fecha) VALUES(?,?,?)', (titulo, texto, fecha))
   con.commit()
   c.close()
   return  redirect(url_for('foro'))
