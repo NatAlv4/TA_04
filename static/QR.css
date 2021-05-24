@@ -12,7 +12,7 @@ body{
   backdrop-filter: blur(2px); /*Permite aplicar efectos de detrás del elemento*/
   border: solid 1px rgba(255,255,255, 05); /*se modifica el borde del contenedor*/
   border-radius: 5px; /*Para redondear el borde*/
-  width: 50%; /*Se modifica la anchura del elemento*/
+  width: 100%; /*Se modifica la anchura del elemento*/
   margin: 25px, 25px; /*margen*/
   padding: none;
   justify-content: center;
