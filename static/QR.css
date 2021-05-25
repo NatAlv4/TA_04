@@ -13,8 +13,9 @@ body{
   border: solid 1px rgba(255,255,255, 05); /*se modifica el borde del contenedor*/
   border-radius: 5px; /*Para redondear el borde*/
   width: 100%; /*Se modifica la anchura del elemento*/
-  margin: 25px, 25px; /*margen*/
-  padding: none;
+  margin: auto; /*margen*/
+  display: flex; /*Se usa flaxbox para centrar de forma inteligente*/
+  padding: auto;
   justify-content: center;
   z-index: 1;
 }

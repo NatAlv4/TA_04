@@ -5,7 +5,8 @@ body{
       background-attachment: fixed;
       background-size: 125% 100%;
     }
-}
+  
+
 .caja{
   font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; /*Tipo de fuente*/
   color: #000000; /*Color del texto*/
@@ -121,4 +122,9 @@ body{
   font-size: 30px; /*tamaño de la fuente*/
   border-bottom: black; /*Color del borde inferior*/
   border-bottom-style: double; /*estilo del borde inferior*/
+}
+
+.general{
+  margin: 20px;
+  margin-left: 60px;
 }

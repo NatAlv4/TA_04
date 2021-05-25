@@ -169,7 +169,6 @@ def foro():
   c.execute('SELECT * FROM  foro')
   posts = c.fetchall()
   c.close()
-  print(posts)
   
   #posts=posts es para pasar todos los posts
   return render_template("foro.html", posts=posts) 
@@ -331,6 +330,7 @@ def Ingreso_emergencias():
     #Se busca el Documento de identidad en la base de datos
     c.execute('SELECT * FROM medical WHERE documento = ?', (documento,))
     ID = c.fetchone() [3] 
+    print(ID)
     session['ID']= ID
     c.close()
     if ID:
