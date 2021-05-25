@@ -91,8 +91,9 @@ def login():
     
   return render_template("login.html")
 
-@app.route('/log_out')
+@app.route('/log_out', methods = ('GET', 'POST'))
 def log_out():
+  session.pop("email")
   return render_template("log_out.html")
   
 
@@ -345,6 +346,7 @@ def Ingreso_emergencias():
 @app.route('/mapa')
 def mapa2():
   return render_template('map2.html')
+
 
     
 app.run(host='0.0.0.0', port=8080, debug=True)
