@@ -42,7 +42,7 @@ try:
   #Se crea la tabla de usuarios   
   c.execute('CREATE TABLE IF NOT EXISTS users(nombre TEXT NOT NULL, apellido TEXT, email TEXT NOT NULL, password TEXT NOT NULL)')
   #Tabla de historia medica
-  c.execute('CREATE TABLE IF NOT EXISTS medical(email TEXT, nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, medicamento TEXT, alergia TEXT, adicional TEXT )')
+  c.execute('CREATE TABLE IF NOT EXISTS medical(email TEXT, nombre TEXT NOT NULL, apellidos TEXT NOT NULL , documento INTEGER, edad TEXT, nacimiento TEXT, eps INTEGER,sangre TEXT, sexo TEXT , contacto TEXT NOT NULL, enfermedad TEXT, medicamento TEXT, alergia TEXT, habitos TEXT, adicional TEXT )')
   #Tabla de foro
   c.execute('CREATE TABLE IF NOT EXISTS foro(titulo TEXT NOT NULL, texto TEXT, nombre TEXT, fecha timestamp )')
   #Tabla del calendario
@@ -134,16 +134,19 @@ def historia_medica():
         Apellido=request.form.get('last-name')
         DocumentoIdentidad=request.form.get('ID')
         Edad= request.form.get('edad')
+        Fecha = request.form.get('datebirth')
         EPS= request.form.get('EPS')  
         Sexo = request.form.get('sex')
         TipoSangre = request.form.get('sangre')
         ContactoEmergencia= request.form.get('contacto')
+        Enfermedad = request.form.get('enfermedad')
         Medicamentos = request.form.get('medicamento')
         Alergias = request.form.get('allergy')
+        Habitos = request.form.get('habit')
         Adicional=request.form.get('adicional')
         Email = session['email']
         #Se agregan los datos a la base de datos
-        c.execute('INSERT INTO medical(email,nombre, apellidos, documento, edad, eps, sangre, sexo, contacto, medicamento, alergia, adicional) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', (Email, Nombre, Apellido, DocumentoIdentidad, Edad, EPS, TipoSangre, Sexo, ContactoEmergencia, Medicamentos, Alergias, Adicional))
+        c.execute('INSERT INTO medical(email,nombre, apellidos, documento, edad, nacimiento, eps, sangre, sexo, contacto,enfermedad, medicamento, alergia, habitos, adicional) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (Email, Nombre, Apellido, DocumentoIdentidad, Edad, Fecha, EPS, TipoSangre, Sexo, ContactoEmergencia, Enfermedad, Medicamentos, Alergias, Habitos,Adicional))
         con.commit()
         c.close()
         
@@ -330,7 +333,6 @@ def Ingreso_emergencias():
     #Se busca el Documento de identidad en la base de datos
     c.execute('SELECT * FROM medical WHERE documento = ?', (documento,))
     ID = c.fetchone() [3] 
-    print(ID)
     session['ID']= ID
     c.close()
     if ID:
