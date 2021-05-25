@@ -91,10 +91,13 @@ def login():
     
   return render_template("login.html")
 
-@app.route('/log_out', methods = ('GET', 'POST'))
+#Ruta para cerrar sesión
+@app.route('/log_out')
 def log_out():
+  #Cuando se entre a esta página, con el session.pop se borrará el elemento email de la sesión, que fue la unica informacion guardada en el servidor al iniciar sesion.
   session.pop("email")
   return render_template("log_out.html")
+
   
 
 @app.route('/sign_up', methods = ('GET', 'POST'))
@@ -159,7 +162,10 @@ def historia_medica():
 
 @app.route('/servicios')
 def servicios():
-  return render_template("servicios.html")
+  if  "email" in session:
+    return render_template("servicios.html")
+  else:  
+    return ('No has iniciado sesion, intentalo de nuevo') 
 
 #Ruta base del foro
 @app.route('/foro')
