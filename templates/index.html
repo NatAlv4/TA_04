@@ -101,6 +101,81 @@
  </body>
 </div>
 
+<!--inicia slider para frases -->
+
+<!--se hace uso de la etiqueta blockquote
+para Crear citas en bloque, adentro se agrega otro contenedor con la imagen que aparece a la izquierda-->
+
+<link rel="stylesheet" href="static/slider.css">
+<div class="author-quote-wrap">
+	<input class="toggle-quote" type="radio" id="AQ-1" name="quote" checked>
+	<div class="author-quote">
+		<div class="pull-left author-photo photo-a animated bounceInLeft">
+			<div class="navigate">
+				<label class="label left" for="AQ-5">&nbsp;</label>
+				<label class="label right" for="AQ-2">&nbsp;</label>
+			</div>
+		</div>
+    <!--se dá un buen aspecto visual con implementando etiqueta pull quote, que permite que las comillas sobresalgan en la imagen -->
+		<div class="pull-right quote-content">
+			<div class="clearfix animated zoomIn"></div>
+			<div class="quote-text animated rotateInDownRight">El cáncer<br>es una palabra,  <br> no una sentencia.  </div>
+			<div class="quote-author animated lightSpeedIn">(John Diamond)</div>
+		</div>
+	</div>
+<!--se repite para la frase 2 -->
+<!--a cada input se añade la clase el tipo y el distinto id para dar estilos luego en css -->
+	<input class="toggle-quote" type="radio" id="AQ-2" name="quote">
+	<div class="author-quote">
+		<div class="pull-left author-photo photo-b animated bounceInLeft">
+			<div class="navigate">
+				<label class="label left" for="AQ-1">&nbsp;</label>
+				<label class="label right" for="AQ-3">&nbsp;</label>
+			</div>
+		</div>
+		<div class="pull-right quote-content">
+			<div class="clearfix animated zoomIn"></div>
+			<div class="quote-text animated zoomInDown">Hoy<br>es un buen<br>día</div>
+			<div class="quote-author animated lightSpeedIn"></div>
+		</div>
+	</div>
+<!--se repite para la frase 3 -->
+
+	<input class="toggle-quote" type="radio" id="AQ-3" name="quote">
+	<div class="author-quote">
+		<div class="pull-left author-photo photo-c animated bounceInLeft">
+			<div class="navigate">
+				<label class="label left" for="AQ-2">&nbsp;</label>
+				<label class="label right" for="AQ-4">&nbsp;</label>
+			</div>
+		</div>
+		<div class="pull-right quote-content">
+			<div class="clearfix animated zoomIn"></div>
+			<div class="quote-text animated bounceInRight">otra <br>frase</div>
+			<div class="quote-author animated lightSpeedIn">autor</div>
+		</div>
+	</div>
+  <!--por ultimo se añade una 4 frase más-->
+
+	<input class="toggle-quote" type="radio" id="AQ-4" name="quote">
+	<div class="author-quote">
+		<div class="pull-left author-photo photo-d animated bounceInLeft">
+			<div class="navigate">
+				<label class="label left" for="AQ-3">&nbsp;</label>
+				
+			</div>
+		</div>
+		<div class="pull-right quote-content">
+			<div class="clearfix animated zoomIn"></div>
+			<div class="quote-text animated lightSpeedIn">frase</div>
+			<div class="quote-author animated lightSpeedIn"></div>
+		</div>
+	</div>
+
+</div>
+
+
+
 <!--primer contenedor translucido cuyo estilo se encuentra en la hoja de estilos invocada previamente-->
 <div class = 'container'>
   <!--dentro de la etiqueta style implementamos el fondo de pantalla-->

@@ -1,0 +1,164 @@
+/*margenes y tipo de letra*/
+body{
+	margin:0;
+	font:300 18px/18px Roboto, sans-serif;
+}
+/*se usa elemento after before, el cual llamaremos en linas mas adelante para modificar los */
+
+*,:after,:before{box-sizing:border-box}
+/*con el float posicionamos la imagen y cuadro de texto*/
+.pull-left{float:left}
+.pull-right{float:right}
+/*con la opcion display logramos ver lo que el elemento before y after modifican*/
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+/*posicionamos la imagen y definimos un valor fijo*/
+.author-quote-wrap .author-quote,
+.author-quote-wrap .author-photo:before{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+}
+/*propiedades para el marco del slider, color deletra, fondo, tamaño,  */
+
+.author-quote-wrap{
+	color:#fff;
+	width:100%;
+	overflow:hidden;/*para que el recuadro de texto  se ajuste verticalmente dentro del área de padding. */
+	max-width:560px;
+	min-height:390px;
+	margin:50px auto 0;
+	background:#8ecdfa;
+	position:relative;
+	box-shadow:0 16px 28px 0 rgba(0,0,0,.22),0 25px 55px 0 rgba(0,0,0,.21);
+}
+/*es necesario que no se muestre, ya que el wrap corta las palabras en el texto, entonces se le asigna valor none */
+
+.author-quote-wrap .author-quote{
+	display:none;
+}
+.author-quote-wrap .toggle-quote{
+	display:none;
+}
+.author-quote-wrap .toggle-quote:checked + .author-quote{
+	display:block;
+}
+.author-quote-wrap .author-quote a{
+	color:inherit;
+	text-decoration:none;
+}
+/*estilo para imagen se define 100 para que ocupe todo el recuadro de la izquierda y relative para que no sea la misma en cada diapositiva, se define que el fondo cubra toda la imagen*/
+.author-quote-wrap .author-photo,
+.author-quote-wrap .quote-content{
+	height:100%;
+	position:relative;
+}
+.author-quote-wrap .author-photo{
+	width:140px;
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	
+}
+/*link a imagen de cada uno de los sliders */
+.author-quote-wrap .author-photo.photo-a{
+	background-image:url(https://d3jh33bzyw1wep.cloudfront.net/s3/W1siZiIsIjIwMTgvMTEvMjcvMTUvNDQvMTcvMTMwL2hvcGUtaXMtYS1sZWFybmVkLXNraWxsLmpwZyJdLFsicCIsInRodW1iIiwiNzUweDQ1MF4iXV0);
+}
+.author-quote-wrap .author-photo.photo-b{
+	background-image:url(https://cdn.images.express.co.uk/img/dynamic/130/590x/secondary/Longest-Day-2019-1923662.jpg?r=1561098491277);
+}
+.author-quote-wrap .author-photo.photo-c{
+	background-image:url();
+}
+.author-quote-wrap .author-photo.photo-d{
+	background-image:url();
+}
+
+/*los botones de nevegacion, margenes, posicion y con z index lo superponemos a los demas objetos */
+.author-quote-wrap .author-photo .navigate{
+	left:15px;
+	z-index:10;
+	right:15px;
+	bottom:15px;
+	position:absolute;
+	text-align:center;
+}
+.author-quote-wrap .author-photo .navigate .label{
+	width:15px;
+	height:30px;
+	cursor:pointer;
+	position:relative;
+	display:inline-block;
+}
+/*posicion para cada boton */
+.author-quote-wrap .author-photo .navigate .label.left{
+	left:-30px;
+}
+.author-quote-wrap .author-photo .navigate .label.right{
+	right:-30px;
+}
+.author-quote-wrap .author-photo .navigate .label.disabled{
+	cursor:not-allowed;
+}
+/*dimension y color de cada flecha de navegacion y posicon fija */
+
+.author-quote-wrap .author-photo .navigate .label:before,
+.author-quote-wrap .author-photo .navigate .label:after{
+	content:'';
+	height:2px;
+	width:15px;
+	background:#ccc;
+	position:absolute;
+}
+/*posicion, orientacion de las flechas para navegar entre sliders  */
+
+.author-quote-wrap .author-photo .navigate .label:before{
+	top:60%;
+}
+.author-quote-wrap .author-photo .navigate .label:after{
+	bottom:62%;
+}
+.author-quote-wrap .author-photo .navigate .label.left:before,
+.author-quote-wrap .author-photo .navigate .label.right:after{
+	transform:rotate(45deg);
+}
+.author-quote-wrap .author-photo .navigate .label.right:before,
+.author-quote-wrap .author-photo .navigate .label.left:after{
+	transform:rotate(-45deg);
+}
+.author-quote-wrap .author-photo .navigate .label.left:before,
+.author-quote-wrap .author-photo .navigate .label.left:after{
+	left:0;
+}
+.author-quote-wrap .author-photo .navigate .label.right:before,
+.author-quote-wrap .author-photo .navigate .label.right:after{
+	right:0;
+}
+
+/*margenes y se usa funcion calc, el valor en el cal es usado como valor para el tamaño de ancho */
+.author-quote-wrap .quote-content{
+	padding:15px;
+	width:calc(560px - 140px);
+}
+/*  */
+.quote-content .quote-text,
+.quote-content .quote-author{
+	text-transform:uppercase;/*letra mayuscula para la frase y autor  */
+}
+/*Tamaño de letra, ancho altura en casilla */
+
+.quote-content .quote-text{
+	font-size:48px;
+	font-weight:900;
+	line-height:55px;
+}
+/*texto para el autor, se define tamaño de letra, posicion fija en la parte inferior */
+
+.quote-content .quote-author{
+	bottom:15px;
+	font-size:14px;
+	font-weight:500;
+	position:absolute;
+}
