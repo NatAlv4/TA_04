@@ -1,0 +1,11 @@
+#
+# El objetivo del archivo es instalar todas las librerias #necesarias, en este caso para instalar 
+# agilmente aquellas que Replit no almacena
+#
+#    ejecutar archivo desde consola con:
+
+#   pip install -r requirements.txt
+
+flask_mail
+qrcode
+flask_weasyprint

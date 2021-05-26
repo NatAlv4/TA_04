@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<div>
 	<!--Barra de navegación-->
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #69BADD; border: 3px solid; color: black;">
 		<!--Color y estilo de la barra de navegación-->
@@ -44,8 +44,38 @@
       </div>
     </div>
   </nav>
+</div>
+
+<!--contador de visitas-->
+
+<div >
+  
+ <p><b> por estar aquí, con tigo ya hemos recivido</p>
+ <h1 id="count">0</h1>
+ <p>visitas</p>
+ <!--se trabaja con una APi de javascript llamada CountAPI
+ , se define id count -->
+
+<script>
+ const countEl = document.getElementById('count');
+
+ updateVisitCount();
+//las credenciales se crean desde la pagina web de la API, en la cual solo basta definir nombre, contraseña y numero desde el cual cominza el conteo
+ function updateVisitCount() {
+  	fetch('https://api.countapi.xyz/update/proyectowhy/hola123/?amount=1')
+	 .then(res => res.json())
+	 .then(res => {
+		countEl.innerHTML = res.value;
+	 })
+ }
+
+</script>
+
+</div>
+
 
 <!-- se añade el Fondo de pantalla a partir de la funcion Background donde la imagen se se carga apartir de un url y as caracteristicas de esta se modifican a partir de los valores asignados en background-repeat (repeticion de la imagen segun el tamaño oringinal de la misma),background-attachment(controla si la imagen se mueve o no, al hacer scroll), background-size (tamaño de la imagen) -->
+
 
   <style>
   body {
