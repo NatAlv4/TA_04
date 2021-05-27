@@ -70,10 +70,10 @@ body{
 	background-image:url(https://cdn.images.express.co.uk/img/dynamic/130/590x/secondary/Longest-Day-2019-1923662.jpg?r=1561098491277);
 }
 .author-quote-wrap .author-photo.photo-c{
-	background-image:url();
+	background-image:url(https://cdn.pixabay.com/photo/2020/06/13/14/44/sun-5294496_960_720.jpg);
 }
 .author-quote-wrap .author-photo.photo-d{
-	background-image:url();
+	background-image:url(https://cdn.pixabay.com/photo/2017/03/15/17/22/brain-2146817_960_720.png);
 }
 
 /*los botones de nevegacion, margenes, posicion y con z index lo superponemos a los demas objetos */
