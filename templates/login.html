@@ -46,7 +46,21 @@
   </nav>
 </div>
 
+<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre la validez de los datos-->
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+    {{ message }}
+    </div>
+    
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
 
 <!--contador de visitas-->
 
@@ -109,6 +123,7 @@
     </form>  
     
   </div>  
+
 </body>
 
 </html>

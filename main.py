@@ -8,7 +8,7 @@ from flask_mail import Mail, Message
 import qrcode
 #Se importa con lo que se trabajara la conversion de pdf a html
 from flask_weasyprint import HTML, render_pdf
-
+from flask import flash
 
 
 
@@ -83,10 +83,12 @@ def login():
     c.execute('SELECT * FROM users WHERE email = ?', (email,))
     passw = c.fetchone()[-1]
     c.close()
-    if passw==password:      
+    fail_message='contraseña incorrecta'
+    if passw == password:      
       return redirect(url_for('servicios'))  
     else:
-      return ('Los datos ingresados no concuerdan, intentalo de nuevo')
+      flash(fail_message)
+    
     
     
   return render_template("login.html")
