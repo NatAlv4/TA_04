@@ -96,9 +96,12 @@ def login():
 #Ruta para cerrar sesión
 @app.route('/log_out')
 def log_out():
-  #Cuando se entre a esta página, con el session.pop se borrará el elemento email de la sesión, que fue la unica informacion guardada en el servidor al iniciar sesion.
-  session.pop("email")
-  return render_template("log_out.html")
+  if  "email" in session:
+    #Cuando se entre a esta página, con el session.pop se borrará el elemento email de la sesión, que fue la unica informacion guardada en el servidor al iniciar sesion.
+    session.pop("email")
+  else:
+    flash('Para cerrar sesión primero debes de tener sesión iniciada')  
+  return render_template("log_out.html")  
 
   
 
