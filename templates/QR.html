@@ -87,6 +87,18 @@
     <!-- Segundo contenedor contenido dentro del primer contenedor, el cual contiene las recomendaciones de uso -->
     <div class="c1">
       <p> Imprime este codigo QR y llevalo siempre contigo, te recomendamos imprimirlo en sobre un llavero que que siempre cargues contigo, o mejor aun impremelo sobre una manilla de identificación, la cual en su respaldo tendrá tu numero de identificación a modo de ID para acceder en la pagina a la informacion de emergencia; a continuación te mostramos dos ejemplos de esto... </p>
+        <!--Botón para imprimit--> 
+
+        <!--ubicación de botón, se usa javascript para la función window.print() que imprime toda la pantalla  --> 
+      <td align="left" valign="top"><a href="javascript:window.print();">
+      <!--link a imagen de botón-->
+        <img src="https://img.icons8.com/ios/452/print--v1.png" width="100" height="100" alt="Print" style="display:block;" border="0" /></a>
+      </td>
+
+      <!--contenedor de linea con la accion de imprimir definida -->
+        <span class="print-button__content  js__action--print" title="Imprimir">
+          <h5> Imprimir </h5>
+        </span>
     </div>
 
     <!-- tercer contendor tambien contenido dentro del primero, el cual contien las imagenes adjuntas -->
