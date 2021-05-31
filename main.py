@@ -99,9 +99,11 @@ def log_out():
   if  "email" in session:
     #Cuando se entre a esta página, con el session.pop se borrará el elemento email de la sesión, que fue la unica informacion guardada en el servidor al iniciar sesion.
     session.pop("email")
+    render=("log_out.html")
   else:
-    flash('Para cerrar sesión primero debes de tener sesión iniciada')  
-  return render_template("log_out.html")  
+    flash('Para cerrar sesión primero debes de tener sesión iniciada')
+    render=("index.html")
+  return render_template(render)  
 
   
 

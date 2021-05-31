@@ -41,22 +41,6 @@
     </div>
   </div>
 </nav>
-<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre la validez de los datos-->
-
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-    <div class="alert alert-primary" role="alert">
-    {{ message }}
-    </div>
-    
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-{% block body %}{% endblock %}
-<!--Mensaje alerta con javascript-->
 
 <script>
 window.onload=function(){alert('te esperamos pronto');}

@@ -99,6 +99,23 @@
 
  </body>
 </div>
+<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre errores-->
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+    {{ message }}
+    </div>
+    
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+<!--Mensaje alerta con javascript-->
+
 
 <!--inicia slider para frases -->
 
