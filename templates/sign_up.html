@@ -52,6 +52,22 @@
       </div>
     </div>
   </nav>
+  
+  <!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre la validez de los datos-->
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+    {{ message }}
+    </div>
+    
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
 
 <!-- se añade el Fondo de pantalla a partir de la funcion Background donde la imagen se se carga apartir de un url y as caracteristicas de esta se modifican a partir de los valores asignados en background-repeat (repeticion de la imagen segun el tamaño oringinal de la misma),background-attachment(controla si la imagen se mueve o no, al hacer scroll), background-size (tamaño de la imagen) -->
 

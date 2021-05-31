@@ -118,16 +118,19 @@ def sign_up():
     apellido = request.form.get('apellido')
     email= request.form.get('correo')
     password = request.form.get('password')
-    data = c.execute('SELECT * FROM users WHERE email = ?', (email,))
+    c.execute('SELECT * FROM users WHERE email = ?', (email,))
+    data = c.fetchone()
     c.close()
-    if data==email:
+    if data:
+      flash ("Ya existe una cuenta con este correo, vuelva a intentarlo")
       return redirect(url_for('sign_up'))
     else:
       c = con.cursor()
       c.execute('INSERT INTO users(nombre, apellido, email, password) VALUES (?,?,?,?)', (nombre, apellido,email, password))
       con.commit()
       c.close()
-      return redirect(url_for('index'))
+      flash ("Cuenta creada correctamente, inice sesión")
+      return redirect(url_for('login'))
   
   return render_template("sign_up.html")     
 ''''
