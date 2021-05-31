@@ -60,7 +60,6 @@
         <a class="nav-link " href="/foro">Foro</a>
         <a class="nav-link " href="/mapa ">Mapa</a>
         <a class="nav-link " href="/QR">QR</a>
-        <a class="nav-link " href="/login">Ingresa</a>
         <a class="nav-link " href="/contact ">Contáctanos</a>
         <a class="nav-link " href="log_out ">Cerrar sesión</a> 
       </div>
@@ -99,7 +98,7 @@
 
  </body>
 </div>
-<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre errores-->
+<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre la validez de los datos-->
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -114,7 +113,6 @@
   {% endif %}
 {% endwith %}
 {% block body %}{% endblock %}
-<!--Mensaje alerta con javascript-->
 
 
 <!--inicia slider para frases -->

@@ -59,7 +59,6 @@
         <a class="nav-link " href="/foro  ">Foro</a>
         <a class="nav-link " href="/mapa ">Mapa</a>
         <a class="nav-link " href="/QR">QR</a>
-        <a class="nav-link " href="/login ">Ingresa</a>
         <a class="nav-link " href="/contact ">Contáctanos</a>
         <a class="nav-link " href="log_out ">Cerrar sesión</a>
       
@@ -70,6 +69,22 @@
 
 <!--espaciador que separa barra de navegacion con contenido-->
 <p>&nbsp;</p>
+
+<!--Opcion flash de Flask con bootstrap alert para mostrar mensajes sobre la validez de los datos-->
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+    {{ message }}
+    </div>
+    
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
 
 <!--Fondo de pantalla-->
 <style>

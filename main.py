@@ -1,5 +1,5 @@
 #se agrego flask
-from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, send_file, request,redirect, url_for, session, send_from_directory, Markup
 import sqlite3
 import datetime as dt
 #se importa extensión Flask Mail
@@ -63,11 +63,17 @@ finally:
 #creación de rutas
 @app.route('/')
 def index():
- return render_template ("index.html")
+  if  "email" not in session:
+    #se crea un markup, para agregar un link en el mensaje que se flashea
+    flash(Markup('No ha iniciado sesión <a href="/login" class="alert-link">INICIE SESION</a>'))
+  return render_template ("index.html")
 
 
 @app.route('/about')
 def about():
+  if  "email" not in session:
+    #se crea un markup, para agregar un link en el mensaje que se flashea
+    flash(Markup('No ha iniciado sesión <a href="/login" class="alert-link">INICIE SESION</a>'))
   return render_template("about.html")
 
 @app.route('/login', methods = ('GET', 'POST'))
@@ -166,7 +172,8 @@ def historia_medica():
         
         return redirect(url_for('servicios'))
   else:
-    return ('No has iniciado sesion, intentalo de nuevo')
+    flash('No has iniciado sesion, intentalo de nuevo')
+    return redirect(url_for('index'))
       
   return render_template("historia_medica.html")  
 
@@ -175,7 +182,8 @@ def servicios():
   if  "email" in session:
     return render_template("servicios.html")
   else:  
-    return ('No has iniciado sesion, intentalo de nuevo') 
+    flash('No has iniciado sesion, intentalo de nuevo')
+    return redirect(url_for('index'))
 
 #Ruta base del foro
 @app.route('/foro')
@@ -199,7 +207,8 @@ def agregar_entrada():
   if  "email" in session: #Se verifica que se haya iniciado sesion, para poder acceder a la historia medica
     return render_template("agregar_entrada.html")
   else:
-    return ('No has iniciado sesion, intentalo de nuevo')  
+    flash('No has iniciado sesion, intentalo de nuevo')
+    return redirect(url_for('index')) 
 
 @app.route('/crear', methods = ('GET', 'POST'))
 def crear_post():  
@@ -217,9 +226,6 @@ def crear_post():
   c.close()
   return  redirect(url_for('foro'))
 
-@app.route('/calendar')
-def calendar():  
-  return render_template("calendar.html")
 
 @app.route('/agenda')
 def agenda():
@@ -238,8 +244,9 @@ def agenda():
     c.close()
     return render_template("agenda.html", events=events)  
   else:  
-    #Si no se ha iniciado sesion, se redirige a la pagina de iniciar sesion
-    return redirect ('login')  
+    flash('No has iniciado sesion, intentalo de nuevo')
+    return redirect(url_for('index')) 
+
 
 #ruta para agregar evento
 @app.route('/agregar_evento')
@@ -270,7 +277,9 @@ def crear_evento():
     c.close()
     return redirect ('agenda')
   else:  
-    return redirect ('login')  
+    flash('No has iniciado sesion, intentalo de nuevo')
+    return redirect(url_for('index')) 
+
 
 
   
