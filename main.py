@@ -308,10 +308,6 @@ def historia_pdf():
   html = render_template("pdf_historia.html", data = datos)
   #Se devuelve el 
   return render_pdf(HTML(string=html))
-
-@app.route('/pdf_<email>/')
-def create():
-   return render_pdf(url_for('pdf_historia.html', email = email))
   
 @app.route('/Guia')
 def Guia():
@@ -319,26 +315,31 @@ def Guia():
 
 @app.route('/QR')
 def Qrcode():
-  #se crean las propiedades del codigo QR, con la clase QRCode
-  qr = qrcode.QRCode(
-  version = None, #Tamano del codigo qr, en este caso sera automatico
-  error_correction = qrcode.constants.ERROR_CORRECT_M, #Se crea el parametro para controlar el error, en este caso se controlaran los errores inferiores al 15%
-  box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
-  border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
-  )
-  data = "https://TA04-1.ta04.repl.co/Guia"
-  #Se agrega la informacion 
-  qr.add_data(data)
-  #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
-  qr.make(fit=True)
+  if "email " in session:
+    #se crean las propiedades del codigo QR, con la clase QRCode
+    qr = qrcode.QRCode(
+    version = None, #Tamano del codigo qr, en este caso sera automatico
+    error_correction = qrcode.constants.ERROR_CORRECT_M, #Se crea el parametro para controlar el error, en este caso se controlaran los errores inferiores al 15%
+    box_size = 10, #Este parametro es para controlar cuantos pixeles tiene cada "caja" del qr
+    border =4,  #Este parametro controla la cantidad de pixeles que debe de tener el borde del QR
+    )
+    data = "https://TA04-1.ta04.repl.co/Guia"
+    #Se agrega la informacion 
+    qr.add_data(data)
+    #se crea el qr, se dedebidobe de usar el fit=True, debido en un inicio se dijo que el tamano seria automatico 
+    qr.make(fit=True)
 
-  img = qr.make_image()
-  f = open("static/output.png", "wb")
-  img.save(f)
-  f.close()
-      
-  return render_template("QR.html")   
-
+    img = qr.make_image()
+    f = open("static/output.png", "wb")
+    img.save(f)
+    f.close()
+        
+    template = "QR.html"
+  else:    
+    flash( "Para acceder al codigo Qr, debes iniciar sesion")
+    template = "index.html"
+  return render_template(template)  
+  
 @app.route('/Ingreso_emergencias', methods = ('GET', 'POST'))
 def Ingreso_emergencias():
   if request.method == 'POST':
