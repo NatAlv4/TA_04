@@ -109,11 +109,10 @@ def log_out():
   if  "email" in session:
     #Cuando se entre a esta página, con el session.pop se borrará el elemento email de la sesión, que fue la unica informacion guardada en el servidor al iniciar sesion.
     session.pop("email")
-    render=("log_out.html")
+    return render_template("log_out.html")
   else:
     flash('Para cerrar sesión primero debes de tener sesión iniciada')
-    render=("login.html")
-  return render_template(render)  
+    return redirect(url_for('login'))
 
   
 
@@ -347,11 +346,12 @@ def Qrcode():
     img.save(f)
     f.close()
         
-    template = "QR.html"
+    return render_template("QR.html")
   else:    
     flash( "Para acceder al codigo Qr, debes iniciar sesion")
-    template = "login.html"
-  return render_template(template)  
+
+    return redirect(url_for('login'))
+  
   
 @app.route('/Ingreso_emergencias', methods = ('GET', 'POST'))
 def Ingreso_emergencias():
