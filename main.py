@@ -87,13 +87,18 @@ def login():
     session["email"] = email #Se guarda el email en la sesion
     password = request.form.get('password')
     c.execute('SELECT * FROM users WHERE email = ?', (email,))
-    passw = c.fetchone()[-1]
+    data = c.fetchone()
+    print(data)
     c.close()
-    fail_message='contraseña incorrecta'
-    if passw == password:      
-      return redirect(url_for('servicios'))  
+    if data:
+      passw = data[-1]
+      fail_message='contraseña incorrecta'
+      if passw == password:      
+        return redirect(url_for('servicios'))  
+      else:
+        flash(fail_message)
     else:
-      flash(fail_message)
+      flash(Markup('No existe una cuenta con este correo, por favor <a href="/sign_up" class="alert-link">cree una cuenta</a>'))     
     
     
     
