@@ -88,7 +88,6 @@ def login():
     password = request.form.get('password')
     c.execute('SELECT * FROM users WHERE email = ?', (email,))
     data = c.fetchone()
-    print(data)
     c.close()
     if data:
       passw = data[-1]
@@ -113,7 +112,7 @@ def log_out():
     render=("log_out.html")
   else:
     flash('Para cerrar sesión primero debes de tener sesión iniciada')
-    render=("index.html")
+    render=("login.html")
   return render_template(render)  
 
   
@@ -178,7 +177,7 @@ def historia_medica():
         return redirect(url_for('servicios'))
   else:
     flash('No has iniciado sesion, intentalo de nuevo')
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
       
   return render_template("historia_medica.html")  
 
@@ -188,7 +187,7 @@ def servicios():
     return render_template("servicios.html")
   else:  
     flash('No has iniciado sesion, intentalo de nuevo')
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 #Ruta base del foro
 @app.route('/foro')
@@ -213,7 +212,7 @@ def agregar_entrada():
     return render_template("agregar_entrada.html")
   else:
     flash('No has iniciado sesion, intentalo de nuevo')
-    return redirect(url_for('index')) 
+    return redirect(url_for('login')) 
 
 @app.route('/crear', methods = ('GET', 'POST'))
 def crear_post():  
@@ -250,7 +249,7 @@ def agenda():
     return render_template("agenda.html", events=events)  
   else:  
     flash('No has iniciado sesion, intentalo de nuevo')
-    return redirect(url_for('index')) 
+    return redirect(url_for('login')) 
 
 
 #ruta para agregar evento
@@ -283,7 +282,7 @@ def crear_evento():
     return redirect ('agenda')
   else:  
     flash('No has iniciado sesion, intentalo de nuevo')
-    return redirect(url_for('index')) 
+    return redirect(url_for('login')) 
 
 
 
@@ -351,7 +350,7 @@ def Qrcode():
     template = "QR.html"
   else:    
     flash( "Para acceder al codigo Qr, debes iniciar sesion")
-    template = "index.html"
+    template = "login.html"
   return render_template(template)  
   
 @app.route('/Ingreso_emergencias', methods = ('GET', 'POST'))
@@ -364,13 +363,13 @@ def Ingreso_emergencias():
     documento = request.form.get("ID")
     #Se busca el Documento de identidad en la base de datos
     c.execute('SELECT * FROM medical WHERE documento = ?', (documento,))
-    ID = c.fetchone() [3] 
-    session['ID']= ID
+    data = c.fetchone()
     c.close()
-    if ID:
+    if data:
+      session['ID']= data[3]     
       return redirect(url_for('historia_pdf'))
     else:
-      return ('error')  
+      flash("Numero de identificación incorrecto, vuelvalo a intentar")
 
   return render_template ('Ingreso_emergencia.html')
 
