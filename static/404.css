@@ -1,0 +1,57 @@
+
+body {
+  background-color: #95c2de;/*color de fondo*/
+}
+/*espaciado entre los numeros que se encuntran en el mainbox*/
+.mainbox {
+  background-color: #95c2de;/*color de fondo*/
+  margin: auto;
+  height: 600px;/*tamaño de mainbox contenedor*/
+  width: 600px;
+  position: relative;/*no se fija la posicion para poder animar el icono */
+}
+  /*Estilo para el primer 4. se define color  se usa una google fonts, se define el tamaño y ubicacion para el texto  */
+  .err {
+    color: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11rem;
+    position:absolute;
+    left: 20%;
+    top: 8%;
+  }
+/*estilos al icono dinamico*/
+.far {
+  position: absolute;/*se fija su posicion en la pagina*/
+  font-size: 8.5rem;/*tamaño*/
+  left: 42%;/*se define la posicion*/
+  top: 15%;
+  color: #ffffff;
+}
+ /*Estilo para el segundo 4. se definen color , se usa una google fonts, se define el tamaño y ubicacion para el texto  */
+ .err2 {
+    color: #ffffff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11rem;
+    position:absolute;
+    left: 68%;
+    top: 8%;
+  }
+/*Estilo para el mensaje  */
+.msg {
+    text-align: center;/*letra centrada */
+    font-family: 'Nunito Sans', sans-serif;/*se toma de google fonts */
+    font-size: 1.6rem;/*tamaño de fuente */
+    position:absolute;/*el mensaje no es dinámico */
+    left: 16%;/*se dá una posición en la página */
+    top: 45%;
+    width: 75%;
+  }
+
+a {
+  text-decoration: none;/*para enlace a vista de inicio, se define color de letra distinto*/
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline; /*texto subrayado*/
+}

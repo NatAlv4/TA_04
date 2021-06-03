@@ -99,6 +99,7 @@ window.onload=function(){alert('Recuerda activar la localizacion en el navegador
           center: { lat:  6.2642516, lng: -75.5659201  },
           zoom: 18,
         });
+        
          /*varible para define el boton localizar  */
         infoWindow = new google.maps.InfoWindow();
         const locationButton = document.createElement("button");
@@ -132,7 +133,7 @@ window.onload=function(){alert('Recuerda activar la localizacion en el navegador
           }
         });
       }
-
+      
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
