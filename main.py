@@ -396,6 +396,10 @@ def Ingreso_emergencias():
 def mapa2():
   return render_template('map2.html')
 
+@app.errorhandler(404)
+def error404(error):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
     
 app.run(host='0.0.0.0', port=8080, debug=True)
