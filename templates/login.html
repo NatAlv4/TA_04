@@ -114,11 +114,12 @@
       <label for="password">Contraseña</label><!--label-->
       <input type="password" name = "password" placeholder="Ingrese su contraseña"><!--espacio para escribir la contraseña-->
 
-      <input type="submit" value="Iniciar sesión"> <!--boton de enviar/iniciar sesion-->
+       {{ recaptcha }} 
+    <input type="submit" value="iniciar sesion" class="btn btn-primary btn-lg btn-block login-button">
      
-      <br></br>
+      
       <a href="sign_up">Crear una cuenta</a><!--link que lleva a espacio para crear una cuenta-->
-      <br></br>
+      
     </form>  
     
   </div>  
