@@ -9,3 +9,4 @@
 flask_mail
 qrcode
 flask_weasyprint
+Flask-reCaptcha

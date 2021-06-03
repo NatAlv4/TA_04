@@ -10,10 +10,23 @@ import qrcode
 from flask_weasyprint import HTML, render_pdf
 from flask import flash
 
-
+#Se usa la libreria para reCAPTCHA. La idea es utilizar la Api de Google para impedir  el tráfico procedente de programas automatizados o bots, implementando asi mayor seguridad al sitio web.
+from flask_recaptcha import ReCaptcha
 
 
 app = Flask('app')
+
+#se define variable a trabar en las funciones posteriores para captcha
+recaptcha = ReCaptcha(app=app)
+#Se habilita con las credenciales que se obtienen de la API en el cloudDeveloper de GOOGLE, se almacenan estos datos con un diccionario 
+app.config.update(dict(
+    RECAPTCHA_ENABLED = True,
+    RECAPTCHA_SITE_KEY = "6LcqoAobAAAAACK7zdA1d34xcp5JofU03rwkwkxc",
+    RECAPTCHA_SECRET_KEY = "6LcqoAobAAAAAJk5Sps8ljZpZIPdr3soDcNQZyG0",
+))
+#se inicializa el objeto una vez creado
+recaptcha = ReCaptcha()
+recaptcha.init_app(app)
 
 
 app.secret_key = "hola123"
