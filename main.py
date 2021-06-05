@@ -105,19 +105,20 @@ def login():
     
     if data:
       passw = data[-1]
-      fail_message='contraseña incorrecta'
-      if passw == password:      
-        flash(Markup('llenar recaptcha' ))
+      fail_message='contraseña incorrecta o no llenó el reCaptcha, intentelo de nuevo'
+      if passw == password and recaptcha.verify():      
+        flash(Markup('Sesión iniciada' ))
       else:
         flash(fail_message)
     else:
-      flash(Markup('No existe una cuenta con este correo, por favor <a href="/sign_up" class="alert-link">cree una cuenta</a>'))     
-    if recaptcha.verify() and passw == password :
-        flash('correcto')
-        return redirect(url_for('servicios'))
-    else:
-        flash('Error ReCaptcha')
-        return redirect(url_for('login'))
+       flash(Markup('No existe una cuenta con este correo, por favor  <a href="/sign_up" class="alert-link">cree una cuenta</a>'))    
+    #if recaptcha.verify() and passw == password :
+        #flash('correcto')
+        #return redirect(url_for('servicios'))
+   
+    #else:
+        #flash('Error ReCaptcha')
+        #return redirect(url_for('login'))
     
     
   return render_template("login.html")
